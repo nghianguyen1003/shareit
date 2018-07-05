@@ -55,24 +55,9 @@
 								?>
                                 <form action="" method="post">
                                 	<div class="row">
-                                        <div class="col-md-1">
-                                            <div class="form-group">
-                                                <input type="text" name="id" class="form-control border-input" value=""  placeholder="ID">
-                                            </div>
-                                        </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <input type="text" name="fullname" class="form-control border-input" placeholder="Tên danh mục" value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <select name="friend_list" class="form-control border-input">
-                                                	<option value="0">Không</option>
-													<?php
-														showCategories($categories);
-													?>
-                                                </select>
+                                                <input type="text" name="name" class="form-control border-input" placeholder="Tên danh mục" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -97,7 +82,13 @@
                                     </thead>
                                     <tbody>
 										<?php
-											$query = "SELECT * FROM cat_list";
+											$query = "SELECT * FROM cat_list WHERE parent_id = 0 ORDER BY id DESC";
+											if(isset($_POST['search'])){
+												if(isset($_POST['name'])){
+													$search = $_POST['name'];
+													$query = "SELECT * FROM cat_list WHERE name LIKE '%".$search."%' OR id LIKE '%".$search."%'";
+												}
+											}
 											$result = $mysqli->query($query);
 											while($row = mysqli_fetch_assoc($result)){
 												$id = $row['id'];
@@ -123,8 +114,8 @@
 											</td>
                                         	<td><?php echo $parent_id; ?></td>
                                         	<td>
-                                        		<a href="<?php echo $urlEdit;?>"><img src="/template/admin/assets/img/edit.gif" alt="" /> Sửa</a> &nbsp;||&nbsp;
-                                        		<a onclick="return checkDelete(<?php echo $id; ?>);" href=""><img src="/template/admin/assets/img/del.gif" alt="" /> Xóa</a>
+                                        		<a href="<?php echo $urlEdit;?>" class="btn btn-primary square-btn-adjust"> Sửa</a> &nbsp;||&nbsp;
+                                        		<a onclick="return checkDelete(<?php echo $id; ?>);" href="" class="btn btn-danger square-btn-adjust"> Xóa</a>
                                         	</td>
                                         </tr>
 										<?php

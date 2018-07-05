@@ -2,9 +2,9 @@
 	require_once $_SERVER['DOCUMENT_ROOT'].'/template/admin/inc/header.php';
 ?>
 <?php
-if(isset($_GET['msg'])){
-	echo '<script>alert("'.$_GET['msg'].'")</script>';
-}
+	if(isset($_GET['msg'])){
+		echo '<script>alert("'.$_GET['msg'].'")</script>';
+	}
 ?>
 <?php
 	$query = "SELECT * FROM cat_list";

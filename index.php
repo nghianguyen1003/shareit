@@ -5,31 +5,40 @@
                 <section id="feature_news_section" class="feature_news_section">
                     <div class="container">
                         <div class="row">
+						<?php
+							$queryNewest = "SELECT * FROM news WHERE id = (SELECT MAX(id) FROM news)";
+							$resultNewest = $mysqli->query($queryNewest);
+							if($rowNewest = mysqli_fetch_assoc($resultNewest)){
+								$pictureNewest = $rowNewest['picture'];
+								$nameNewest = $rowNewest['name'];
+								$motaNewest = $rowNewest['preview'];
+								$viewNewest = $rowNewest['view'];
+								$dateNewest = date('d-m-Y', strtotime($rowNewest['date_create']))
+						?>
                             <div class="col-md-7">
                                 <div class="feature_article_wrapper">
                                     <div class="feature_article_img">
-                                        <img class="img-responsive top_static_article_img" src="/template/public/img/feature-top.jpg" alt="feature-top">
+                                        <img class="img-responsive top_static_article_img" src="/files/newsIMG/<?php echo $pictureNewest; ?>" alt="feature-top">
                                     </div>
                                     <!-- feature_article_img -->
 
                                     <div class="feature_article_inner">
-                                        <div class="tag_lg red"><a href="category.php">Latest News</a></div>
+                                        <div class="tag_lg red"><a href="category.php">Tin mới nhất</a></div>
                                         <div class="feature_article_title">
-                                            <h1><a href="single.php" target="_self">Chevrolet car-saving technology delivers </a></h1>
+                                            <h1><a href="single.php" target="_self"><?php echo $nameNewest; ?> </a></h1>
                                         </div>
                                         <!-- feature_article_title -->
 
-                                        <div class="feature_article_date"><a href="#" target="_self">Aug
-                            4, 2015</a></div>
+                                        <div class="feature_article_date"><a href="#" target="_self"><?php echo $dateNewest; ?></a></div>
                                         <!-- feature_article_date -->
 
                                         <div class="feature_article_content">
-                                            In a move to address mounting concerns about security on Android, Google and Samsung are now issuing.
+                                            <?php echo $motaNewest; ?>
                                         </div>
                                         <!-- feature_article_content -->
 
                                         <div class="article_social">
-                                            <span><i class="fa fa-share-alt"></i><a href="#">424</a>Shares</span>
+                                            <span><i class="fa fas fa-eye"></i><a href="#"><?php echo $viewNewest; ?></a>Views</span>
                                             <span><i class="fa fa-comments-o"></i><a href="#">4</a>Comments</span>
                                         </div>
                                         <!-- article_social -->
@@ -41,6 +50,9 @@
                                 <!-- feature_article_wrapper -->
 
                             </div>
+						<?php
+							}
+						?>
                             <!-- col-md-7 -->
 
                             <div class="col-md-5">

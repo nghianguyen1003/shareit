@@ -1,6 +1,9 @@
 <?php
 	ob_start();
+	session_start();
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/DbConnectionUtil.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/util/CheckUser.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/util/ConstantUtil.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,6 +28,18 @@
 
     <!--  Paper Dashboard core CSS    -->
     <link href="/template/admin/assets/css/paper-dashboard.css" rel="stylesheet"/>
+	 <!--   Core JS Files   -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	<script type="text/javascript" src="/template/admin/assets/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="/template/admin/assets/js/jquery.validate.min.js"></script>
+	<script src="/template/admin/assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+	<script src="/template/admin/assets/js/paper-dashboard.js"></script>
+
+	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+	<script src="/template/admin/assets/js/demo.js"></script>
+	<script type="text/javascript" src="/library/ckeditor/ckeditor.js"></script>
 
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
@@ -42,6 +57,10 @@
 <div class="wrapper">
 	<?php
 		require_once $_SERVER['DOCUMENT_ROOT'].'/template/admin/inc/leftbar.php';
+		$id = $_SESSION['userinfo']['id'];
+		$username = $_SESSION['userinfo']['username'];
+		$fullname = $_SESSION['userinfo']['fullname'];
+		$active = $_SESSION['userinfo']['active'];
 	?>
     <div class="main-panel">
 		<nav class="navbar navbar-default">
@@ -58,9 +77,9 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
 						<li>
-                            <a href="http://vinenter.edu.vn">
+                            <a href="<?php echo "/admin/user/edit.php?id={$id}&username={$username}&fullname={$fullname}&active={$active}"?>">
 								<i class="ti-settings"></i>
-								<p>Settings</p>
+								Xin chào, <b><?php echo $_SESSION['userinfo']['username']; ?></b> &nbsp; <a href="/admin/auth/logout.php" class="btn btn-danger square-btn-adjust">Đăng xuất</a>
                             </a>
                         </li>
                     </ul>

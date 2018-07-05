@@ -1,5 +1,7 @@
 <?php 
+	ob_start();
 	if(!isset($_SESSION['userinfo'])) {
-		header('location: /admin/auth/index.php?mgn=Bạn chưa đăng nhập');
+		header('location: /admin/auth/login.php');
 	}
+	ob_end_flush();
 ?>

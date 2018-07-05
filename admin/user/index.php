@@ -1,5 +1,5 @@
 <?php
-		require_once $_SERVER['DOCUMENT_ROOT'].'/template/admin/inc/header.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/template/admin/inc/header.php';
 ?>
         <div class="content">
             <div class="container-fluid">
@@ -7,28 +7,21 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Danh sách bạn bè</h4>
-                                <p class="category success">Thêm thành công</p>
+                                <h4 class="title">Danh sách người dùng</h4>
+                                <?php
+									if(isset($_GET['msg'])){
+										?>
+										<p class="category success">
+										<?php echo $_GET['msg']; ?>
+										</p>
+										<?php
+									}
+								?>
                                 <form action="" method="post">
                                 	<div class="row">
-                                        <div class="col-md-1">
-                                            <div class="form-group">
-                                                <input type="text" name="id" class="form-control border-input" value=""  placeholder="ID">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-7">
                                             <div class="form-group">
                                                 <input type="text" name="fullname" class="form-control border-input" placeholder="Họ tên" value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <select name="friend_list" class="form-control border-input">
-                                                	<option value="0">-- Chọn danh mục --</option>
-                                                	<option value="1">Bạn quen thời phổ thông</option>
-                                                	<option>Bạn quen thời đại học</option>
-                                                	<option>Bạn tâm giao</option>
-                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -41,44 +34,56 @@
                                     
                                 </form>
                                 
-                                <a href="edit.php" class="addtop"><img src="/template/admin/assets/img/add.png" alt="" /> Thêm</a>
+                                <a href="insert.php" class="addtop"><img src="/template/admin/assets/img/add.png" alt="" /> Thêm</a>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                     <thead>
                                         <th>ID</th>
-                                    	<th>Họ tên</th>
-                                    	<th>Hình ảnh</th>
-                                    	<th>Ngày tạo</th>
-                                    	<th>Thuộc danh sách</th>
+                                    	<th>Username</th>
+                                    	<th>Tên đầy đủ</th>
+                                    	<th>Ảnh đại diện</th>
                                     	<th>Chức năng</th>
                                     </thead>
                                     <tbody>
+									<?php
+										$query = "SELECT * FROM user ORDER BY id DESC";
+										$result = $mysqli->query($query);
+										while($row = mysqli_fetch_assoc($result)){
+											$id = $row['id'];
+											$username = $row['username'];
+											$fullname = $row['fullname'];
+											$picture = $row['picture'];
+											$active = $row['active'];
+											$urlEdit = "edit.php?id={$id}&username={$username}&fullname={$fullname}&active={$active}";
+											$urlDelete = "delete.php?id={$id}";
+									?>
                                         <tr>
-                                        	<td>1</td>
-                                        	<td><a href="edit.php">Trần Văn Nam</a></td>
-                                        	<td><img src="/template/admin/assets/img/tim_80x80.png" alt="" width="100px" /></td>
-                                        	<td>12/12/2015</td>
-                                        	<td>Bạn thời phổ thông</td>
+                                        	<td><?php echo $id; ?></td>
+                                        	<td><?php echo $username; ?></td>
+                                        	<td><?php echo $fullname; ?></td>
+                                        	<td><img src="/files/userIMG/<?php echo $picture; ?>" alt="" width="100px" /></td>
+											<?php
+												if($_SESSION['userinfo']['active'] == '1'){
+											?>
                                         	<td>
-                                        		<a href="edit.php"><img src="/template/admin/assets/img/edit.gif" alt="" /> Sửa</a> &nbsp;||&nbsp;
-                                        		<a href=""><img src="/template/admin/assets/img/del.gif" alt="" /> Xóa</a>
+                                        		<a href="<?php echo $urlEdit; ?>" class="btn btn-primary square-btn-adjust"> Sửa</a>
+                                        		<a href="<?php echo $urlDelete; ?>" class="btn btn-danger square-btn-adjust"> Xóa</a>
                                         	</td>
+											<?php
+												}else if($row['username'] == $_SESSION['userinfo']['username']){
+											?>
+											<td>
+												<a href="<?php echo $urlEdit; ?>" class="btn btn-primary square-btn-adjust"> Sửa</a>
+											</td>
+											<?php
+												}
+											?>
                                         </tr>
-                                        <tr>
-                                        	<td>2</td>
-                                        	<td><a href="edit.php">Trần Văn Nam</a></td>
-                                        	<td><img src="/template/admin/assets/img/tim_80x80.png" alt="" width="100px" /></td>
-                                        	<td>12/12/2015</td>
-                                        	<td>Bạn thời phổ thông</td>
-                                        	<td>
-                                        		<a href="edit.php"><img src="/template/admin/assets/img/edit.gif" alt="" /> Sửa</a> &nbsp;||&nbsp;
-                                        		<a href=""><img src="/template/admin/assets/img/del.gif" alt="" /> Xóa</a>
-                                        	</td>
-                                        </tr>
-                                        
+									<?php
+										}
+									?>
                                     </tbody>
- 
                                 </table>
 
 								<div class="text-center">
