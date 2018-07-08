@@ -178,7 +178,6 @@
             </div>
         </div>
 <script>
-	CKEDITOR.replace('mota');
 	CKEDITOR.replace('chitiet',
 		{
 			filebrowserBrowseUrl : 'http://shareit.vne/library/ckfinder/ckfinder.html',

@@ -1384,7 +1384,37 @@ figure {
 }
 
 img {
-    vertical-align: middle
+    vertical-align: middle;
+}
+
+.newsest{
+	width: 650px;
+    height: 570px;
+}
+
+.viewest{
+	width: 458px;
+    height: 270px;
+}
+
+.cathot{
+	width: 360px;
+    height: 290px;
+}
+
+.catlist{
+	width: 295px;
+    height: 200px;
+}
+
+.popularlist{
+	width: 112px;
+    height: 112px;
+}
+
+.newsdetail{
+	width: 750px;
+    height: 468.75px;
 }
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {

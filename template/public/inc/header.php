@@ -3,6 +3,37 @@
 	session_start();
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/DbConnectionUtil.php';
 ?>
+<?php
+function sw_get_current_weekday() {
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $weekday = date("l");
+    $weekday = strtolower($weekday);
+    switch($weekday) {
+        case 'monday':
+            $weekday = 'Thứ hai';
+            break;
+        case 'tuesday':
+            $weekday = 'Thứ ba';
+            break;
+        case 'wednesday':
+            $weekday = 'Thứ tư';
+            break;
+        case 'thursday':
+            $weekday = 'Thứ năm';
+            break;
+        case 'friday':
+            $weekday = 'Thứ sáu';
+            break;
+        case 'saturday':
+            $weekday = 'Thứ bảy';
+            break;
+        default:
+            $weekday = 'Chủ nhật';
+            break;
+    }
+    return $weekday.', '.date('d/m/Y');
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -59,13 +90,8 @@
                                 <div class="col-md-4">
                                     <div class="left_section">
                                         <span class="date">
-                                                Sunday .
-                                            </span>
-                                        <!-- Date -->
-                                        <span class="time">
-                                                09 August . 2016
-                                            </span>
-                                        <!-- Time -->
+                                                <?php echo sw_get_current_weekday(); ?>
+                                        </span>
                                         <div class="social">
                                             <a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>
                                             <!--Twitter-->

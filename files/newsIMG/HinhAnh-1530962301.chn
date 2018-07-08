@@ -1,0 +1,1023 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Xem robot Cheetah 3 của MIT có thể leo cầu thang cực kỳ uyển chuyển mà không cần đến camera</title><meta name="description" content="Ngoài ra các khả năng &quot;nghiêm túc&quot; trên, Cheetah 3 giờ đây còn có thể nhún nhảy như cún con đang chờ ăn cực dễ thương nữa. Quả là một robot đa tài." /><meta name="news_keywords" content="robot,camera,MIT,camera quan sát,leo cầu thang,cheetah 3" /><meta name="newstype" content="0" /><meta name="generator" content="VCCorp.vn" /><meta name="copyright" content="Công ty cổ phần Truyền Thông Việt Nam - Vccorp" /><meta name="author" content="VCCorp.vn" /><meta http-equiv="audience" content="General" /><meta http-equiv="Content-Language" content="vi" /><meta name="Language" content="vi" /><meta name="resource-type" content="Document" /><meta name="distribution" content="Global" /><meta name="revisit-after" content="1 days" /><meta name="google-site-verification" content="IqMu_6gL8qrRWMrmEHWvHgOcIagIaCr0bGOEFogTm-s" /><meta name="verify-v1" content="Ymm4FWh55niAwGdM/AxjsBSNSsp14TAweQOVQaYMOKY=" /><meta name="page-topic" content="Trang thông tin dành cho tín đồ công nghệ" /><link rel="canonical" href="http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn" />
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn" />
+<link rel="alternate" media="handheld" href="http://m.genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn" />
+<meta name="RATING" content="GENERAL" />
+<meta name="robots" content="index,follow" />
+<meta name="Googlebot" content="index,follow,archive" />
+<meta property="og:locale" content="vi_VN" /><meta property="fb:app_id" content="180276625471433" /><meta property="fb:admins" content="1133617216" /><meta id="fbTitle" itemprop="headline" property="og:title" content="Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát" /><meta id="fbDescription" property="og:description" content="Ngoài ra các khả năng &quot;nghiêm túc&quot; trên, Cheetah 3 giờ đây còn có thể nhún nhảy như cún con đang chờ ăn cực dễ thương nữa. Quả là một robot đa tài." /><meta id="fbImage" itemprop="thumbnailUrl" property="og:image" content="https://genknews.genkcdn.vn/thumb_w/600/2018/7/6/20180705104258-1530863443430107280765.gif.png" /><meta id="fbUrl" property="og:url" content="http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn" /><meta id="fbSiteName" property="og:site_name" content="genk.vn" /><meta id="fbType" property="og:type" content="article" /><meta id="fbDate" itemprop="datePublished" property="article:published_time" content="2018-07-07T17:00:00+07:00" /><meta name="alexaVerifyID" content="zZ7ti1umNJzQmTM9Kanp-wnQh5M" /><meta id="fbImg" itemprop="image" content="https://genknews.genkcdn.vn/thumb_w/600/2018/7/6/20180705104258-1530863443430107280765.gif.png" /><script type="text/javascript">DomainConfig = {
+AjaxDomain: "https://genks.cnnd.vn"
+};</script><meta name="apple-mobile-web-app-title" content="GenK" /><meta name="application-name" content="GenK" /><link rel="shortcut icon" href="https://genknews.genkcdn.vn/web_images/genk32.png" type="image/png" /><link rel="apple-touch-icon" sizes="57x57" href="https://genknews.genkcdn.vn/web_images/genk57.png" /><link rel="apple-touch-icon" sizes="60x60" href="https://genknews.genkcdn.vn/web_images/genk60.png" /><link rel="apple-touch-icon" sizes="72x72" href="https://genknews.genkcdn.vn/web_images/genk72.png" /><link rel="apple-touch-icon" sizes="76x76" href="https://genknews.genkcdn.vn/web_images/genk76.png" /><link rel="apple-touch-icon" sizes="114x114" href="https://genknews.genkcdn.vn/web_images/genk114.png" /><link rel="apple-touch-icon" sizes="120x120" href="https://genknews.genkcdn.vn/web_images/genk120.png" /><link rel="apple-touch-icon" sizes="128x128" href="https://genknews.genkcdn.vn/web_images/genk128.png" /><link rel="apple-touch-icon" sizes="144x144" href="https://genknews.genkcdn.vn/web_images/genk144.png" /><link rel="apple-touch-icon" sizes="152x152" href="https://genknews.genkcdn.vn/web_images/genk152.png" /><link rel="apple-touch-icon" sizes="180x180" href="https://genknews.genkcdn.vn/web_images/genk180.png" /><link rel="icon" type="image/png" href="https://genknews.genkcdn.vn/web_images/genk32.png" sizes="32x32" /><link rel="icon" type="image/png" href="https://genknews.genkcdn.vn/web_images/genk192.png" sizes="192x192" /><link rel="icon" type="image/png" href="https://genknews.genkcdn.vn/web_images/genk96.png" sizes="96x96" /><link rel="icon" type="image/png" href="https://genknews.genkcdn.vn/web_images/genk16.png" sizes="16x16" />
+<script>
+var sDomain = 'https://genks.cnnd.vn';
+var AdmDomain = 'http://nspapi.aiservice.vn';
+var DomainWeb = 'http://genk.vn';
+
+</script>
+
+
+<script>
+(runinit = window.runinit || []).push(function () {
+loadJsAsync('https://adminplayer.sohatv.vn/resource/init-script/playerInitScript.js', function () { });
+});
+</script>
+<link href="https://genknews.genkcdn.vn/web_css/details-20180414v2.min.css" rel="stylesheet" type="text/css" />
+<script src="https://genknews.genkcdn.vn/web_js/details-20180626v1.min.js" type="text/javascript" async></script>
+
+
+<script>
+var sVideoID = "0,";
+(runinit = window.runinit || []).push(function () {
+$(document).ready(function () {
+facebookAppConfig();
+DetailSlider.init();
+//$(function () {
+//setTimeout(videoInContent.init('.knc-content'), 1000);
+//});
+
+$(function () {
+//js common
+loadJsCommon();
+photoDetail.imgSr2 = 'https://genknews.genkcdn.vn/';
+photoDetail.init();
+
+brandContent.init();
+//tin nổi bật genk 
+var iheightNb = $('.kds-hot-daily').height();
+$('#fixadmsection7').css({ "top": iheightNb + 45 });
+});
+//commom
+stickyAdmAll();
+home_lazyload();
+CheckMobileRedirect();
+setHeightBoxMosViewAndCmh();
+});
+});
+</script>
+
+
+
+
+
+<script type="text/javascript">var _ADM_Channel='%2Finternet%2Fdetail%2F';</script>
+<script type="text/javascript">
+(function (i, s, o, g, r, a, m) {
+i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+(i[r].q = i[r].q || []).push(arguments)
+}, i[r].l = 1 * new Date(); a = s.createElement(o),
+m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-34575478-20', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<script>
+var _comscore = _comscore || [];
+_comscore.push({ c1: "2", c2: "17793284" });
+(function () {
+var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+el.parentNode.insertBefore(s, el);
+})();
+</script>
+
+
+
+ 
+ <script>
+ (function () {
+ var img = new Image();
+ var pt = (document.location.protocol == "https:" ? "https:" : "http:");
+ img.src = pt + '//lg1.logging.admicro.vn/ftest?url=' + encodeURIComponent(document.URL);
+ var img1 = new Image();
+ img1.src = pt + '//amcdn.vn/ftest?url=' + encodeURIComponent(document.URL);
+ })();
+</script>
+
+<script type="text/javascript" async src="https://media1.admicro.vn/core/adm_tracking.js?v=1"></script>
+<script async src="https://static.amcdn.vn/tka/cdn.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function () {
+var a = document.createElement("script");
+a.type = "text/javascript"; a.async = !0;
+a.src = "https://media1.admicro.vn/core/analytics.js";
+var b = document.getElementsByTagName("script")[0];
+b.parentNode.insertBefore(a, b);
+window.admicro_analytics_q = window.admicro_analytics_q || [];
+window.admicro_analytics_q.push({ event: "pageviews", domain: "genk-check", id: 83 });
+})();
+</script>
+ <script type="text/javascript">
+ var admicroAD = admicroAD || {};
+ admicroAD.unit = admicroAD.unit || [];
+ (function () { var a = document.createElement("script"); a.async = !0; a.type = "text/javascript"; a.onerror = function () { window.admerrorload = true; }; a.src = ("https:" == document.location.protocol ? "https:" : "http:") + "//media1.admicro.vn/core/admcore.js"; var b = document.getElementsByTagName("script")[0]; b.parentNode.insertBefore(a, b) })();
+</script>
+
+
+<script src="//media1.admicro.vn/js_boxapp/tagsponsorz_40405.js" async></script>
+<!-- GOOGLE SEARCH STRUCTURED DATA FOR ARTICLE -->
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "NewsArticle",
+"mainEntityOfPage":{
+"@type":"WebPage",
+"@id":"http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn"
+},
+"headline": "Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát",
+"description": "Ngoài ra các khả năng "nghiêm túc" trên, Cheetah 3 giờ đây còn có thể nhún nhảy như cún con đang chờ ăn cực dễ thương nữa. Quả là một robot đa tài.",
+"image": {
+"@type": "ImageObject",
+"url": "https://genknews.genkcdn.vn/zoom/700_438/2018/7/6/20180705104258-1530863443430107280765.gif",
+"width" : 700,
+"height" : 438
+},
+"datePublished": "2018-07-07T17:00:00",
+"dateModified": "2018-07-07T17:00:00",
+"author": {
+"@type": "Person",
+"name": "Ryankog"
+},
+"publisher": {
+"@type": "Organization",
+"name": "genk.vn",
+"logo": {
+"@type": "ImageObject",
+"url": "https://genknews.genkcdn.vn/web_images/genk60.png",
+"width": 60,
+"height": 60
+}
+}
+}
+</script>
+
+</head>
+
+<body>
+<form method="post" action="" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="hdPageUrlAjax" id="hdPageUrlAjax" value="/ajax-detail/page-{0}.chn" />
+<input type="hidden" name="adm_meta_thumb" id="adm_meta_thumb" value="https://genknews.genkcdn.vn/zoom/250_155/2018/7/6/20180705104258-1530863443430107280765.gif" />
+<input type="hidden" name="hdNewsUrl" id="hdNewsUrl" value="/internet/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn" />
+<input type="hidden" name="ObjNews_Type" id="ObjNews_Type" value="0" />
+<input type="hidden" name="hidReportNewsID" id="hidReportNewsID" value="20180706151207397" />
+<input type="hidden" name="hidReportNewsTitle" id="hidReportNewsTitle" value="" />
+<input type="hidden" name="hidReportCatID" id="hidReportCatID" value="194" />
+<input type="hidden" name="hidReportCatName" id="hidReportCatName" value="" />
+<input type="hidden" name="hdExcluId" id="hdExcluId" value="20180706165230179_2018070615100396_20180706162201397_20180706150745085_20180705153711647_20180707011459038_20180706151207397" />
+<input type="hidden" name="hdNewsId" id="hdNewsId" value="20180706151207397" />
+<input type="hidden" name="hdZoneUrl" id="hdZoneUrl" value="internet" />
+<input type="hidden" name="hdParentUrl" id="hdParentUrl" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTMyMDcyMDIyNGRkKSZ0rhwwU5avKopYXxkRrzy1lrBlGh/qkxUeYjKb7ek=" />
+</div>
+
+<div id="admWrapsite">
+
+
+<div id="admzone13606"></div>
+<script>
+admicroAD.unit.push(function () { admicroAD.show('admzone13606') });
+</script>
+
+<div class="genk-wrapper detail">
+
+
+
+<div class="genk-header-wrapper">
+<div class="ghw-top-header">
+<div class="w1040">
+  
+<ul class="ghw-menu-channelvn">
+<li class="gmchi">
+<a href="http://gamek.vn/" title="Kênh thông tin mới nhất về Game trong nước và thế giới" target="_blank">Gamek</a>
+</li>
+<li class="gmchi">
+<a href="http://kenh14.vn/" title="Kênh tin tức giải trí - Xã hội " target="_blank">Kenh14</a>
+</li>
+<li class="gmchi">
+<a href="http://cafebiz.vn/" target="_blank" title="CafeBiz - Thông tin kinh doanh - Doanh nhân">Cafebiz</a>
+</li>
+</ul>
+  
+<div class="xembanthunghiem">Xem bản thử nghiệm <i class="iconthunghiemoff" onclick="ClickBeta()"></i></div>
+</div>
+</div>
+
+
+
+
+<div class="ghw-bottom-header">
+<div id="menu-expand" class="menu-expand-wrapper">
+<div class="clearfix menu-clear">
+<div class="w1040 clearfix">
+<ul class="menu-expand-list">
+<li class="menu-expand-item">
+<ul class="submenu-expand-list">
+<li class="submenu-expand-item cate"><a href="/mobile.chn" title="mobile">Mobile</a></li>
+<li class="submenu-expand-item"><a href="dien-thoai.chn" title="điện thoại">Điện thoại</a></li>
+<li class="submenu-expand-item"><a href="/may-tinh-bang.chn" title="máy tính bảng">Máy tính bảng</a></li>
+</ul>
+
+<a href="#" class="app-ios"></a>
+</li>
+<li class="menu-expand-item">
+<ul class="submenu-expand-list">
+<li class="submenu-expand-item cate"><a href="/internet.chn" title="internet">INTERNET</a></li>
+<li class="submenu-expand-item"><a href="/digital-marketing.chn" title="digital marketing">Digital Marketing</a></li>
+<li class="submenu-expand-item"><a href="/media.chn" title="media">Media</a></li>
+</ul>
+<a href="#" class="app-android"></a>
+</li>
+<li class="menu-expand-item">
+<ul class="submenu-expand-list">
+<li class="submenu-expand-item cate"><a href="/kham-pha.chn" title="khám phá">KHÁM PHÁ</a></li>
+<li class="submenu-expand-item"><a href="/lich-su.chn" title="lịch sử">Lịch sử</a></li>
+<li class="submenu-expand-item"><a href="/tri-thuc.chn" title="tri thức">Tri thức</a></li>
+</ul>
+</li>
+<li class="menu-expand-item">
+<ul class="submenu-expand-list">
+<li class="submenu-expand-item cate"><a href="/tra-da-cong-nghe.chn" title="trà đá công nghệ">TRÀ ĐÁ CÔNG NGHỆ</a></li>
+<li class="submenu-expand-item"><a href="/tan-man.chn" title="tản mạn">Tản mạn</a></li>
+<li class="submenu-expand-item"><a href="/y-tuong-sang-tao.chn" title="ý tưởng sáng tạo">Ý tưởng sáng tạo</a></li>
+</ul>
+</li>
+<li class="menu-expand-item">
+<ul class="submenu-expand-list">
+<li class="submenu-expand-item cate"><a href="/tin-ict.chn" title="tin ict">TIN ICT</a></li>
+<li class="submenu-expand-item cate"><a href="/thu-thuat.chn" title="thủ thuật">THỦ THUẬT</a></li>
+<li class="submenu-expand-item cate"><a href="/song.chn" title="sống">Sống</a></li>
+</ul>
+</li>
+<li class="menu-expand-item">
+<ul class="submenu-expand-list">
+<li class="submenu-expand-item cate"><a href="/apps-games.chn" title="app - games">APPS - GAMES</a></li>
+<li class="submenu-expand-item cate"><a href="/do-choi-so.chn" title="đồ chơi số">ĐỒ CHƠI SỐ</a></li>
+<li class="submenu-expand-item cate"><a href="/video.chn">VIDEO</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="w1040 clearfix">
+
+<a href="/" title="Trang thông tin dành cho tín đồ công nghệ" class="sprite-genk logo-genk"></a>
+<ul class="gbh-menu-list">
+
+<li class="gmli">
+<a href="/mobile.chn" title="mobile">Mobile</a></li>
+<li class="gmli">
+<a href="/tin-ict.chn" title="tin ict">Tin ICT</a></li>
+<li class="gmli">
+<a href="/internet.chn" title="internet">Internet</a></li>
+<li class="gmli">
+<a href="/kham-pha.chn" title="kham pha">Khám phá</a></li>
+<li class="gmli expand-icon" id="expandicon">
+<!--<a href="#" class="iconmenu">&nbsp;</a>-->
+<a href="javascript:void(0);" class="i-expand" rel="nofollow">
+<div class="iconmenu"></div>
+</a>
+</li>
+</ul>
+
+
+<a href="javascript:void(0);" id="btnSearch" class="sprite-genk i-search"></a>
+
+<div class="textsearch fl">
+<p id="searchinput" contenteditable="true" onkeypress="return BBEnterPress1(event)" data-placeholder="Nhập nội dung tìm kiếm ..."></p>
+</div>
+<a href="/video.chn" class="linkvideoheader" title="video">Video</a>
+</div>
+</div>
+
+<script>
+//domain search
+var sDomainSearch = "http://genk.vn/tim-kiem/";
+</script>
+
+
+
+<div class="khw-ads-wrapper clearfix">
+
+<div class="ads w1040" align="center">
+<div id="admzone57"></div>
+<script>
+admicroAD.unit.push(function () { admicroAD.show('admzone57') });
+</script>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="genk-body-wrapper clearfix totalcontentdetail">
+<div class="kbw-content">
+<div class="adm-mainsection">
+
+<div class="ads-sponsor type-2 adm-hidden">
+<div id="admsectionlogo"></div>
+<div id="admsection1"></div>
+</div>
+
+<div class="ads-sponsor type-2 adm-hidden">
+<div id="admsection2"></div>
+<div id="admsection3"></div>
+</div>
+<div class="w1040 gbwc-wrp clearfix">
+
+<div id="ContentPlaceHolder1_ContentPlaceHolder1_divNews">
+
+
+
+<div class="wrapper-tin-hay-trong-ngay">
+<div class="w1040">
+<div class="clearfix box-tin-hay-trong-ngay">
+
+
+
+
+ <ul class="thtn-tags clearfix">
+
+</ul>
+
+<div class="thtn-wrapper">
+<ul class="thtn-list">
+<li class="thtn-item" data-boxtype="newsembed">
+  <a title="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" href="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" class="thtn-item-thumb"><img src="https://genknews.genkcdn.vn/zoom/190_120/2018/screen-shot-2018-07-06-at-161727-15308687275742127917310-crop1530868735693p.png" title="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" alt="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" width="190" height="120"/></a>
+<h4 class="thtn-item-title">
+<a href="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" title="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" data-id="20180706162201397" data-linktype="newsdetail">Cổ phiếu "lên sàn" của Xiaomi giá thấp hơn công ty ước tính, và giờ họ sẽ phải đối mặt với sự thật phũ phàng</a>
+</h4>
+</li><li class="thtn-item" data-boxtype="newsembed">
+  <a title="Dựa v&#224;o smartphone của BQ, &quot;đo&#225;n m&#242;&quot; được g&#236; về smartphone Việt của Vingroup?" href="/dua-vao-smartphone-cua-bq-doan-mo-duoc-gi-ve-smartphone-viet-cua-vingroup-20180707101001819.chn" class="thtn-item-thumb"><img src="https://genknews.genkcdn.vn/zoom/190_120/2018/7/6/bqaquarisvplus03designdesktop3250x2200-1530932913780211409427.jpg" title="Dựa v&#224;o smartphone của BQ, &quot;đo&#225;n m&#242;&quot; được g&#236; về smartphone Việt của Vingroup?" alt="Dựa v&#224;o smartphone của BQ, &quot;đo&#225;n m&#242;&quot; được g&#236; về smartphone Việt của Vingroup?" width="190" height="120"/></a>
+<h4 class="thtn-item-title">
+<a href="/dua-vao-smartphone-cua-bq-doan-mo-duoc-gi-ve-smartphone-viet-cua-vingroup-20180707101001819.chn" title="Dựa v&#224;o smartphone của BQ, &quot;đo&#225;n m&#242;&quot; được g&#236; về smartphone Việt của Vingroup?" data-id="20180707101001819" data-linktype="newsdetail">Dựa vào smartphone của BQ, "đoán mò" được gì về smartphone Việt của Vingroup?</a>
+</h4>
+</li><li class="thtn-item" data-boxtype="newsembed">
+  <a title="Musk n&#243;i l&#224; l&#224;m, ngay lập tức cử chuy&#234;n gia tới Th&#225;i Lan t&#236;m c&#225;ch hỗ trợ giải cứu đội b&#243;ng bị mắc kẹt" href="/musk-noi-la-lam-ngay-lap-tuc-cu-chuyen-gia-tim-cach-ho-tro-giai-cuu-doi-bong-thai-lan-bi-mac-ket-20180706120828538.chn" class="thtn-item-thumb"><img src="https://genknews.genkcdn.vn/zoom/190_120/2018/7/6/photo1530853665446-153085366544813549404.jpg" title="Musk n&#243;i l&#224; l&#224;m, ngay lập tức cử chuy&#234;n gia tới Th&#225;i Lan t&#236;m c&#225;ch hỗ trợ giải cứu đội b&#243;ng bị mắc kẹt" alt="Musk n&#243;i l&#224; l&#224;m, ngay lập tức cử chuy&#234;n gia tới Th&#225;i Lan t&#236;m c&#225;ch hỗ trợ giải cứu đội b&#243;ng bị mắc kẹt" width="190" height="120"/></a>
+<h4 class="thtn-item-title">
+<a href="/musk-noi-la-lam-ngay-lap-tuc-cu-chuyen-gia-tim-cach-ho-tro-giai-cuu-doi-bong-thai-lan-bi-mac-ket-20180706120828538.chn" title="Musk n&#243;i l&#224; l&#224;m, ngay lập tức cử chuy&#234;n gia tới Th&#225;i Lan t&#236;m c&#225;ch hỗ trợ giải cứu đội b&#243;ng bị mắc kẹt" data-id="20180706120828538" data-linktype="newsdetail">Musk nói là làm, ngay lập tức cử chuyên gia tới Thái Lan tìm cách hỗ trợ giải cứu đội bóng bị mắc kẹt</a>
+</h4>
+</li><li class="thtn-item" data-boxtype="newsembed">
+  <a title="Hublot Big Bang Referee - Chiếc smartwatch trị gi&#225; 120 triệu tr&#234;n tay trọng t&#224;i tại mỗi trận đấu World Cup 2018 c&#243; g&#236; đặc biệt?" href="/hublot-big-bang-referee-chiec-smartwatch-tri-gia-120-trieu-tren-tay-trong-tai-tai-moi-tran-dau-world-cup-2018-co-gi-dac-biet-20180706124620022.chn" class="thtn-item-thumb"><img src="https://genknews.genkcdn.vn/zoom/190_120/2018/7/6/photo1530855615182-15308556151821128764400.jpg" title="Hublot Big Bang Referee - Chiếc smartwatch trị gi&#225; 120 triệu tr&#234;n tay trọng t&#224;i tại mỗi trận đấu World Cup 2018 c&#243; g&#236; đặc biệt?" alt="Hublot Big Bang Referee - Chiếc smartwatch trị gi&#225; 120 triệu tr&#234;n tay trọng t&#224;i tại mỗi trận đấu World Cup 2018 c&#243; g&#236; đặc biệt?" width="190" height="120"/></a>
+<h4 class="thtn-item-title">
+<a href="/hublot-big-bang-referee-chiec-smartwatch-tri-gia-120-trieu-tren-tay-trong-tai-tai-moi-tran-dau-world-cup-2018-co-gi-dac-biet-20180706124620022.chn" title="Hublot Big Bang Referee - Chiếc smartwatch trị gi&#225; 120 triệu tr&#234;n tay trọng t&#224;i tại mỗi trận đấu World Cup 2018 c&#243; g&#236; đặc biệt?" data-id="20180706124620022" data-linktype="newsdetail">Hublot Big Bang Referee - Chiếc smartwatch trị giá 120 triệu trên tay trọng tài tại mỗi trận đấu World Cup 2018 có gì đặc biệt?</a>
+</h4>
+</li><li class="thtn-item" data-boxtype="newsembed">
+  <a title="Những si&#234;u phẩm sci-fi như Aliens, Blade Runner, Jurassic Park v&#224; Terminator tr&#244;ng ra sao nếu l&#224; anime?" href="/nhung-sieu-pham-sci-fi-nhu-aliens-blade-runner-jurassic-park-va-terminator-trong-ra-sao-neu-la-anime-20180706154258288.chn" class="thtn-item-thumb"><img src="https://genknews.genkcdn.vn/zoom/190_120/2018/7/6/photo1530872359388-15308723593891191732535.gif.png" class="lazy" data-original="https://genknews.genkcdn.vn/zoom/190_120/2018/7/6/photo1530872359388-15308723593891191732535.gif" title="Những si&#234;u phẩm sci-fi như Aliens, Blade Runner, Jurassic Park v&#224; Terminator tr&#244;ng ra sao nếu l&#224; anime?" alt="Những si&#234;u phẩm sci-fi như Aliens, Blade Runner, Jurassic Park v&#224; Terminator tr&#244;ng ra sao nếu l&#224; anime?" width="190" height="120"/></a>
+<h4 class="thtn-item-title">
+<a href="/nhung-sieu-pham-sci-fi-nhu-aliens-blade-runner-jurassic-park-va-terminator-trong-ra-sao-neu-la-anime-20180706154258288.chn" title="Những si&#234;u phẩm sci-fi như Aliens, Blade Runner, Jurassic Park v&#224; Terminator tr&#244;ng ra sao nếu l&#224; anime?" data-id="20180706154258288" data-linktype="newsdetail">Những siêu phẩm sci-fi như Aliens, Blade Runner, Jurassic Park và Terminator trông ra sao nếu là anime?</a>
+</h4>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<script>
+(runinit = window.runinit || []).push(function () {
+tinHayTrongNgay.init();
+});
+</script>
+
+
+
+<script>
+var tagparam = ["robot","camera","mit","camera-quan-sat","leo-cau-thang","cheetah-3"];
+</script>
+<div class="kbwc-body clearfix">
+<div class="w710 kbwcb-left fl adm-leftsection">
+<div class="kbwcb-sticky-toolbar" id="genk-detail-toolbar">
+<ul class="list-kbwcbst">
+
+<li class="kbwcbst tb-home">
+<a href="/" class="sprite-genk"></a>
+</li>
+</ul>
+</div>
+<div class="kbwc-header clearfix">
+<div class="breakcrum-wrapper clearfix">
+<ul class="gbrcw-list fl" itemscope itemtype="https://schema.org/BreadcrumbList">
+<li class="gbrcwli" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+<strong>
+<a itemprop="item" href="/" title="Trang chủ"><span itemprop="name">Trang chủ</span></a>
+</strong>
+<meta itemprop="position" content="1">
+</li>
+
+<li class="gbrcwli"><span class="split">›</span></li>
+<li class="gbrcwli active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+<strong>
+<a itemprop="item" href="/internet.chn"><span itemprop="name">Internet</span></a>
+</strong>
+<meta itemprop="position" content="2">
+</li>
+
+<li class="gbrcwli gbrl2">
+<strong class="sub_title" id="sub_title">
+
+</strong>
+</li>
+</ul>
+</div>
+<h1 class="kbwc-title clearfix">
+Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát
+</h1>
+<div class="kbwc-meta" sourceid="7">
+<span class="kbwcm-author">Ryankog</span> , <span class="kbwcm-source">Theo <a href="http://ttvn.vn" rel="nofollow" target="_blank">Trí Thức Trẻ</a></span> 
+<span class="kbwcm-time" title="2018-07-07T17:00:00"></span>
+</div>
+<div class="kbwc-socials">
+
+<a href="javascript:;" class="kbwcs-fb facebook_share_button" rel="nofollow">Chia sẻ <span rel="share-count" class="kbwcs-number fr"></span></a>
+<span class="fl k14-fb-like sprite-genk"></span>
+<div class="fb-like" data-href="http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+<div class="fr">
+<div class="fb-send fl mgr5" data-href="http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn" data-colorscheme="dark"></div>
+<a title="Gửi email" href="mailto:?&subject=[Genk.vn] Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát&body=http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn%0D%0ACheetah 3 là robot đang được MIT nghiên cứu nhằm phục vụ cho nhiều mục đích trong tương lai." rel="nofollow">
+<div class="ico-mailto"></div>
+</a>
+</div>
+</div>
+</div>
+<div class="kbwcb-left-wrapper content">
+<div class="klw-new-content clearfix">
+<div class="knc-menu-nav">
+<div class="kmn-wrapper" id="menuNav">
+<div class="kmnw-content">
+<div class="kc-item kc-facebook">
+<a onclick="fbClient.shareClick('http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn');" href="javascript:;" class="icon-kcf" title="Chia sẻ"></a>
+</div>
+
+<div class="kc-item kc-messenger">
+<a onclick="fbClient.sendClick('http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn');" href="javascript:;" class="icon-kcm" title="Gửi"></a>
+</div>
+<div class="kc-item kc-email">
+<a href="mailto:?&subject=[Genk.vn] Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát&body=http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn%0D%0ACheetah 3 là robot đang được MIT nghiên cứu nhằm phục vụ cho nhiều mục đích trong tương lai." class="icon-kcm" title="email" rel="nofollow"></a>
+</div>
+</div>
+</div>
+</div>
+<div class="fr w640">
+
+<h2 class="knc-sapo">Cheetah 3 là robot đang được MIT nghiên cứu nhằm phục vụ cho nhiều mục đích trong tương lai.</h2>
+<div id="ContentPlaceHolder1_ContentPlaceHolder1_ctrNewsDetail_lstRelation" class="knc-relate-wrapper">
+<ul class="krw-list tinlienquan">
+<li class="krwli"><a href="/gap-go-pepper-nhan-vien-robot-dau-tien-tai-mot-ngan-hang-cua-my-20180627155049538.chn" title="Gặp gỡ Pepper - nh&#226;n vi&#234;n Robot đầu ti&#234;n tại một ng&#226;n h&#224;ng của Mỹ" class="show-popup visit-popup" data-popup-url="/gap-go-pepper-nhan-vien-robot-dau-tien-tai-mot-ngan-hang-cua-my-20180627155049538rf20180706151207397.chn">Gặp gỡ Pepper - nhân viên Robot đầu tiên tại một ngân hàng của Mỹ<i class="icon-show-popup"></i></a></li><li class="krwli"><a href="/robot-sophia-sap-sang-viet-nam-giao-luu-ve-cach-mang-40-20180628140202382.chn" title="Robot Sophia sắp sang Việt Nam giao lưu về c&#225;ch mạng 4.0" class="show-popup visit-popup" data-popup-url="/robot-sophia-sap-sang-viet-nam-giao-luu-ve-cach-mang-40-20180628140202382rf20180706151207397.chn">Robot Sophia sắp sang Việt Nam giao lưu về cách mạng 4.0<i class="icon-show-popup"></i></a></li>
+
+  
+</ul>
+
+<div style="clear: both"></div>
+</div>
+<div class="clearfix">
+
+</div>
+<div data-check-position="genk_body_start"></div>
+<div class="knc-content" id="ContentDetail">
+<p>Hầu hết các loại robot đều nhờ vào camera và những cảm biến hình ảnh khác để nhận biết môi trường xung quanh và di chuyển, nhưng đôi khi các cảm biến này chính là điểm yếu trong quá trình tập luyện cho robot, nếu môi trường quá tối, nhiều vật cản lộn xộn, chúng sẽ không vận hành tốt. Viện công nghệ MIT đã có một giải pháp cho vấn đề này và các nhà nghiên cứu đang thử nghiệm trên robot Cheetah 3.</p> <div class="VCSortableInPreviewMode active" data-height="400px" data-src="http://vcplayer.mediacdn.vn/1.1/?_site=genk&amp;vid=genk/khutgadqrrlxujlpmmsemgt8dw8rwu/2018/07/06/c843d.mp4&amp;autoplay=false&amp;poster=http://video-thumbs.mediacdn.vn/genk/khutgadqrrlxujlpmmsemgt8dw8rwu/2018/07/06/c843d.jpg&amp;_info=583be79fe9ee4458b4cff2413b55db83" data-width="600px" id="videoid_27433" type="VideoStream" videoexternalid="undefined" videoid="27433"> <div id="videoid_27433" videoexternalid="undefined" videoid="27433"></div> <div class="VideoCMS_Caption"> <p class="NLPlaceholderShow" data-placeholder="[nhập chú thích]" style="text-align: center;">Robot Cheetah 3</p> </div> </div> <p>Thay vì dùng camera, Cheetah 3 dựa vào các thuật toán để “cảm nhận” môi trường xung quanh, như cách mà bạn nhận ra đường đi đến toilet trong nhà dù có là nửa đêm tắt đèn tối thui. Sau đó, nó sẽ tự nghĩ ra hướng tốt nhất để di chuyển.</p> <p>Thuật toán đầu tiên sử dụng dữ liệu từ gia tốc kế, con quay hồi chuyển và các động cơ khớp chân để tính toán xác suất chân giao tiếp với vật thể xung quanh, khả năng bị kẹt và tính toán lực cần thiết. Nếu Cheetah gặp phải một vật cản bất ngờ, nó có thể tự quyết định điều chỉnh bước đi cho phù hợp.</p> <div class="VCSortableInPreviewMode GifPhoto active noCaption" type="Photo" style=""> <div><img alt="Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát - Ảnh 2." id="img_48c2ff60-80f2-11e8-9397-7746e1fa3516" photoid="48c2ff60-80f2-11e8-9397-7746e1fa3516" src="http://genknews.genkcdn.vn/thumb_w/660/2018/7/6/unsuccessfulstairtest-1530863867148294125360.gif" rel="lightbox" type="photo" h="720" w="1280" style="max-width:100%;" data-original="http://genknews.genkcdn.vn/2018/7/6/unsuccessfulstairtest-1530863867148294125360.gif" title="Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát - Ảnh 2." width="" height=""></div> <div class="PhotoCMS_Caption"></div> </div> <p>Trong khi đó, thuật toán thứ hai sẽ dự đoán vị trí của robot để giúp nó nhanh xóng phản xạ với tình huống xung quanh. Ngay cả khi bạn đẩy nó thì Cheetah vẫn có thể quay trở lại đúng đường cũ, mọi thứ diễn ra mà không cần camera quan sát.</p> <div class="VCSortableInPreviewMode GifPhoto active noCaption" type="Photo" style=""> <div><img alt="Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát - Ảnh 3." id="img_0a84e550-80f3-11e8-8b48-9dc3551f5ef6" photoid="0a84e550-80f3-11e8-8b48-9dc3551f5ef6" src="http://genknews.genkcdn.vn/thumb_w/660/2018/7/6/pushrecovery-15308641926501731687668.gif" rel="lightbox" type="photo" h="720" w="1280" style="max-width:100%;" data-original="http://genknews.genkcdn.vn/2018/7/6/pushrecovery-15308641926501731687668.gif" title="Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát - Ảnh 3." width="" height=""></div> <div class="PhotoCMS_Caption"></div> </div> <p>Tất nhiên MIT không chỉ áp dụng duy nhất một loại công nghệ nhận biết phương hướng bằng thuật toán cho robot, họ sẽ kết hợp nó với những công nghệ khác như một phương pháp hỗ trợ khi robot không thể thấy rõ đường đi thông qua camera hay bất ngờ gặp vật cản ngoài tầm mắt. Trong tương lai điều này sẽ rất hữu ích với những robot cứu nạn.</p> <p>Ngoài ra các khả năng "nghiêm túc" trên, Cheetah 3 giờ đây còn có thể nhún nhảy như cún con đang chờ ăn cực dễ thương nữa. Quả là một robot đa tài.</p> <div class="VCSortableInPreviewMode GifPhoto active noCaption" type="Photo" style=""> <div><img alt="Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát - Ảnh 4." id="img_564d7d40-80f2-11e8-b1e8-31464bbc8fb5" photoid="564d7d40-80f2-11e8-b1e8-31464bbc8fb5" src="http://genknews.genkcdn.vn/thumb_w/660/2018/7/6/20180705104038-15308638886052117548387.gif" rel="lightbox" type="photo" h="720" w="1280" style="max-width:100%;" data-original="http://genknews.genkcdn.vn/2018/7/6/20180705104038-15308638886052117548387.gif" title="Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát - Ảnh 4." width="" height=""></div> <div class="PhotoCMS_Caption"></div> </div> <p style="text-align: right;"><i>Tham khảo: TheVerge </i></p> <div class="VCSortableInPreviewMode link-content-footer" type="link-content-footer"><a href="http://genk.vn/canh-tay-robot-biet-dau-va-phan-xa-vo-dieu-kien-nho-da-dien-tu-20180628125610632.chn" type="2">Cánh tay robot biết đau và phản xạ vô điều kiện nhờ da điện tử</a></div> 
+</div>
+<div data-check-position="genk_body_end"></div>
+</div>
+</div>
+<div id="TotalAssessment">
+<div class="assessment">
+
+
+
+
+<div class="klw-new-socials clearfix">
+<div class="kns-social clearfix">
+<div class="fl mgr5 mt-3">
+<a href="https://embed2.linkhay.com/actions/link/post/embed.php?source_url=http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn"
+class="linkhaya2" target="_blank"><i class="linkhaytop sprite-genk"></i>
+</a>
+</div>
+<div class="fl mgr5 mt-3">
+<div class="fb-send" data-href="http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn"></div>
+</div>
+<div class="fl mt-3">
+<a href="javascript:;" class="kbwcs-fb facebook_share_button" rel="nofollow">Chia sẻ <span rel="share-count" class="kbwcs-number fr"></span></a>
+</div>
+<div class="fl mt-3">
+<div class="fb-like" data-href="http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+</div>
+
+
+<div class="fr w220">
+<div id="admzone40830"></div>
+<script>
+admicroAD.unit.push(function () { admicroAD.show('admzone40830') });
+</script>
+</div>
+
+</div>
+<div class="klw-new-tags clearfix">
+<span class="tgname">Tags:</span>
+<ul class="knt-list">
+<li class="kli"><a title="robot" href="/robot.htm"><strong>robot</strong></a></li><li class="kli"><a title="camera" href="/camera.htm"><strong>camera</strong></a></li><li class="kli"><a title="MIT" href="/mit.htm"><strong>MIT</strong></a></li><li class="kli"><a title="camera quan sát" href="/camera-quan-sat.htm"><strong>camera quan sát</strong></a></li><li class="kli"><a title="leo cầu thang" href="/leo-cau-thang.htm"><strong>leo cầu thang</strong></a></li><li class="kli"><a title="cheetah 3" href="/cheetah-3.htm"><strong>cheetah 3</strong></a></li>
+</ul>
+</div>
+
+<div class="box-ads-details clear mt-20" align="center">
+
+<div id="admzone183"></div>
+<script>
+admicroAD.unit.push(function () { admicroAD.show('admzone183') });
+</script>
+
+
+
+
+
+</div>
+
+
+<div id="popup-detail-bg">
+<div id="popup-detail-wrap">
+<div id="popup-detail-left">
+<div class="popup-detail-content">
+<img alt="" src="" />
+<a title="Previous" href="javascript:void(0)" class="prev"><i></i></a>
+<a title="Next" href="javascript:void(0)" class="next"><i></i></a>
+<a class="move" href="javascript:void(0)"></a>
+<a class="zoom" href="javascript:void(0)"></a>
+</div>
+<div class="popup-slide"><ul></ul></div>
+</div>
+<div id="popup-detail-right">
+<div class="popup-detail-right-box">
+<div class="popup-detail-right-top"><h2></h2><p></p></div>
+<div id="mingid_comments_content_popup"></div>
+<div class="adM">
+<div id="_admLightBox66"></div>
+<script type="text/javascript">
+var _admZone = 66; function admDrawIframe() { var a = document.createElement("script"); a.type = "text/javascript"; a.async = !0; a.src = "https://media1.admicro.vn/core/admlightbox.js"; var b = document.getElementsByTagName("script")[0]; b.parentNode.insertBefore(a, b) };
+</script>
+</div>
+</div>
+<a id="popup-detail-close" onclick="photoDetail.closePopup()"></a>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+</script>
+
+</div>
+</div>
+</div>
+<div class="ads-sponsor type-2 adm-hidden">
+<div id="admsection5"></div>
+</div>
+</div>
+</div>
+
+<div class="w300 fr mt-20 adm-rightsection" id="RightDetail1">
+<div id="ContentPlaceHolder1_ContentPlaceHolder1_ctrNewsDetail_divRight" align="center">
+<div id="admsection8"></div>
+
+
+<div id="admzone24341"></div>
+<script>
+admicroAD.unit.push(function () { admicroAD.show('admzone24341') });
+</script>
+
+
+<div id="admzone59"></div>
+<div id="admzone498"></div>
+<div id="admzone962"></div>
+<div id="admzone360"></div>
+<script>
+admicroAD.unit.push(function () { admicroAD.show('admzone59') });
+admicroAD.unit.push(function () { admicroAD.show('admzone498') });
+admicroAD.unit.push(function () { admicroAD.show('admzone962') });
+admicroAD.unit.push(function () { admicroAD.show('admzone360') });
+</script>
+
+</div>
+</div>
+
+<div class="light-box-bounder">
+<div class="light-box-content">
+<div class="light-box loading">
+</div>
+</div>
+<div class="radianbotpopup"></div>
+<div class="close-wrap">
+<div class="close">
+<div class="close-1"></div>
+<div class="close-2"></div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+var checkPaddingP = 'False'; var detaiUrlShort = 'http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn';
+
+//popup
+var relatedPopupId;
+var refUrl = 'http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn';
+var refTitle = "Xem robot nhảy như cún con, leo cầu thang cực chuyên nghiệp mà chẳng cần đến camera quan sát";
+var popupEnd = "";
+var newsIdPopupEnd = '0';
+//end popup
+(runinit = window.runinit || []).push(function () {
+//loadJsAsync('/web_js/Detail/relatednews.js', function () {
+$(document).ready(function () {
+loadJsAsync('https://ims.mediacdn.vn/micro/widget/dist/plugins/quiz-embed.js', function () { });
+loadJsAsync('https://media1.admicro.vn/core/log_recommend.js', function () {
+//gọi ham ben adm
+});
+
+//popup
+relatedNews.init(relatedPopupId);
+//
+loadJsDetail();
+//load box react Related new
+//relatedNews.addBoxAdm3Related("http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn", "20180706151207397");
+//
+});
+//});
+});
+
+</script>
+
+<div class="kbwc-body clearfix">
+<div class="w710 kbwcb-left clearfix adm-commentsection">
+<!--Ming Comment-->
+
+
+<p class="klwnc-title mt-80">
+Bình luận
+</p>
+<div class="comentvietid">
+<div id="mingid_comments_content">
+</div>
+</div>
+<script type="text/javascript">
+(runinit = window.runinit || []).push(function() {
+loadJsAsync('https://mingid.mediacdn.vn/js/mingid_core.js', function () {
+setTimeout(function() {
+MINGID_IFRAME_FUNC.mingidGenIfram(690, 238, '56eafad9ecf65bc827739910530c4ebb', 'http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn', 'WGVtK3JvYm90K25oJWUxJWJhJWEzeStuaCVjNiViMCtjJWMzJWJhbitjb24lMmMrbGVvK2MlZTElYmElYTd1K3RoYW5nK2MlZTElYmIlYjFjK2NodXklYzMlYWFuK25naGklZTElYmIlODdwK20lYzMlYTArY2glZTElYmElYjNuZytjJWUxJWJhJWE3bislYzQlOTElZTElYmElYmZuK2NhbWVyYStxdWFuK3MlYzMlYTF0', 5, 1, 0, 0, 'http://genk.vn/xem-robot-nhay-nhu-cun-con-leo-cau-thang-cuc-chuyen-nghiep-ma-chang-can-den-camera-quan-sat-20180706151207397.chn', 'mingid_comments_content', 'mingid_comment_iframe', '1', '8f0118ba41b6f6311d3e2f76c410358f');
+}, 300);
+});
+});
+</script>
+
+
+<div class="ads-sponsor type-2 adm-hidden">
+<div id="admsection6"></div>
+</div>
+
+<!--End MingComment-->
+</div>
+</div>
+</div>
+<div class="kbwc-body clearfix">
+<div class="w710 mt50">
+
+
+<div class="kds-same-category clearfix">
+<span class="kds-title">
+Tin cùng chuyên mục
+
+
+
+<!-------------------------- VIEW BY DATE ----------------------->
+<div class="kscli-view-by-date fr clearfix">
+<span class="ksclivbd-title fl">Xem theo ngày</span>
+<ul class="ksclivbd-form clearfix fl">
+<li>
+<select id="ksclivbdf-date">
+<option value="0">Ngày</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+</li>
+<li>
+<select id="ksclivbdf-month">
+<option value="0">Tháng</option>
+<option value="1">Tháng 1</option>
+<option value="2">Tháng 2</option>
+<option value="3">Tháng 3</option>
+<option value="4">Tháng 4</option>
+<option value="5">Tháng 5</option>
+<option value="6">Tháng 6</option>
+<option value="7">Tháng 7</option>
+<option value="8">Tháng 8</option>
+<option value="9">Tháng 9</option>
+<option value="10">Tháng 10</option>
+<option value="11">Tháng 11</option>
+<option value="12">Tháng 12</option>
+</select>
+</li>
+<li>
+<select id="ksclivbdf-year">
+<option value="0">Năm</option>
+<option value="2017">2018</option>
+<option value="2017">2017</option>
+<option value="2016">2016</option>
+<option value="2015">2015</option>
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+</select>
+</li>
+<li>
+<button type="button" class="ksclivbdf-view" id="viewbydate">Xem</button>
+</li>
+</ul>
+</div>
+<!-------------------------- VIEW BY DATE ----------------------->
+<script>
+(runinit = window.runinit || []).push(function () {
+var dropDate = new Dropkick("#ksclivbdf-date", { mobile: true });
+var dropMonth = new Dropkick("#ksclivbdf-month", { mobile: true });
+var dropYear = new Dropkick("#ksclivbdf-year", { mobile: true });
+$(function () {
+var date = '7';
+dropDate.select(date.toString());
+var month = '7';
+dropMonth.select(month.toString());
+var year = '2018';
+dropYear.select(year.toString());
+});
+viewByDateDetail();
+});
+</script>
+
+</span>
+
+<ul class="ksc-list">
+<li class="kscli clearfix">
+<ul class="kscli-list">
+<div class="rowccm clearfix" id="ccm_row1"><li class="tincungmucfocus">
+<a data-popup-url="/ngay-truoc-ngay-quoc-khanh-my-thuat-toan-cua-facebook-lo-mom-goi-ban-tuyen-ngon-doc-lap-cua-my-la-phat-ngon-gay-thu-han-20180706165230179.chn" data-box="chm-detai1" title="Ngay trước ng&#224;y Quốc kh&#225;nh Mỹ, thuật to&#225;n của Facebook &quot;lỡ mồm&quot; gọi bản tuy&#234;n ng&#244;n độc lập của Mỹ l&#224; ph&#225;t ng&#244;n g&#226;y th&#249; hận" href="/ngay-truoc-ngay-quoc-khanh-my-thuat-toan-cua-facebook-lo-mom-goi-ban-tuyen-ngon-doc-lap-cua-my-la-phat-ngon-gay-thu-han-20180706165230179.chn" class="knswa_border show-popup visit-popup"><img src="https://genknews.genkcdn.vn/zoom/223_140/2018/7/6/screen-shot-2018-07-06-at-164923-15308706382751960401117.png" title="Ngay trước ng&#224;y Quốc kh&#225;nh Mỹ, thuật to&#225;n của Facebook &quot;lỡ mồm&quot; gọi bản tuy&#234;n ng&#244;n độc lập của Mỹ l&#224; ph&#225;t ng&#244;n g&#226;y th&#249; hận" alt="Ngay trước ng&#224;y Quốc kh&#225;nh Mỹ, thuật to&#225;n của Facebook &quot;lỡ mồm&quot; gọi bản tuy&#234;n ng&#244;n độc lập của Mỹ l&#224; ph&#225;t ng&#244;n g&#226;y th&#249; hận" width="223" height="140"/></a>
+<div class="info">
+<h4 class="ksclili-title"><a class="show-popup visit-popup" data-popup-url="/ngay-truoc-ngay-quoc-khanh-my-thuat-toan-cua-facebook-lo-mom-goi-ban-tuyen-ngon-doc-lap-cua-my-la-phat-ngon-gay-thu-han-20180706165230179.chn" data-box="chm-detai1" href="/ngay-truoc-ngay-quoc-khanh-my-thuat-toan-cua-facebook-lo-mom-goi-ban-tuyen-ngon-doc-lap-cua-my-la-phat-ngon-gay-thu-han-20180706165230179.chn" title="Ngay trước ng&#224;y Quốc kh&#225;nh Mỹ, thuật to&#225;n của Facebook &quot;lỡ mồm&quot; gọi bản tuy&#234;n ng&#244;n độc lập của Mỹ l&#224; ph&#225;t ng&#244;n g&#226;y th&#249; hận" data-id="20180706165230179" data-linktype="newsdetail">Ngay trước ngày Quốc khánh Mỹ, thuật toán của Facebook "lỡ mồm" gọi bản tuyên ngôn độc lập của Mỹ là phát ngôn gây thù hận &nbsp;</a><span class="iconb-ccm">Nổi bật</span></h4>
+<span class="ksclirn-time hidden" title="32 phút trước">32 phút trước</span></div>
+ </li><li class="tincungmucfocus">
+<a data-popup-url="/zte-sa-thai-toan-bo-doi-ngu-giam-doc-cap-cao-de-lam-vua-long-cac-nha-lap-phap-cua-my-song-lo-ngai-ve-cong-ty-van-con-do-2018070615100396.chn" data-box="chm-detai1" title="ZTE sa thải to&#224;n bộ đội ngũ gi&#225;m đốc cấp cao để l&#224;m vừa l&#242;ng c&#225;c nh&#224; lập ph&#225;p của Mỹ, song lo ngại về c&#244;ng ty vẫn c&#242;n đ&#243;" href="/zte-sa-thai-toan-bo-doi-ngu-giam-doc-cap-cao-de-lam-vua-long-cac-nha-lap-phap-cua-my-song-lo-ngai-ve-cong-ty-van-con-do-2018070615100396.chn" class="knswa_border show-popup visit-popup"><img src="https://genknews.genkcdn.vn/zoom/223_140/2018/screen-shot-2018-07-06-at-150538-1530864496797643277034-crop1530864501449p.png" title="ZTE sa thải to&#224;n bộ đội ngũ gi&#225;m đốc cấp cao để l&#224;m vừa l&#242;ng c&#225;c nh&#224; lập ph&#225;p của Mỹ, song lo ngại về c&#244;ng ty vẫn c&#242;n đ&#243;" alt="ZTE sa thải to&#224;n bộ đội ngũ gi&#225;m đốc cấp cao để l&#224;m vừa l&#242;ng c&#225;c nh&#224; lập ph&#225;p của Mỹ, song lo ngại về c&#244;ng ty vẫn c&#242;n đ&#243;" width="223" height="140"/></a>
+<div class="info">
+<h4 class="ksclili-title"><a class="show-popup visit-popup" data-popup-url="/zte-sa-thai-toan-bo-doi-ngu-giam-doc-cap-cao-de-lam-vua-long-cac-nha-lap-phap-cua-my-song-lo-ngai-ve-cong-ty-van-con-do-2018070615100396.chn" data-box="chm-detai1" href="/zte-sa-thai-toan-bo-doi-ngu-giam-doc-cap-cao-de-lam-vua-long-cac-nha-lap-phap-cua-my-song-lo-ngai-ve-cong-ty-van-con-do-2018070615100396.chn" title="ZTE sa thải to&#224;n bộ đội ngũ gi&#225;m đốc cấp cao để l&#224;m vừa l&#242;ng c&#225;c nh&#224; lập ph&#225;p của Mỹ, song lo ngại về c&#244;ng ty vẫn c&#242;n đ&#243;" data-id="2018070615100396" data-linktype="newsdetail">ZTE sa thải toàn bộ đội ngũ giám đốc cấp cao để làm vừa lòng các nhà lập pháp của Mỹ, song lo ngại về công ty vẫn còn đó &nbsp;</a><span class="iconb-ccm">Nổi bật</span></h4>
+<span class="ksclirn-time hidden" title="01 giờ trước">01 giờ trước</span></div>
+ </li><li class="tincungmucfocus">
+<a data-popup-url="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" data-box="chm-detai1" title="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" href="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" class="knswa_border show-popup visit-popup"><img src="https://genknews.genkcdn.vn/zoom/223_140/2018/screen-shot-2018-07-06-at-161727-15308687275742127917310-crop1530868735693p.png" title="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" alt="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" width="223" height="140"/></a>
+<div class="info">
+<h4 class="ksclili-title"><a class="show-popup visit-popup" data-popup-url="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" data-box="chm-detai1" href="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" title="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" data-id="20180706162201397" data-linktype="newsdetail">Cổ phiếu "lên sàn" của Xiaomi giá thấp hơn công ty ước tính, và giờ họ sẽ phải đối mặt với sự thật phũ phàng</a> <span class="ksclirn-time"> - </span><span class="ksclirn-time" title="01 giờ trước">01 giờ trước</span></h4>
+</div>
+ </li></div><div class="rowccm clearfix" id="ccm_row2"><li class="tincungmucfocus">
+<a data-popup-url="/jeff-bezos-muon-len-mat-trang-vao-nam-2023-tham-vong-dua-amazon-len-tam-co-vu-tru-20180706150745085.chn" data-box="chm-detai2" title="Jeff Bezos muốn l&#234;n Mặt Trăng v&#224;o năm 2023, tham vọng đưa Amazon l&#234;n tầm cỡ Vũ trụ" href="/jeff-bezos-muon-len-mat-trang-vao-nam-2023-tham-vong-dua-amazon-len-tam-co-vu-tru-20180706150745085.chn" class="knswa_border show-popup visit-popup"><img src="https://genknews.genkcdn.vn/zoom/223_140/2018/7/6/photo1530864421951-1530864421951297812135.jpg" title="Jeff Bezos muốn l&#234;n Mặt Trăng v&#224;o năm 2023, tham vọng đưa Amazon l&#234;n tầm cỡ Vũ trụ" alt="Jeff Bezos muốn l&#234;n Mặt Trăng v&#224;o năm 2023, tham vọng đưa Amazon l&#234;n tầm cỡ Vũ trụ" width="223" height="140"/></a>
+<div class="info">
+<h4 class="ksclili-title"><a class="show-popup visit-popup" data-popup-url="/jeff-bezos-muon-len-mat-trang-vao-nam-2023-tham-vong-dua-amazon-len-tam-co-vu-tru-20180706150745085.chn" data-box="chm-detai2" href="/jeff-bezos-muon-len-mat-trang-vao-nam-2023-tham-vong-dua-amazon-len-tam-co-vu-tru-20180706150745085.chn" title="Jeff Bezos muốn l&#234;n Mặt Trăng v&#224;o năm 2023, tham vọng đưa Amazon l&#234;n tầm cỡ Vũ trụ" data-id="20180706150745085" data-linktype="newsdetail">Jeff Bezos muốn lên Mặt Trăng vào năm 2023, tham vọng đưa Amazon lên tầm cỡ Vũ trụ</a> <span class="ksclirn-time"> - </span><span class="ksclirn-time" title="03 giờ trước">03 giờ trước</span></h4>
+</div>
+ </li><li class="tincungmucfocus">
+<a data-popup-url="/6-thoi-quen-tai-hai-co-the-tao-dieu-kien-cho-hacker-hoi-tham-may-tinh-cua-ban-20180705153711647.chn" data-box="chm-detai2" title="6 th&#243;i quen tai hại c&#243; thể tạo điều kiện cho hacker &quot;hỏi thăm&quot; m&#225;y t&#237;nh của bạn" href="/6-thoi-quen-tai-hai-co-the-tao-dieu-kien-cho-hacker-hoi-tham-may-tinh-cua-ban-20180705153711647.chn" class="knswa_border show-popup visit-popup"><img src="https://genknews.genkcdn.vn/zoom/223_140/2018/7/5/photo1530779803575-1530779803575382645.jpg" title="6 th&#243;i quen tai hại c&#243; thể tạo điều kiện cho hacker &quot;hỏi thăm&quot; m&#225;y t&#237;nh của bạn" alt="6 th&#243;i quen tai hại c&#243; thể tạo điều kiện cho hacker &quot;hỏi thăm&quot; m&#225;y t&#237;nh của bạn" width="223" height="140"/></a>
+<div class="info">
+<h4 class="ksclili-title"><a class="show-popup visit-popup" data-popup-url="/6-thoi-quen-tai-hai-co-the-tao-dieu-kien-cho-hacker-hoi-tham-may-tinh-cua-ban-20180705153711647.chn" data-box="chm-detai2" href="/6-thoi-quen-tai-hai-co-the-tao-dieu-kien-cho-hacker-hoi-tham-may-tinh-cua-ban-20180705153711647.chn" title="6 th&#243;i quen tai hại c&#243; thể tạo điều kiện cho hacker &quot;hỏi thăm&quot; m&#225;y t&#237;nh của bạn" data-id="20180705153711647" data-linktype="newsdetail">6 thói quen tai hại có thể tạo điều kiện cho hacker "hỏi thăm" máy tính của bạn</a> <span class="ksclirn-time"> - </span><span class="ksclirn-time" title="05 giờ trước">05 giờ trước</span></h4>
+</div>
+ </li><li class="tincungmucfocus">
+<a data-popup-url="/xem-xong-bo-anh-nay-canh-dan-ong-chac-chan-se-mat-niem-tin-tram-trong-voi-ve-dep-sau-lop-makeup-cua-phai-nu-20180707011459038.chn" data-box="chm-detai2" title="Xem xong bộ ảnh n&#224;y, c&#225;nh đ&#224;n &#244;ng chắc chắn sẽ mất niềm tin trầm trọng với vẻ đẹp sau lớp makeup của ph&#225;i nữ" href="/xem-xong-bo-anh-nay-canh-dan-ong-chac-chan-se-mat-niem-tin-tram-trong-voi-ve-dep-sau-lop-makeup-cua-phai-nu-20180707011459038.chn" class="knswa_border show-popup visit-popup"><img src="https://genknews.genkcdn.vn/zoom/223_140/2018/sculpted-faces-asians-use-tweezers-and-scissors-to-remove-their-stunning-video-makeup-5b39d92eda7de880-15309001137551346880976-crop1530900442863p.jpg" title="Xem xong bộ ảnh n&#224;y, c&#225;nh đ&#224;n &#244;ng chắc chắn sẽ mất niềm tin trầm trọng với vẻ đẹp sau lớp makeup của ph&#225;i nữ" alt="Xem xong bộ ảnh n&#224;y, c&#225;nh đ&#224;n &#244;ng chắc chắn sẽ mất niềm tin trầm trọng với vẻ đẹp sau lớp makeup của ph&#225;i nữ" width="223" height="140"/></a>
+<div class="info">
+<h4 class="ksclili-title"><a class="show-popup visit-popup" data-popup-url="/xem-xong-bo-anh-nay-canh-dan-ong-chac-chan-se-mat-niem-tin-tram-trong-voi-ve-dep-sau-lop-makeup-cua-phai-nu-20180707011459038.chn" data-box="chm-detai2" href="/xem-xong-bo-anh-nay-canh-dan-ong-chac-chan-se-mat-niem-tin-tram-trong-voi-ve-dep-sau-lop-makeup-cua-phai-nu-20180707011459038.chn" title="Xem xong bộ ảnh n&#224;y, c&#225;nh đ&#224;n &#244;ng chắc chắn sẽ mất niềm tin trầm trọng với vẻ đẹp sau lớp makeup của ph&#225;i nữ" data-id="20180707011459038" data-linktype="newsdetail">Xem xong bộ ảnh này, cánh đàn ông chắc chắn sẽ mất niềm tin trầm trọng với vẻ đẹp sau lớp makeup của phái nữ</a> <span class="ksclirn-time"> - </span><span class="ksclirn-time" title="08 giờ trước">08 giờ trước</span></h4>
+</div>
+ </li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="clearboth" id="admStickyFooter1"></div>
+<div class="clearfix mt-20"></div>
+</div>
+</div>
+<div id="adm_sponsor_footer1"></div>
+<div class="w1040 gbwc-wrp clearfix mt-20">
+<div id="ContentPlaceHolder1_ContentPlaceHolder1_divNews2">
+<div class="kbwc-body clearfix">
+<div class="mt10 nbdetail" data-marked-zoneid="genk_detail_b2">
+
+<div class="fl w710">
+
+<div class="clearfix por">
+<div class="kds-hot-daily fl">
+<p class="kds-title mt-40">NỔI BẬT TRANG CHỦ</p>
+<div class="knd-wrapperv2 clearfix mt-20">
+<ul class="khd-list">
+<li class="klwfnswn first" data-boxtype="newsembed">
+  <a data-popup-url="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" data-box="nbm-detai" title="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" href="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" class="klwfnswn-thumb knswa_border show-popup visit-popup"><img src="https://genknews.genkcdn.vn/zoom/465_290/2018/screen-shot-2018-07-06-at-161727-15308687275742127917310-crop1530868735693p.png" title="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" alt="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" width="465" height="290"/></a>
+<h4 class="klwfnswn-title">
+<a class="show-popup visit-popup" data-popup-url="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" data-box="nbm-detai" href="/co-phieu-len-san-cua-xiaomi-gia-thap-hon-cong-ty-uoc-tinh-va-gio-ho-se-phai-doi-mat-voi-su-that-phu-phang-20180706162201397.chn" title="Cổ phiếu &quot;l&#234;n s&#224;n&quot; của Xiaomi gi&#225; thấp hơn c&#244;ng ty ước t&#237;nh, v&#224; giờ họ sẽ phải đối mặt với sự thật phũ ph&#224;ng" data-id="20180706162201397" data-linktype="newsdetail">Cổ phiếu "lên sàn" của Xiaomi giá thấp hơn công ty ước tính, và giờ họ sẽ phải đối mặt với sự thật phũ phàng</a>
+</h4>
+<p class="sapo">Nhà sản xuất smartphone đến từ Trung Quốc, Xiaomi đã sẵn sàng ra mắt các nhà đầu tư trong thương vụ IPO tại Hồng Kông, nhưng sự kiện này lại diễn ra không tốt đẹp như mong đợi.<p>
+</li><li class="klwfnswn" data-boxtype="newsembed">
+  <a data-popup-url="/dua-vao-smartphone-cua-bq-doan-mo-duoc-gi-ve-smartphone-viet-cua-vingroup-20180707101001819.chn" data-box="nbm-detai" title="Dựa v&#224;o smartphone của BQ, &quot;đo&#225;n m&#242;&quot; được g&#236; về smartphone Việt của Vingroup?" href="/dua-vao-smartphone-cua-bq-doan-mo-duoc-gi-ve-smartphone-viet-cua-vingroup-20180707101001819.chn" class="klwfnswn-thumb knswa_border show-popup visit-popup"><img src="https://genknews.genkcdn.vn/zoom/222_290/2018/7/6/bqaquarisvplus03designdesktop3250x2200-1530932913780211409427.jpg" title="Dựa v&#224;o smartphone của BQ, &quot;đo&#225;n m&#242;&quot; được g&#236; về smartphone Việt của Vingroup?" alt="Dựa v&#224;o smartphone của BQ, &quot;đo&#225;n m&#242;&quot; được g&#236; về smartphone Việt của Vingroup?" width="222" height="290"/></a>
+<h4 class="klwfnswn-title">
+<a class="show-popup visit-popup" data-popup-url="/dua-vao-smartphone-cua-bq-doan-mo-duoc-gi-ve-smartphone-viet-cua-vingroup-20180707101001819.chn" data-box="nbm-detai" href="/dua-vao-smartphone-cua-bq-doan-mo-duoc-gi-ve-smartphone-viet-cua-vingroup-20180707101001819.chn" title="Dựa v&#224;o smartphone của BQ, &quot;đo&#225;n m&#242;&quot; được g&#236; về smartphone Việt của Vingroup?" data-id="20180707101001819" data-linktype="newsdetail">Dựa vào smartphone của BQ, "đoán mò" được gì về smartphone Việt của Vingroup?</a>
+</h4>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div class="ads-sponsor type-2 adm-hidden" id="fixadmsection7">
+<div id="admsection7"></div>
+</div>
+</div>
+<div id="ChangeTypeNews">
+<div id="MoveAssessment">
+</div>
+<div id="loadTimeLineFisrtPage" class="listpopup">
+
+</div>
+</div>
+</div>
+<div class="w300 fr mt-20" id="RightDetail2">
+<div id="ContentPlaceHolder1_ContentPlaceHolder1_divRight" align="center">
+
+
+
+<div id="admzone38705"></div>
+<script>
+admicroAD.unit.push(function () { admicroAD.show('admzone38705') });
+</script>
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+ <div class="clearboth" id="admStickyFooter"></div>
+<div class="clearboth" id="admStickyFooter3"></div>
+
+
+
+
+
+<div class="genk-footer-wrapper clearfix hide-on-loading mt-20">
+<div class="top-footer">
+<div class="w1040">
+<div class="gfw-top-wrapper clearfix">
+<a href="/" class="sprite-genk logo-genk" title="genk - trang thông tin dành cho tín đồ công nghệ"></a>
+
+</div>
+<div class="gfw-menu gfw-bottom-wrapper clearfix">
+<ul class="gfwm-list">
+<li class="gfwmli"><a href="/video.chn" title="video">Video</a></li>
+<li class="gfwmli"><a href="/mobile.chn" title="mobile">Mobile</a></li>
+<li class="gfwmli"><a href="/tin-ict.chn" title="tin ict">Tin ICT</a></li>
+<li class="gfwmli"><a href="/internet.chn" title="internet">Internet</a></li>
+<li class="gfwmli"><a href="/kham-pha.chn" title="khám phá">Khám phá</a></li>
+<li class="gfwmli"><a href="/tra-da-cong-nghe.chn" title="trà đá công nghệ">Trà đá công nghệ</a></li>
+<li class="gfwmli"><a href="/thu-thuat.chn" title="thủ thuật">Thủ thuật</a></li>
+<li class="gfwmli"><a href="/apps-games.chn" title="apps - games">Apps - Game</a></li>
+<li class="gfwmli"><a href="/do-choi-so.chn" title="đồ chơi số">Đồ chơi số</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bottom-footer">
+<div class="w1040">
+<div class="gfwbf-left fl">
+<div class="w190">
+<a href="http://www.vccorp.vn/" target="_blank" rel="nofollow" title="Công ty Cổ phần VCCorp" class="logovcorp">
+<i class="logovccorpnew sprite-genk"></i>
+</a>
+</div>
+<br />
+<p>
+Chịu trách nhiệm quản lý nội dung: Bà Nguyễn Bích Minh<br/>
+Hà Nội: Tầng 20, Tòa nhà Center Building - Hapulico Complex, Số 1 Nguyễn Huy Tưởng, Thanh Xuân, Hà Nội.<br />
+Email: <a href="mailto:info@genk.vn" rel="nofollow">info@genk.vn</a>
+<br />
+Điện thoại: 024.73095555, máy lẻ 62374<br/>
+VPĐD tại TP.HCM: Tầng 4, Tòa nhà 123
+<br />
+Võ Văn Tần, Phường 6, Quận 3, Tp. Hồ Chí Minh
+<br />
+</p>
+
+<p>
+<b>© Copyright 2010 - 2018 - Công ty Cổ phần VCCorp</b><br>
+Tầng 17, 19, 20, 21 Toà nhà Center Building - Hapulico Complex, Số 1 Nguyễn Huy Tưởng, Thanh Xuân, Hà Nội.<br>
+Trang tin điện tử trên internet: Giấy phép số 460/GP-TTĐT do Sở Thông tin và Truyền thông Hà Nội cấp ngày 03/02/2016<br>
+</p>
+</div>
+<div class="gfwbf-right">
+<a rel="nofollow" href="http://www.vccorp.vn" title="Công ty Cổ phần VCCorp" target="_blank">
+<img src="https://vccorp.mediacdn.vn/vccorp-m.png" alt="Công ty Cổ phần VCCorp" class="mb10">
+</a>
+<h4 class="contact">Liên hệ quảng cáo</h4>
+<span class="sprite-genk i-admicro"></span>
+<p>
+Hotline hỗ trợ quảng cáo: 0942 86 11 33 <br/>
+
+
+<br>
+Email: <a href="mailto:giaitrixahoi@admicro.vn" rel="nofollow">giaitrixahoi@admicro.vn</a><br>
+Hỗ trợ & CSKH: Admicro
+  
+<br>
+Address: Tầng 20, Tòa nhà Center Building - Hapulico Complex, Số 1 Nguyễn Huy Tưởng, Thanh Xuân, Hà Nội.<br>
+<br>
+  
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="VID_taskbar" class="VID_taskbar" rel="56eafad9ecf65bc827739910530c4ebb">
+</div>
+</div>
+</div>
+
+
+</form>
+
+
+<script>
+(runinit = window.runinit || []).push(function () {
+loadJsAsync('https://mingid.mediacdn.vn/js/mingid_core.js', function () {
+});
+});
+</script>
+
+<script type="text/javascript">
+
+
+////////////////
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-46362619-4']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var pp_gemius_identifier = 'd1Y64cblE4DGkFzRHbBsQLeOTBMwU1.7F1FQ1ZO.oSX.K7';
+// lines below shouldn't be edited
+function gemius_pending(i) { window[i] = window[i] || function () { var x = window[i + '_pdata'] = window[i + '_pdata'] || []; x[x.length] = arguments; }; }; gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event'); (function (d, t) { try { var gt = d.createElement(t), s = d.getElementsByTagName(t)[0], l = 'http' + ((location.protocol == 'https:') ? 's' : ''); gt.setAttribute('async', 'async'); gt.setAttribute('defer', 'defer'); gt.src = l + '://hc.viam.com.vn/xgemius.js'; s.parentNode.insertBefore(gt, s); } catch (e) { } })(document, 'script');
+//--><!]]>
+</script>
+</body>
+</html><!--s: 7/7/2018 5:01:53 PM-->

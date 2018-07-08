@@ -6,29 +6,42 @@
 <div class="container">
 <div class="row">
 <div class="col-md-8">
+<?php
+	$id = $_GET['id'];
+	if(empty($id)){
+		header('location: index.php');
+	}
+	$query = "SELECT news.id AS newsid ,news.name AS newsname,\n"
+    . "news.date_create AS newsdate, COUNT(news_id) AS countcom,\n"
+    . "preview, view, news.picture AS newspicture, detail, fullname\n"
+    . "FROM news\n"
+    . "LEFT JOIN comment ON news.id = comment.news_id\n"
+    . "INNER JOIN user ON user.id = news.created_by\n"
+    . "WHERE is_slide = 1 AND news.id = {$id}";
+	$result = $mysqli->query($query);
+	if($row = mysqli_fetch_assoc($result)){
+		$pictureMain = $row['newspicture'];
+		$nameMain = $row['newsname'];
+		$motaMain = $row['preview'];
+		$viewMain = $row['view'];
+		$dateMain = date('d-m-Y', strtotime($row['newsdate']));
+		$commentMain = $row['countcom'];
+		$detailMain = $row['detail'];
+		$fullnameMain = $row['fullname'];
+?>
 <div class="entity_wrapper">
     <div class="entity_title">
-        <h1><a href="#">Chevrolet car-saving technology delivers 'superhuman' sight when you need it most</a></h1>
+        <h1><a href="#"><?php echo $nameMain; ?></a></h1>
     </div>
     <!-- entity_title -->
 
-    <div class="entity_meta"><a href="#" target="_self">10Aug- 2015</a>, by: <a href="#" target="_self">Eric joan</a>
+    <div class="entity_meta"><a href="#" target="_self"><?php echo $dateMain; ?></a>, by: <a href="#" target="_self"><?php echo $fullnameMain; ?></a>
     </div>
-    <!-- entity_meta -->
-
-    <div class="entity_rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-full"></i>
-    </div>
-    <!-- entity_rating -->
 
     <div class="entity_social">
         <a href="#" class="icons-sm sh-ic">
-            <i class="fa fa-share-alt"></i>
-            <b>424</b> <span class="share_ic">Shares</span>
+            <i class="fa fas fa-eye"></i>
+            <b><?php echo $viewMain; ?> </b><span class="share_ic">Views</span>
         </a>
         <a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>
         <!--Twitter-->
@@ -43,66 +56,36 @@
     <!-- entity_social -->
 
     <div class="entity_thumb">
-        <img class="img-responsive" src="/template/public/img/category_img_top.jpg" alt="feature-top">
+        <img class="newsdetail" src="/files/newsIMG/<?php echo $pictureMain; ?>" alt="feature-top">
     </div>
     <!-- entity_thumb -->
 
     <div class="entity_content">
         <p>
-            But I must explain to you how all this mistaken idea of denouncing pleasure and praising
-            pain was born and I will give you a complete account of the system, and expound the
-            actual teachings of the great explorer of the truth, the master-builder of human
-            happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure,
-            but because those who do not know how to pursue pleasure rationally encounter
-            consequences that are extremely painful.
-        </p>
-
-        <p>
-            Nor again is there anyone who loves or pursues or desires to obtain pain of itself,
-            because it is pain, but because occasionally circumstances occur in which toil and pain
-            can procure him some great pleasure. To take a trivial example, which of us ever
-            undertakes laborious physical exercise, except to obtain some advantage from it?
-        </p>
-
-        <blockquote class="pull-left">But I must explain to you how all this mistaken idea of denouncing pleasure
-        </blockquote>
-        <p> But who has any right to find fault with a man who chooses to enjoy a pleasure that has
-            no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-            On the other hand, we denounce with righteous indignation and dislike men who are so
-            beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire,
-            that they cannot foresee.Nor again is there anyone who loves or pursues or desires to
-            obtain pain of itself, because it is pain, but because occasionally circumstances occur
-            in which toil and pain can procure him some great pleasure. To take a trivial example,
-            which of us ever undertakes laborious physical exercise, except to obtain some advantage
-            from it? Nor again is there anyone who loves or pursues or desires to obtain pain of
-            itself, because it is pain, but because occasionally circumstances occur in which toil
-            and pain can procure him some great pleasure. To take a trivial example, which of us
-            ever
-        </p>
-
-        <p>
-            But I must explain to you how all this mistaken idea of denouncing pleasure and praising
-            pain was born and I will give you a complete account of the system, and expound the
-            actual teachings of the great explorer of the truth, the master-builder of human
-            happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure,
-            but because those who do not know how to pursue pleasure rationally encounter
-            consequences that are extremely painful.
+            <?php echo $detailMain; ?>
         </p>
     </div>
     <!-- entity_content -->
 
     <div class="entity_footer">
         <div class="entity_tag">
-            <span class="blank"><a href="#">Tech</a></span>
-            <span class="blank"><a href="#">Transport</a></span>
-            <span class="blank"><a href="#">Mobile</a></span>
-            <span class="blank"><a href="#">Gadgets</a></span>
+		<?php
+			$queryCat = "SELECT * FROM cat_list WHERE parent_id = 0";
+			$resultCat = $mysqli->query($queryCat);
+			while($rowCat = mysqli_fetch_assoc($resultCat)){
+				$idCat = $rowCat['id'];
+				$nameCat = $rowCat['name'];
+		?>
+            <span class="blank"><a href="#"><?php echo $nameCat;?></a></span>
+		<?php
+			}
+		?>
         </div>
         <!-- entity_tag -->
 
         <div class="entity_social">
-            <span><i class="fa fa-share-alt"></i>424 <a href="#">Shares</a> </span>
-            <span><i class="fa fa-comments-o"></i>4 <a href="#">Comments</a> </span>
+            <span><i class="fa fas fa-eye"></i><?php echo $viewMain; ?> <a href="#">Shares</a> </span>
+            <span><i class="fa fa-comments-o"></i><?php echo $commentMain; ?> <a href="#">Comments</a> </span>
         </div>
         <!-- entity_social -->
 
@@ -110,91 +93,101 @@
     <!-- entity_footer -->
 
 </div>
-<!-- entity_wrapper -->
+<?php
+	}
+?>
 
 <div class="related_news">
-    <div class="entity_inner__title header_purple">
-        <h2><a href="#">Related News</a></h2>
+	<?php
+		$queryRelated = "SELECT news.id AS newsid,cat_list.name AS catname, cat_list.id AS catid,\n"
+						. "news.name AS newsname, news.date_create AS newsdate,\n"
+						. "preview, view, picture,\n"
+						. "COUNT(news_id) AS countcm\n"
+						. "FROM news\n"
+						. "INNER JOIN cat_list ON cat_list.id = news.cat_id\n"
+						. "LEFT JOIN comment ON news.id = comment.news_id\n"
+						. "WHERE is_slide = 1 AND news.id <> (SELECT id FROM news WHERE date_create = (SELECT MAX(date_create) FROM news))\n"
+						. "GROUP BY news.id\n"
+						. "ORDER BY view DESC\n"
+						. "LIMIT 4";
+		$resultRelated1 = $mysqli->query($queryRelated);
+		$resultRelated = $mysqli->query($queryRelated);
+		if($rowRelated1 = mysqli_fetch_assoc($resultRelated1)){
+			$catid = $rowRelated1['catid'];
+	?>
+	<div class="entity_inner__title header_purple">
+        <h2><a href="category.php?id=<?php echo $catid; ?>">Related News</a></h2>
     </div>
     <!-- entity_title -->
-
+	<?php
+		}
+	?>
+	<?php
+		$dem=0;
+		while($rowRelated = mysqli_fetch_assoc($resultRelated)){
+			$idRelated = $rowRelated['newsid'];
+			$catname = $rowRelated['catname'];
+			$pictureRelated = $rowRelated['picture'];
+			$nameRelated = $rowRelated['newsname'];
+			$motaRelated = $rowRelated['preview'];
+			$viewRelated = $rowRelated['view'];
+			$commentRelated = $rowRelated['countcm'];
+			$dateRelated = date('d-m-Y', strtotime($rowRelated['newsdate']));
+			$dem++;
+	?>
     <div class="row">
+	<?php
+		
+		if($dem%2 == 0){
+	?>
         <div class="col-md-6">
             <div class="media">
                 <div class="media-left">
-                    <a href="#"><img class="media-object" src="/template/public/img/cat-mobi-sm1.jpg"
+                    <a href="single.php?id=<?php echo $idRelated; ?>"><img class="popularlist" src="/files/newsIMG/<?php echo $pictureRelated; ?>"
                                      alt="Generic placeholder image"></a>
                 </div>
                 <div class="media-body">
-                    <span class="tag purple"><a href="category.php" target="_self">Mobile</a></span>
+                    <span class="tag purple"><a href="category.php" target="_self"><?php echo $catname; ?></a></span>
 
-                    <h3 class="media-heading"><a href="single.php" target="_self">Apple launches photo-centric wrist
-                        watch for Android</a></h3>
-                    <span class="media-date"><a href="#">10Aug- 2015</a>,  by: <a href="#">Eric joan</a></span>
-
-                    <div class="media_social">
-                        <span><a href="#"><i class="fa fa-share-alt"></i>424</a> Shares</span>
-                        <span><a href="#"><i class="fa fa-comments-o"></i>4</a> Comments</span>
-                    </div>
-                </div>
-            </div>
-            <div class="media">
-                <div class="media-left">
-                    <a href="#"><img class="media-object" src="/template/public/img/cat-mobi-sm3.jpg"
-                                     alt="Generic placeholder image"></a>
-                </div>
-                <div class="media-body">
-                    <span class="tag purple"><a href="category.php" target="_self">Mobile</a></span>
-
-                    <h3 class="media-heading"><a href="single.php" target="_self">The Portable Charger or data
-                        cable</a></h3>
-                    <span class="media-date"><a href="#">10Aug- 2015</a>,  by: <a href="#">Eric joan</a></span>
+                    <h3 class="media-heading"><a href="single.php?id=<?php echo $idRelated; ?>" target="_self"><?php echo $nameRelated; ?></a></h3>
+                    <span class="media-date"><a href="#"><?php echo $dateRelated; ?></a></span>
 
                     <div class="media_social">
-                        <span><a href="#"><i class="fa fa-share-alt"></i>424</a> Shares</span>
-                        <span><a href="#"><i class="fa fa-comments-o"></i>4</a> Comments</span>
+                        <span><a href="#"><i class="fa fas fa-eye"></i><?php echo $viewRelated; ?></a> Views</span>
+                        <span><a href="#"><i class="fa fa-comments-o"></i><?php echo $commentRelated; ?></a> Comments</span>
                     </div>
                 </div>
             </div>
         </div>
+	<?php
+		}else{
+	?>
         <div class="col-md-6">
             <div class="media">
                 <div class="media-left">
-                    <a href="#"><img class="media-object" src="/template/public/img/cat-mobi-sm2.jpg"
+                    <a href="single.php?id=<?php echo $idRelated; ?>"><img class="popularlist" src="/files/newsIMG/<?php echo $pictureRelated; ?>"
                                      alt="Generic placeholder image"></a>
                 </div>
                 <div class="media-body">
-                    <span class="tag purple"><a href="category.php" target="_self">Mobile</a></span>
+                    <span class="tag purple"><a href="category.php" target="_self"><?php echo $catname; ?></a></span>
 
-                    <h3 class="media-heading"><a href="single.php" target="_self">Iphone 6 launches white & Grey
-                        colors handset</a></h3>
-                    <span class="media-date"><a href="#">10Aug- 2015</a>,  by: <a href="#">Eric joan</a></span>
-
-                    <div class="media_social">
-                        <span><a href="#"><i class="fa fa-share-alt"></i>424</a> Shares</span>
-                        <span><a href="#"><i class="fa fa-comments-o"></i>4</a> Comments</span>
-                    </div>
-                </div>
-            </div>
-            <div class="media">
-                <div class="media-left">
-                    <a href="#"><img class="media-object" src="/template/public/img/cat-mobi-sm4.jpg"
-                                     alt="Generic placeholder image"></a>
-                </div>
-                <div class="media-body">
-                    <span class="tag purple"><a href="category.php" target="_self">Mobile</a></span>
-                    <a href="single.php" target="_self"><h3 class="media-heading">Fully new look slim handset
-                        like</h3></a>
-                    <span class="media-date"><a href="#">10Aug- 2015</a>,  by: <a href="#">Eric joan</a></span>
+                    <h3 class="media-heading"><a href="single.php?id=<?php echo $idRelated; ?>" target="_self"><?php echo $nameRelated; ?></a></h3>
+                    <span class="media-date"><a href="#"><?php echo $dateRelated; ?></a></span>
 
                     <div class="media_social">
-                        <span><a href="#"><i class="fa fa-share-alt"></i>424</a> Shares</span>
-                        <span><a href="#"><i class="fa fa-comments-o"></i>4</a> Comments</span>
+                        <span><a href="#"><i class="fa fas fa-eye"></i><?php echo $viewRelated; ?></a> Views</span>
+                        <span><a href="#"><i class="fa fa-comments-o"></i><?php echo $commentRelated; ?></a> Comments</span>
                     </div>
                 </div>
             </div>
         </div>
+	<?php
+		}
+	?>
     </div>
+	<?php
+		}
+	?>
 </div>
 <!-- Related news -->
 
@@ -308,298 +301,9 @@
 </div>
 <!--Left Section-->
 
-<div class="col-md-4">
-<div class="widget">
-    <div class="widget_title widget_black">
-        <h2><a href="#">Popular News</a></h2>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right1.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">Canon launches photo centric 00214 Model supper shutter camera</a>
-            </h3> <span class="media-date"><a href="#">10Aug- 2015</a>,  by: <a href="#">Eric joan</a></span>
-
-            <div class="widget_article_social">
-                <span>
-                    <a href="single.php" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
-                </span> 
-                <span>
-                    <a href="single.php" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right2.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">Samsung galaxy note are the supper mobile of all products.</a>
-            </h3>
-            <span class="media-date"><a href="#">10Aug- 2015</a>,  by: <a href="#">Eric joan</a></span>
-
-            <div class="widget_article_social">
-                <span>
-                    <a href="single.php" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
-                </span> 
-                <span>
-                    <a href="single.php" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right3.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">Apple launches photo-centric wrist watch for Android</a>
-            </h3>
-            <span class="media-date"><a href="#">10Aug- 2015</a>,  by: <a href="#">Eric joan</a></span>
-
-            <div class="widget_article_social">
-                <span>
-                    <a href="single.php" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
-                </span> 
-                <span>
-                    <a href="single.php" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right4.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">Kodak Hi-Speed shutter double shot camera comming soon</a>
-            </h3>
-            <span class="media-date"><a href="#">10Aug- 2015</a>,  by: <a href="#">Eric joan</a></span>
-
-            <div class="widget_article_social">
-                <span>
-                    <a href="single.php" target="_self"><i class="fa fa-share-alt"></i>424</a> Shares
-                </span> 
-                <span>
-                    <a href="single.php" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
-                </span>
-            </div>
-        </div>
-    </div>
-    <p class="widget_divider"><a href="#" target="_self">More News&nbsp;&raquo;</a></p>
-</div>
-<!-- Popular News -->
-
-<div class="widget hidden-xs m30">
-    <img class="img-responsive adv_img" src="/template/public/img/right_add1.jpg" alt="add_one">
-    <img class="img-responsive adv_img" src="/template/public/img/right_add2.jpg" alt="add_one">
-    <img class="img-responsive adv_img" src="/template/public/img/right_add3.jpg" alt="add_one">
-    <img class="img-responsive adv_img" src="/template/public/img/right_add4.jpg" alt="add_one">
-</div>
-<!-- Advertisement -->
-
-<div class="widget hidden-xs m30">
-    <img class="img-responsive widget_img" src="/template/public/img/right_add5.jpg" alt="add_one">
-</div>
-<!-- Advertisement -->
-
-<div class="widget reviews m30">
-    <div class="widget_title widget_black">
-        <h2><a href="#">Reviews</a></h2>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right1.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">DSLR is the most old camera at this time readmore about new
-                    products</a>
-            </h3> 
-            <span class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-full"></i>
-            </span>
-        </div>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right2.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body"><h3 class="media-heading"><a href="single.php" target="_self">Samsung is the best
-            mobile in the android market.</a></h3> <span class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-full"></i>
-            </span></div>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right3.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">Apple launches photo-centric wrist watch for Android</a>
-            </h3> 
-            <span class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-full"></i>
-            </span></div>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right4.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">Yasaki camera launches new generic hi-speed shutter camera.</a>
-            </h3> 
-            <span class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-full"></i>
-            </span></div>
-    </div>
-    <p class="widget_divider"><a href="#" target="_self">More News&nbsp;&raquo;</a></p>
-</div>
-<!-- Reviews News -->
-
-<div class="widget hidden-xs m30">
-    <img class="img-responsive widget_img" src="/template/public/img/right_add6.jpg" alt="add_one">
-</div>
-<!-- Advertisement -->
-
-<div class="widget m30">
-    <div class="widget_title widget_black">
-        <h2><a href="#">Most Commented</a></h2>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right1.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">Yasaki camera launches new generic hi-speed shutter camera.</a>
-            </h3>
-
-            <div class="media_social">
-                <span><i class="fa fa-comments-o"></i><a href="#">4</a> Comments</span>
-            </div>
-        </div>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right2.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">Samsung is the best mobile in the android market.</a>
-            </h3>
-
-            <div class="media_social">
-                <span><i class="fa fa-comments-o"></i><a href="#">4</a> Comments</span>
-            </div>
-        </div>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right3.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">Apple launches photo-centric wrist watch for Android</a>
-            </h3>
-
-            <div class="media_social">
-                <span><i class="fa fa-comments-o"></i><a href="#">4</a> Comments</span>
-            </div>
-        </div>
-    </div>
-    <div class="media">
-        <div class="media-left">
-            <a href="#"><img class="media-object" src="/template/public/img/pop_right4.jpg" alt="Generic placeholder image"></a>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">
-                <a href="single.php" target="_self">DSLR is the most old camera at this time readmore about new
-                    products</a>
-            </h3>
-
-            <div class="media_social">
-                <span><i class="fa fa-comments-o"></i><a href="#">4</a> Comments</span>
-            </div>
-        </div>
-    </div>
-    <p class="widget_divider"><a href="#" target="_self">More News&nbsp;&nbsp;&raquo; </a></p>
-</div>
-<!-- Most Commented News -->
-
-<div class="widget m30">
-    <div class="widget_title widget_black">
-        <h2><a href="#">Editor Corner</a></h2>
-    </div>
-    <div class="widget_body"><img class="img-responsive left" src="/template/public/img/editor.jpg"
-                                  alt="Generic placeholder image">
-
-        <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
-            users after installed base benefits. Dramatically visualize customer directed convergence without</p>
-
-        <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
-            users after installed base benefits. Dramatically visualize customer directed convergence without
-            revolutionary ROI.</p>
-        <button class="btn pink">Read more</button>
-    </div>
-</div>
-<!-- Editor News -->
-
-<div class="widget hidden-xs m30">
-    <img class="img-responsive add_img" src="/template/public/img/right_add7.jpg" alt="add_one">
-    <img class="img-responsive add_img" src="/template/public/img/right_add7.jpg" alt="add_one">
-    <img class="img-responsive add_img" src="/template/public/img/right_add7.jpg" alt="add_one">
-    <img class="img-responsive add_img" src="/template/public/img/right_add7.jpg" alt="add_one">
-</div>
-<!--Advertisement -->
-
-<div class="widget m30">
-    <div class="widget_title widget_black">
-        <h2><a href="#">Readers Corner</a></h2>
-    </div>
-    <div class="widget_body"><img class="img-responsive left" src="/template/public/img/reader.jpg"
-                                  alt="Generic placeholder image">
-
-        <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
-            users after installed base benefits. Dramatically visualize customer directed convergence without</p>
-
-        <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
-            users after installed base benefits. Dramatically visualize customer directed convergence without
-            revolutionary ROI.</p>
-        <button class="btn pink">Read more</button>
-    </div>
-</div>
-<!--  Readers Corner News -->
-
-<div class="widget hidden-xs m30">
-    <img class="img-responsive widget_img" src="/template/public/img/podcast.jpg" alt="add_one">
-</div>
-<!--Advertisement-->
-</div>
-<!--Right Section-->
+<?php
+	require_once $_SERVER['DOCUMENT_ROOT']."/template/public/inc/rightsection.php";
+?>
 
 </div>
 <!-- row -->
