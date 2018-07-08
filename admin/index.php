@@ -1,11 +1,10 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/template/admin/inc/header.php'; ?>
 <?php
 	$queryQLDM = "SELECT\n"
-			. "  (SELECT COUNT(*) FROM cat_list) as DDM, \n"
-			. "  (SELECT COUNT(*) FROM news) as DT,\n"
-			. "  (SELECT COUNT(*) FROM user) as DU,\n"
-			//. "  (SELECT COUNT(*) FROM slides) as DS, \n"
-			. "  (SELECT COUNT(*) FROM comment) as DT";
+				. "(SELECT COUNT(*) FROM cat_list) as DDM,\n"
+				. "(SELECT COUNT(*) FROM news) as DT,\n"
+				. "(SELECT COUNT(*) FROM user) as DU,\n"
+				. "(SELECT COUNT(*) FROM comment) as DC";
 			$resultQLDM = $mysqli->query($queryQLDM);
 			if($rowDDM = mysqli_fetch_assoc($resultQLDM)){
 				
@@ -55,7 +54,7 @@
 									</span>
 									<div class="text-box">
 										<p class="main-text"><a href="/admin/comment/" title="">Quản lý bình luận</a></p>
-										<p>Có <?php echo $rowDDM['DT']; ?> bình luận</p>
+										<p>Có <?php echo $rowDDM['DC']; ?> bình luận</p>
 									</div>
 								</div>
 							</div>

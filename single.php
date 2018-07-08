@@ -8,6 +8,11 @@
 <div class="col-md-8">
 <?php
 	$id = $_GET['id'];
+	$queryGetCat = "SELECT cat_id FROM news WHERE id = {$id}";
+	$resultGetCat = $mysqli->query($queryGetCat);
+	if($rowGetCat = mysqli_fetch_assoc($resultGetCat)){
+		$idGetCat = $rowGetCat['cat_id'];
+	}
 	if(empty($id)){
 		header('location: index.php');
 	}
@@ -106,9 +111,11 @@
 						. "FROM news\n"
 						. "INNER JOIN cat_list ON cat_list.id = news.cat_id\n"
 						. "LEFT JOIN comment ON news.id = comment.news_id\n"
-						. "WHERE is_slide = 1 AND news.id <> (SELECT id FROM news WHERE date_create = (SELECT MAX(date_create) FROM news))\n"
+						. "WHERE is_slide = 1 AND news.id <> (SELECT id FROM news WHERE date_create = (SELECT MAX(date_create) FROM news)) \n"
+						. "AND cat_list.id = {$idGetCat} AND news.id <> {$id} \n"
+						. "OR cat_list.parent_id = {$idGetCat} AND is_slide = 1\n"
 						. "GROUP BY news.id\n"
-						. "ORDER BY view DESC\n"
+						. "ORDER BY newsid DESC\n"
 						. "LIMIT 4";
 		$resultRelated1 = $mysqli->query($queryRelated);
 		$resultRelated = $mysqli->query($queryRelated);
@@ -138,7 +145,7 @@
     <div class="row">
 	<?php
 		
-		if($dem%2 == 0){
+		if($dem%2 != 0){
 	?>
         <div class="col-md-6">
             <div class="media">
@@ -158,12 +165,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-	<?php
+		<?php
 		}else{
-	?>
-        <div class="col-md-6">
-            <div class="media">
+		?>
+			<div class="media">
                 <div class="media-left">
                     <a href="single.php?id=<?php echo $idRelated; ?>"><img class="popularlist" src="/files/newsIMG/<?php echo $pictureRelated; ?>"
                                      alt="Generic placeholder image"></a>

@@ -36,6 +36,9 @@
 		<div class="container-login100" style="background-image: url('/template/admin/assets/img/img-01.jpg');">
 			<div class="wrap-login100 p-t-190 p-b-30">
 			<?php
+				if(isset($_SESSION['userinfo'])) {
+					header("location: /admin/");
+				}
 				if(isset($_POST['submit'])){
 					$username = $_POST['username'];
 					$password = $_POST['password'];

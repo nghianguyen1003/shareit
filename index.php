@@ -11,7 +11,7 @@
 								. "preview, view, picture\n"
 								. "FROM news \n"
 								. "LEFT JOIN comment ON news.id = comment.news_id\n"
-								. "WHERE is_slide = 1 AND news.id = (SELECT MAX(id) FROM news)\n"
+								. "WHERE is_slide = 1\n"
 								. "GROUP BY newsid\n"
 								. "ORDER BY news.id DESC";
 					$resultNewest = $mysqli->query($queryNewest);
@@ -77,7 +77,10 @@
 									. "FROM news\n"
 									. "LEFT JOIN comment ON news.id = comment.news_id\n"
 									. "WHERE is_slide = 1 \n"
-									. "AND news.id <> (SELECT id FROM news WHERE date_create = (SELECT MAX(date_create) FROM news))\n"
+									. "AND news.id <> (SELECT id FROM news WHERE date_create = (SELECT MAX(date_create) FROM news)) \n"
+									. "AND (day(news.date_create) BETWEEN day(CURRENT_DATE - 1) AND day(CURRENT_DATE))\n"
+									. "AND (month(news.date_create) BETWEEN month(CURRENT_DATE - 1) AND month(CURRENT_DATE))\n"
+									. "AND (year(news.date_create) BETWEEN year(CURRENT_DATE - 1) AND year(CURRENT_DATE))\n"
 									. "GROUP BY newsid\n"
 									. "ORDER BY view DESC\n"
 									. "LIMIT 2";
@@ -174,18 +177,22 @@
 							. "FROM news\n"
 							. "INNER JOIN cat_list ON cat_list.id = news.cat_id\n"
 							. "LEFT JOIN comment ON news.id = comment.news_id\n"
-							. "WHERE cat_id = {$idFor} AND is_slide = 1\n"
+							. "WHERE cat_id = {$idFor} AND is_slide = 1 AND cat_list.parent_id = 0 \n"
+							. "OR cat_list.parent_id = {$idFor} AND is_slide = 1\n"
 							. "GROUP BY news.id\n"
 							. "ORDER BY newsid DESC\n"
 							. "LIMIT 4";
 					$resultCat = $mysqli->query($queryCat);
-					$resultCat1 = $mysqli->query($queryCat);
+					
+					$queryCat1 = "SELECT name, id FROM cat_list WHERE id = {$idFor} AND parent_id = 0";
+					$resultCat1 = $mysqli->query($queryCat1);
 					if($rowCat1 = mysqli_fetch_assoc($resultCat1)){
-						$catname = $rowCat1['catname'];
+						$catname1 = $rowCat1['name'];
+						$catid1 = $rowCat1['id'];
 				?>
                     <div class="category_section camera">
                         <div class="article_title header_orange">
-                            <h2><a href="category.html" target="_self"><?php echo $catname; ?></a></h2>
+                            <h2><a href="category.php?id=<?php echo $catid1; ?>" target="_self"><?php echo $catname1; ?></a></h2>
                         </div>
                         <!-- article_title -->
 					<?php
@@ -197,6 +204,7 @@
 						$preview = $rowCat2['preview'];
 						$view = $rowCat2['view'];
 						$comment = $rowCat2['countcm'];
+						$catname = $rowCat2['catname'];
 					?>
                         <div class="category_article_wrapper">
                             <div class="row">

@@ -74,7 +74,7 @@ h1 {
 
 h2 {
     font-size: 20px;
-    line-height: 26px;
+    line-height: 22px;
     font-weight: 700;
 }
 
@@ -700,11 +700,15 @@ section {
     padding: 15px 30px;
     left: 10%;
     width: 80%;
+	opacity: 0.9;
 }
 
 .feature_article_content {
     margin-top: 10px;
     font-size: 15px;
+	height: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .feature_article_date {
@@ -931,8 +935,11 @@ section {
 }
 
 .category_article_content {
-    margin-top      : 20px;
-    font-size       : 15px;
+    margin-top: 2px;
+    font-size: 15px;
+	height: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .category_article_date:after {
