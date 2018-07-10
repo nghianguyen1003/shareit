@@ -16,6 +16,10 @@
 										. "INNER JOIN cat_list ON cat_list.id = news.cat_id\n"
 										. "LEFT JOIN comment ON news.id = comment.news_id\n"
 										. "WHERE is_slide = 1 AND news.id <> (SELECT id FROM news WHERE date_create = (SELECT MAX(date_create) FROM news))\n"
+										. "AND news.id <> (SELECT id FROM news WHERE date_create = (SELECT MAX(date_create) FROM news)) \n"
+										. "AND (day(news.date_create) BETWEEN day(CURRENT_DATE - 3) AND day(CURRENT_DATE))\n"
+										. "AND (month(news.date_create) BETWEEN month(CURRENT_DATE - 3) AND month(CURRENT_DATE))\n"
+										. "AND (year(news.date_create) BETWEEN year(CURRENT_DATE - 3) AND year(CURRENT_DATE))\n"
 										. "GROUP BY news.id\n"
 										. "ORDER BY view DESC\n"
 										. "LIMIT 4";
@@ -29,6 +33,9 @@
 										. "INNER JOIN cat_list ON cat_list.id = news.cat_id\n"
 										. "LEFT JOIN comment ON news.id = comment.news_id\n"
 										. "WHERE is_slide = 1 AND news.id <> (SELECT id FROM news WHERE date_create = (SELECT MAX(date_create) FROM news)) AND news.id <> {$id}\n"
+										. "AND (day(news.date_create) BETWEEN day(CURRENT_DATE - 3) AND day(CURRENT_DATE))\n"
+										. "AND (month(news.date_create) BETWEEN month(CURRENT_DATE - 3) AND month(CURRENT_DATE))\n"
+										. "AND (year(news.date_create) BETWEEN year(CURRENT_DATE - 3) AND year(CURRENT_DATE))\n"
 										. "GROUP BY news.id\n"
 										. "ORDER BY view DESC\n"
 										. "LIMIT 4";
