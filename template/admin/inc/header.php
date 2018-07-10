@@ -36,6 +36,12 @@
 
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="/template/admin/assets/js/paper-dashboard.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+	<script>
+	  $.validate({
+		lang: 'es'
+	  });
+	</script>
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="/template/admin/assets/js/demo.js"></script>

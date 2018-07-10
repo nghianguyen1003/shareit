@@ -97,9 +97,9 @@ h5 {
 }
 
 h6 {
-    font-size: 15px;
+    font-size: 17px;
     line-height: 17px;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 
@@ -1058,8 +1058,8 @@ section {
 }
 
 .entity_content{
-    margin-top: 30px;
-    margin-bottom: 30px;
+    /*margin-top: 30px;
+    margin-bottom: 30px;*/
 }
 
 .entity_content blockquote {

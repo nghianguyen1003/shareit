@@ -1387,6 +1387,7 @@ img {
     vertical-align: middle;
 }
 
+/*Bắt đầu phần css tự tạo*/
 .newsest{
 	width: 650px;
     height: 570px;
@@ -1416,6 +1417,85 @@ img {
 	width: 750px;
     height: 468.75px;
 }
+
+.catimg{
+	width: 750px;
+	height: 468.75px;
+}
+
+.catlistimg{
+	width: 350px;
+	height: 186px;
+}
+
+.fixp{
+	margin: 0 0 10px;
+    /*position: absolute;*/
+    /*top: 257px;*/
+}
+
+.fixrow{
+	margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 28px;
+}
+
+.fixviewcomment {
+    margin-top: 10px;
+    color: #000;
+}
+
+.fixviewcomment i {
+    padding: 5px;
+    margin-right: 5px;
+    color: #fff;
+    font-size: 10px;
+    background-color: #a5a5a5;
+}
+
+.fixviewcomment span {
+    color: #a5a5a5;
+    margin-right: 10px;
+}
+
+.fixviewcomment a {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.fixviewcomment .reply_ic {
+    padding: 4px;
+    margin-right: 5px;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    width: 22px;
+    background-color: #a5a5a5;
+}
+
+@media screen and (max-width: 768px) {
+    .fixviewcomment{
+        margin-top: 10px;
+    }
+    .fixviewcomment span{
+        font-size: 11px;
+    }
+}
+
+.fixcol-md-6{
+	position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+	float: left;
+	width: 50%;
+	height: 360px;
+}
+
+.fixentity_content{
+	width: 650px;
+}
+/*Kết thúc phần css tự tạo*/
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
     display: block;
@@ -1532,7 +1612,7 @@ hr {
 }
 
 p {
-    margin: 0 0 10px
+    margin: 0 0 10px;
 }
 
 .lead {
@@ -1885,7 +1965,7 @@ pre code {
 
 .row {
     margin-right: -15px;
-    margin-left: -15px
+    margin-left: -15px;
 }
 
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {

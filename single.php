@@ -65,7 +65,7 @@
     </div>
     <!-- entity_thumb -->
 
-    <div class="entity_content">
+    <div class="fixentity_content">
         <p>
             <?php echo $detailMain; ?>
         </p>

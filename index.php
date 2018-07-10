@@ -90,7 +90,7 @@
 							$idViewest = $rowViewest['newsid'];
 							$pictureViewest = $rowViewest['picture'];
 							$nameViewest = $rowViewest['newsname'];
-							$motaViewest = $rowViewest['preview'];
+							$motaViewest = $rowViewest['preview']."..";
 							$viewViewest = $rowViewest['view'];
 							$dateViewest = date('d-m-Y', strtotime($rowViewest['newsdate']));
 							$commentViewest = $rowViewest['countcom'];
@@ -201,7 +201,7 @@
 						$picture = $rowCat2['picture'];
 						$newsname = $rowCat2['newsname'];
 						$date_create = date('d-m-Y', strtotime($rowCat2['newsdate']));
-						$preview = $rowCat2['preview'];
+						$preview = $rowCat2['preview']."...";
 						$view = $rowCat2['view'];
 						$comment = $rowCat2['countcm'];
 						$catname = $rowCat2['catname'];
@@ -250,7 +250,7 @@
 					<?php
 						}
 					?>
-                        <p class="divider"><a href="#">More News&nbsp;&raquo;</a></p>
+                        <p class="divider"><a href="category.php?id=<?php echo $catid1; ?>">More News&nbsp;&raquo;</a></p>
                     </div>
 					<?php
 					}
