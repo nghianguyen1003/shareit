@@ -27,11 +27,6 @@
 				echo '<option value="'.$item['id'].'">';
 					echo $char. $item['name'];
 				echo '</option>';
-				 
-				// Xóa chuyên mục đã lặp
-				//unset($categories[$key]);
-				 
-				// Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
 			showCategories($categories, $item['id'], $char.'☺☺☺');
 			}
 		}
@@ -77,7 +72,6 @@
                                     <thead>
                                         <th>ID</th>
                                     	<th>Tên danh mục</th>
-                                    	<th>ID danh mục cha</th>
                                     	<th>Chức năng</th>
                                     </thead>
                                     <tbody>
@@ -112,7 +106,6 @@
 													echo '</ul>';
 												?>
 											</td>
-                                        	<td><?php echo $parent_id; ?></td>
                                         	<td>
                                         		<a href="<?php echo $urlEdit;?>" class="btn btn-primary square-btn-adjust"> Sửa</a> &nbsp;||&nbsp;
                                         		<a onclick="return checkDelete(<?php echo $id; ?>);" href="" class="btn btn-danger square-btn-adjust"> Xóa</a>

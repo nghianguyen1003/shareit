@@ -90,12 +90,16 @@
 						<?php
 							if(empty($_GET['id'])){
 								$queryMostCm = "SELECT news.id AS newsid, name, news_id,\n"
-										. "COUNT(comment.id) AS countcm, picture\n"
-										. "FROM news\n"
-										. "INNER JOIN comment ON news.id = comment.news_id\n"
-										. "WHERE is_slide = 1\n"
-										. "GROUP BY news_id\n"
-										. "LIMIT 4";
+											. "COUNT(comment.id) AS countcm, picture\n"
+											. "FROM news\n"
+											. "INNER JOIN comment ON news.id = comment.news_id\n"
+											. "AND (day(news.date_create) BETWEEN day(CURRENT_DATE - 3) AND day(CURRENT_DATE))\n"
+											. "AND (month(news.date_create) BETWEEN month(CURRENT_DATE - 3) AND month(CURRENT_DATE))\n"
+											. "AND (year(news.date_create) BETWEEN year(CURRENT_DATE - 3) AND year(CURRENT_DATE))\n"
+											. "WHERE is_slide = 1\n"
+											. "GROUP BY news_id\n"
+											. "ORDER BY countcm DESC\n"
+											. "LIMIT 4";
 							}
 							else{
 								$id = $_GET['id'];
@@ -104,7 +108,11 @@
 										. "FROM news\n"
 										. "INNER JOIN comment ON news.id = comment.news_id\n"
 										. "WHERE is_slide = 1 AND news.id <> {$id}\n"
+										. "AND (day(news.date_create) BETWEEN day(CURRENT_DATE - 3) AND day(CURRENT_DATE))\n"
+										. "AND (month(news.date_create) BETWEEN month(CURRENT_DATE - 3) AND month(CURRENT_DATE))\n"
+										. "AND (year(news.date_create) BETWEEN year(CURRENT_DATE - 3) AND year(CURRENT_DATE))\n"
 										. "GROUP BY news_id\n"
+										. "ORDER BY countcm DESC\n"
 										. "LIMIT 4";
 							}
 							$resultMostCm = $mysqli->query($queryMostCm);

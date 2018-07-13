@@ -99,14 +99,14 @@
 					?>
                         <div class="col-md-5">
                             <div class="feature_static_wrapper">
-                                <?php
-								}else if($dem == 2){
-						?>
-                                    <div class="col-md-5">
-                                        <div class="feature_static_last_wrapper">
-                                            <?php
-								}
-						?>
+						<?php
+						}else if($dem == 2){
+				?>
+							<div class="col-md-5">
+								<div class="feature_static_last_wrapper">
+									<?php
+						}
+				?>
                                             <div class="feature_article_img">
                                                 <img class="viewest" src="/files/newsIMG/<?php echo $pictureViewest; ?>" alt="feature-top">
                                             </div>

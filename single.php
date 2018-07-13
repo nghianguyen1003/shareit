@@ -1,7 +1,6 @@
 <?php
 	require_once $_SERVER['DOCUMENT_ROOT']."/template/public/inc/header.php";
 ?>
-
 <section id="entity_section" class="entity_section">
 <div class="container">
 <div class="row">
@@ -100,6 +99,9 @@
 </div>
 <?php
 	}
+	$viewMain+=1;
+	$queryView = "UPDATE news SET view = {$viewMain} WHERE id = {$id}";
+	$resultView = $mysqli->query($queryView);
 ?>
 
 <div class="related_news">
@@ -206,78 +208,79 @@
         <h2>Readers Comment</h2>
     </div>
     <!-- entity_title -->
+	
+	<div class="srollbar">
+		<?php
+			$queryComment = "SELECT comment.id AS cmtid, comment.parent_id AS cmtparent, \n"
+						. "content, email, comment.date_create AS cmtdate, comment.name AS cmtname FROM comment\n"
+						. "INNER JOIN news ON news.id = comment.news_id\n"
+						. "WHERE news.id = {$id} AND comment.parent_id = 0 AND comment.status = 1";
+			$resultComment = $mysqli->query($queryComment);
+			while($rowComment = mysqli_fetch_assoc($resultComment)){
+				$nameComment = $rowComment['cmtname'];
+				$idComment = $rowComment['cmtid'];
+				$contentComment = $rowComment['content'];
+				$date_createComment = date('d-m-Y', strtotime($rowComment['cmtdate']));
+		?>
+		<div class="cmt comment">
+			<div class="media-left">
+				<a href="#">
+					<img alt="64x64" class="media-object" data-src="/template/public/img/reader_img1.jpg"
+						 src="/template/public/img/reader_img1.jpg" data-holder-rendered="true">
+				</a>
+			</div>
+			<div class="media-body">
+				<h2 class="media-heading"><a href="#"><?php echo $nameComment; ?></a></h2><span><?php echo $date_createComment; ?></span><br/>
+				<?php echo $contentComment; ?>
 
-    <div class="media">
-        <div class="media-left">
-            <a href="#">
-                <img alt="64x64" class="media-object" data-src="/template/public/img/reader_img1.jpg"
-                     src="/template/public/img/reader_img1.jpg" data-holder-rendered="true">
-            </a>
-        </div>
-        <div class="media-body">
-            <h2 class="media-heading"><a href="#">Sr. Ryan</a></h2>
-            But who has any right to find fault with a man who chooses to enjoy a pleasure that has
-            no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+				<div class="entity_vote">
+					<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
+					<a href="javascript:void(0)"><span class="reply_ic" onClick="return getReply(<?php echo $idComment; ?>);">Reply </span></a>
+				</div>
+				<?php
+					$queryCommentChild = "SELECT * FROM `comment` WHERE parent_id = {$idComment} AND status = 1";
+					$resultCommentChild = $mysqli->query($queryCommentChild);
+					while($queryCommentChild = mysqli_fetch_assoc($resultCommentChild)){
+						$nameCommentChild = $queryCommentChild['name'];
+						$contentCommentChild = $queryCommentChild['content'];
+						$date_createCommentChild = date('d-m-Y', strtotime($queryCommentChild['date_create']));
+				?>
+				<div class="cmt reply1">
+					<div class="media-left">
+						<a href="#">
+							<img alt="64x64" class="media-object" data-src="/template/public/img/reader_img2.jpg"
+								 src="/template/public/img/reader_img2.jpg" data-holder-rendered="true">
+						</a>
+					</div>
+					<div class="media-body">
+						<h2 class="media-heading"><a href="#"><?php echo $nameCommentChild; ?></a></h2><span><?php echo $date_createCommentChild; ?></span><br/>
+						<?php echo $contentCommentChild; ?>
 
-            <div class="entity_vote">
-                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
-                <a href="#"><span class="reply_ic">Reply </span></a>
-            </div>
-            <div class="media">
-                <div class="media-left">
-                    <a href="#">
-                        <img alt="64x64" class="media-object" data-src="/template/public/img/reader_img2.jpg"
-                             src="/template/public/img/reader_img2.jpg" data-holder-rendered="true">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h2 class="media-heading"><a href="#">Admin</a></h2>
-                    But who has any right to find fault with a man who chooses to enjoy a pleasure
-                    that has no annoying consequences, or one who avoids a pain that produces no
-                    resultant pleasure?
+						<div class="entity_vote">
+							<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+							<a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+				<?php
+					}
+				?>
+				<form class="reply-form<?php echo $idComment; ?>">
+					
+				</form>
+			</div>
 
-                    <div class="entity_vote">
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
-                        <a href="#"><span class="reply_ic">Reply </span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- media end -->
-
-    <div class="media">
-        <div class="media-left">
-            <a href="#">
-                <img alt="64x64" class="media-object" data-src="/template/public/img/reader_img3.jpg"
-                     src="/template/public/img/reader_img3.jpg" data-holder-rendered="true">
-            </a>
-        </div>
-        <div class="media-body">
-            <h2 class="media-heading"><a href="#">S. Joshep</a></h2>
-            But who has any right to find fault with a man who chooses to enjoy a pleasure that has
-            no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-
-            <div class="entity_vote">
-                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
-                <a href="#"><span class="reply_ic">Reply </span></a>
-            </div>
-        </div>
-    </div>
-    <!-- media end -->
+		</div>
+		<?php
+			}
+		?>
+	</div>
 </div>
+
 <!--Readers Comment-->
 
-<div class="widget_advertisement">
-    <img class="img-responsive" src="/template/public/img/category_advertisement.jpg" alt="feature-top">
-</div>
-<!--Advertisement-->
-
-<div class="entity_comments">
+<div class="entity_comments" id="commentsform">
     <div class="entity_inner__title header_black">
         <h2>Add a Comment</h2>
     </div>
@@ -286,16 +289,15 @@
     <div class="entity_comment_from">
         <form>
             <div class="form-group">
-                <input type="text" class="form-control" id="inputName" placeholder="Name">
+                <input required type="text" name="name" class="form-control" id="name" placeholder="Name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                <input required type="text" name="email" class="form-control" id="email" placeholder="Email">
             </div>
             <div class="form-group comment">
-                <textarea class="form-control" id="inputComment" placeholder="Comment"></textarea>
+                <textarea required class="form-control" name="comment" id="comment" placeholder="Comment"></textarea>
             </div>
-
-            <button type="submit" class="btn btn-submit red">Submit</button>
+            <button onClick="return getComment();" type="submit" name="submit" class="btn btn-submit red">Submit</button>
         </form>
     </div>
     <!--Entity Comments From -->
@@ -317,29 +319,81 @@
 <!-- container -->
 
 </section>
-<!-- Entity Section Wrapper -->
 
-<section id="subscribe_section" class="subscribe_section">
-    <div class="row">
-        <form action="#" method="post" class="form-horizontal">
-            <div class="form-group form-group-lg">
-                <label class="col-sm-6 control-label" for="formGroupInputLarge">
-                    <h1><span class="red-color">Sign up</span> for the latest news</h1>
-                </label>
-
-                <div class="col-sm-3">
-                    <input type="text" id="subscribe" name="subscribe" class="form-control input-lg">
-                </div>
-                <div class="col-sm-1">
-                    <input type="submit" value="Sign Up" class="btn btn-large pink">
-                </div>
-                <div class="col-sm-2"></div>
-            </div>
-        </form>
-    </div>
-</section>
 <!-- Subscriber Section -->
+<script>
+	function getComment(){
+	name = $('#name').val();
+	email = $('#email').val();
+	comment = $('#comment').val();
+	idnews = <?php echo $id; ?>;
+	$.ajax({
+		url: '/template/public/ajax/resultComment.php',
+		type: 'POST',
+		cache: false,
+		data: {
+			nameajax: name, 
+			emailajax: email,
+			commentajax: comment,
+			idajax: idnews,
+		},
+		success: function(data){
+			$('.cmt:eq(0)').before(data);
+		},
+		error: function (){
+			alert('Có lỗi xảy ra');
+		}
+	});
+	alert('QUẢN TRỊ VIÊN ĐANG XEM XÉT BÌNH LUẬN CỦA BẠN');
+	return false;
+}
 
+function getReply(idComment){
+	$.ajax({
+		url: '/template/public/ajax/resultReply.php',
+		type: 'POST',
+		cache: false,
+		data: {
+			idCommentAjax: idComment,
+		},
+		success: function(data){
+			$('.reply-form'+idComment).html(data);
+		},
+		error: function (){
+			alert('Có lỗi xảy ra');
+		}
+	});
+	return false;
+}
+
+function getReplyComment(){
+	name = $('#nameReply').val();
+	email = $('#emailReply').val();
+	comment = $('#commentReply').val();
+	idComment = <?php echo $idComment; ?>;
+	idnews = <?php echo $id; ?>;
+	$.ajax({
+		url: '/template/public/ajax/resultReplySubmit.php',
+		type: 'POST',
+		cache: false,
+		data: {
+			nameAjax: name, 
+			emailAjax: email,
+			commentAjax: comment,
+			idCommentAjax: idComment,
+			idAjax: idnews,
+		},
+		success: function(data){
+			$('.reply1').before(data);
+		},
+		error: function (){
+			alert('Có lỗi xảy ra');
+		}
+	});
+	alert('QUẢN TRỊ VIÊN ĐANG XEM XÉT BÌNH LUẬN CỦA BẠN');
+	return false;
+}
+</script>
 <?php
 	require_once $_SERVER['DOCUMENT_ROOT']."/template/public/inc/footer.php";
 ?>

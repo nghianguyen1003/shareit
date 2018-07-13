@@ -5,9 +5,18 @@ $results = $mysqli->query($query);
 echo '<ul class="nav navbar-nav main-nav">';
 if (mysqli_num_rows($results) > 0) {
 	while ($row = mysqli_fetch_assoc($results)) {
-		echo '<li class="dropdown m-menu-fw"><a href="category.php?id='.$row['id'].'"dropdown-toggle">' . $row['name'] . '<span><i class="fa fa-angle-down"></i></span></a>';
-		getSubmenu($row['id']);
-		echo '</li>';
+		$query1 = "SELECT * FROM cat_list WHERE parent_id = ".$row['id'];
+		$submenu = $mysqli->query($query1);
+		if(mysqli_num_rows($submenu) == 0){
+			echo '<li class="dropdown m-menu-fw"><a href="category.php?id='.$row['id'].'" class="dropdown-toggle">' . $row['name'] . '<span><i></i></span></a>';
+			getSubmenu($row['id']);
+			echo '</li>';
+		}else{
+			echo '<li class="dropdown m-menu-fw"><a href="category.php?id='.$row['id'].'" class="dropdown-toggle">' . $row['name'] . '<span><i class="fa fa-angle-down"></i></span></a>';
+			getSubmenu($row['id']);
+			echo '</li>';
+		}
+		
 	}
 }
 echo '</ul>';

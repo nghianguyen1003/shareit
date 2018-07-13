@@ -7,7 +7,7 @@
 	}
 ?>
 <?php
-	$query = "SELECT * FROM cat_list";
+	$query = "SELECT * FROM cat_list WHERE parent_id = 0";
 	$result = $mysqli->query($query);
 	$categories = array();
 	while ($row = mysqli_fetch_assoc($result)){

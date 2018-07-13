@@ -1472,6 +1472,11 @@ img {
     width: 22px;
     background-color: #a5a5a5;
 }
+.srollbar{
+	width: 740px;
+    height: 320px;
+    overflow: scroll;
+}
 
 @media screen and (max-width: 768px) {
     .fixviewcomment{
