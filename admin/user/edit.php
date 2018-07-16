@@ -5,6 +5,10 @@
 	if(isset($_GET['msg'])){
 		echo '<script>alert("'.$_GET['msg'].'")</script>';
 	}
+	$user = $_SESSION['userinfo'];
+	if($user['active'] == 2){
+		header('location: /admin/');
+	}
 ?>
         <div class="content">
             <div class="container-fluid">

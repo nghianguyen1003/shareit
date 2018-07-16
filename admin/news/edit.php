@@ -5,6 +5,16 @@
 	if(isset($_GET['msg'])){
 		echo '<script>alert("'.$_GET['msg'].'")</script>';
 	}
+	
+	$id = $_GET['id'];
+	
+	$user = $_SESSION['userinfo'];
+	$idUser = $user['id'];
+	$queryUser = "SELECT * FROM news WHERE created_by = {$idUser} AND id = {$id}";
+	$resultUser = $mysqli->query($queryUser);
+	if(mysqli_num_rows($resultUser) <= 0){
+		header('location: /admin/news/');
+	}
 ?>
 <?php
 	$query = "SELECT * FROM cat_list";
@@ -43,7 +53,7 @@
                             </div>
                             <div class="content">
 							<?php
-								$id = $_GET['id'];
+								
 								if(empty($id)){
 									header('location: index.php');
 								}

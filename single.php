@@ -211,6 +211,7 @@
 	
 	<div class="srollbar">
 		<?php
+			$idComment = 0;
 			$queryComment = "SELECT comment.id AS cmtid, comment.parent_id AS cmtparent, \n"
 						. "content, email, comment.date_create AS cmtdate, comment.name AS cmtname FROM comment\n"
 						. "INNER JOIN news ON news.id = comment.news_id\n"

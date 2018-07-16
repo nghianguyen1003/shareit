@@ -1,28 +1,40 @@
 <?php 
+	session_start();
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/DbConnectionUtil.php';
 	
-	if(empty($_GET['id'])){
-		header('location: /admin/news');
-	}
-	else{
-		$id = $_GET['id'];
-		$queryPicture = "SELECT picture FROM news WHERE id = {$id}";
-		$resultPicture = $mysqli->query($queryPicture);
-		if($resultPicture){
-			$row = mysqli_fetch_assoc($resultPicture);
-			$tenFile = $row['picture'];
-			$path_root = $_SERVER['DOCUMENT_ROOT'];
-			$path_upload = $path_root . "/files/newsIMG/" . $tenFile;
-			unlink($path_upload);
+	$id = $_GET['id'];
+	$user = $_SESSION['userinfo'];
+	$idUser = $user['id'];
+	$queryUser = "SELECT * FROM news WHERE created_by = {$idUser} AND id = {$id}";
+	$resultUser = $mysqli->query($queryUser);
+	if(mysqli_num_rows($resultUser) <= 0){
+		header('location: /admin/news/');
+	}else{
+		if(empty($_GET['id'])){
+			header('location: /admin/news');
 		}
-		$query = "DELETE FROM news WHERE id = {$id}";
-		$result = $mysqli->query($query);
-		if($result){
-			header('location: /admin/news/index.php?msg=Xóa thành công');
-		}else{
-			header('location: /admin/news/index.php?msg=Xóa thất bại');
+		else{
+			$id = $_GET['id'];
+			$queryPicture = "SELECT picture FROM news WHERE id = {$id}";
+			$resultPicture = $mysqli->query($queryPicture);
+			if($resultPicture){
+				$row = mysqli_fetch_assoc($resultPicture);
+				$tenFile = $row['picture'];
+				$path_root = $_SERVER['DOCUMENT_ROOT'];
+				$path_upload = $path_root . "/files/newsIMG/" . $tenFile;
+				unlink($path_upload);
+			}
+			$query = "DELETE FROM news WHERE id = {$id}";
+			$result = $mysqli->query($query);
+			if($result){
+				header('location: /admin/news/index.php?msg=Xóa thành công');
+			}else{
+				header('location: /admin/news/index.php?msg=Xóa thất bại');
+			}
 		}
 	}
+	
+	
 /*Xóa tin:
 	Kiểm tra tin hiện tại đang xóa có file không???
 	select *  from story where id = $_get['id'];

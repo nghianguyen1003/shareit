@@ -31,6 +31,10 @@
 			}
 		}
 	}
+	$user = $_SESSION['userinfo'];
+	if($user['active'] == 2){
+		header('location: /admin/');
+	}
 ?>
         <div class="content">
             <div class="container-fluid">

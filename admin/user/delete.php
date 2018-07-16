@@ -3,7 +3,10 @@
 	ob_start();
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/DbConnectionUtil.php';
 	$id = $_GET['id'];
-	
+	$user = $_SESSION['userinfo'];
+	if($user['active'] == 2){
+		header('location: /admin/');
+	}
 	$query2 = 'SELECT * FROM user WHERE id = '.$id;
 	$result2 = $mysqli->query($query2);
 	$arUser = mysqli_fetch_assoc($result2);
@@ -27,6 +30,8 @@
 			die();
 		}
 	}
+	
+	
 	
 	
 	

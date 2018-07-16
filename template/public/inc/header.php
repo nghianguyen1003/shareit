@@ -2,6 +2,7 @@
 	ob_start();
 	session_start();
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/DbConnectionUtil.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/util/ConstantUtil.php';
 ?>
 <?php
 function sw_get_current_weekday() {

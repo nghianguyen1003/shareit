@@ -10,6 +10,10 @@ function reloadName(){
 		echo $_POST['catname'];
 	}
 }
+	$user = $_SESSION['userinfo'];
+	if($user['active'] == 2){
+		header('location: /admin/');
+	}
 ?>
 <?php
 	$query = "SELECT * FROM cat_list WHERE parent_id = 0";

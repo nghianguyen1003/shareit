@@ -1,11 +1,16 @@
+<?php
+	$user = $_SESSION['userinfo'];
+	if($user['active'] == 2){
+		$display = "none";
+	}
+?>
 <div class="sidebar" data-background-color="white" data-active-color="danger">
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://vinaenter.edu.vn" class="simple-text">AdminCP</a>
             </div>
-
             <ul class="nav">
-            	<li class="active">
+            	<li class="active" style="display:<?php echo $display; ?>">
                     <a href="/admin/cat/">
                         <i class="ti-map"></i>
                         <p>Danh mục tin tức</p>
@@ -23,7 +28,7 @@
                         <p>Danh sách bình luận</p>
                     </a>
                 </li>
-                <li>
+                <li style="display:<?php echo $display; ?>">
                     <a href="/admin/user/">
                         <i class="ti-user"></i>
                         <p>Danh sách người dùng</p>

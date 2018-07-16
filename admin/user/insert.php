@@ -19,6 +19,10 @@ function reloadFullname(){
 		echo $_POST['fullname'];
 	}
 }
+$user = $_SESSION['userinfo'];
+	if($user['active'] == 2){
+		header('location: /admin/');
+	}
 ?>
         <div class="content">
             <div class="container-fluid">

@@ -35,6 +35,28 @@
 			echo '/template/admin/assets/img/cancel.png';
 		}
 	}
+	
+	//-----------------------------------------------
+	$user = $_SESSION['userinfo'];
+	$id = $user['id'];
+	if($user['active'] == 1){
+		$queryTSD = "SELECT COUNT(*) AS TSD FROM news";
+	}else{
+		$queryTSD = "SELECT COUNT(*) AS TSD FROM news WHERE created_by = {$id}";
+	}
+	
+	$resultTSD = $mysqli->query($queryTSD);
+	$arTmp = mysqli_fetch_assoc($resultTSD);
+	$tongSoDong = $arTmp['TSD'];
+	//số truyện trên 1 trang
+	$row_count = ROW_COUNT;
+	//Số Trang
+	$tongSoTrang = ceil($tongSoDong/$row_count);
+	$current_page = 1;
+	if(isset($_GET['page'])){
+		$current_page = $_GET['page'];
+	}
+	$offset = ($current_page - 1) * $row_count;
 ?>
 <script> //-----------------------------------JS---------------------------------------
 	function checkDelete(id){
@@ -123,14 +145,28 @@
                                     </thead>
                                     <tbody>
 									<?php
-										$query = "SELECT news.id AS newsid, \n"
+										
+										if($user['active'] == 1){
+											$query = "SELECT news.id AS newsid, \n"
 												. "news.name AS newsname, \n"
 												. "preview, news.picture as newspicture, \n"
 												. "cat_list.name as catname, username, is_slide \n"
 												. "FROM news\n"
 												. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
 												. "INNER JOIN user ON news.created_by = user.id\n"
-												. "ORDER BY news.id DESC";
+												. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
+										}else{
+											$query = "SELECT news.id AS newsid, \n"
+												. "news.name AS newsname, \n"
+												. "preview, news.picture as newspicture, \n"
+												. "cat_list.name as catname, username, is_slide \n"
+												. "FROM news\n"
+												. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
+												. "INNER JOIN user ON news.created_by = user.id\n"
+												. "WHERE created_by = {$id}\n"
+												. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
+										}
+										
 										$result = $mysqli->query($query);
 										while($row = mysqli_fetch_assoc($result)){
 											$id = $row['newsid'];
@@ -168,10 +204,17 @@
 
 								<div class="text-center">
 								    <ul class="pagination">
-								        <li><a href="?p=0" title="">1</a></li> 
-								        <li><a href="?p=1" title="">2</a></li> 
-								        <li><a href="?p=1" title="">3</a></li> 
-								        <li><a href="?p=1" title="">4</a></li> 
+										<?php
+											for($i = 1; $i <= $tongSoTrang; $i++){
+												$active = '';
+												if($i == $current_page){
+													$active = 'active';
+												}
+										?>
+											<li class="<?php echo $active; ?>"><a href="index.php?page=<?php echo $i; ?>" title=""><?php echo $i; ?></a></li> 
+										<?php
+											}
+										?>
 								    </ul>
 								</div>
                             </div>

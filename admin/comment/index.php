@@ -12,6 +12,21 @@
 			echo '/template/admin/assets/img/cancel.png';
 		}
 	}
+	
+	//-----------------------------------------------
+	$queryTSD = "SELECT COUNT(*) AS TSD FROM comment";
+	$resultTSD = $mysqli->query($queryTSD);
+	$arTmp = mysqli_fetch_assoc($resultTSD);
+	$tongSoDong = $arTmp['TSD'];
+	//số truyện trên 1 trang
+	$row_count = ROW_COUNT;
+	//Số Trang
+	$tongSoTrang = ceil($tongSoDong/$row_count);
+	$current_page = 1;
+	if(isset($_GET['page'])){
+		$current_page = $_GET['page'];
+	}
+	$offset = ($current_page - 1) * $row_count;
 ?>
 <script>
 	function getStatus(status, cls){
@@ -32,6 +47,8 @@
 		});
 		return false;
 	}
+	
+	
 </script>
         <div class="content">
             <div class="container-fluid">
@@ -75,7 +92,7 @@
 												. "content, news.name as newsname, status, \n"
 												. "comment.date_create as date, email FROM comment \n"
 												. "INNER JOIN news ON news.id = comment.news_id\n"
-												. "ORDER BY comment.id DESC";
+												. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
 
 										$result = $mysqli->query($query);
 										while($row = mysqli_fetch_assoc($result)){
@@ -107,10 +124,17 @@
 
 								<div class="text-center">
 								    <ul class="pagination">
-								        <li><a href="?p=0" title="">1</a></li> 
-								        <li><a href="?p=1" title="">2</a></li> 
-								        <li><a href="?p=1" title="">3</a></li> 
-								        <li><a href="?p=1" title="">4</a></li> 
+								       <?php
+											for($i = 1; $i <= $tongSoTrang; $i++){
+												$active = '';
+												if($i == $current_page){
+													$active = 'active';
+												}
+										?>
+											<li class="<?php echo $active; ?>"><a href="index.php?page=<?php echo $i; ?>" title=""><?php echo $i; ?></a></li> 
+										<?php
+											}
+										?>
 								    </ul>
 								</div>
                             </div>

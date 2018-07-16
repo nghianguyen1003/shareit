@@ -1,3 +1,3 @@
 <?php
-	define('ROW_COUNT', 5);
+	define('ROW_COUNT', 10);
 ?>

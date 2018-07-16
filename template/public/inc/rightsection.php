@@ -89,7 +89,7 @@
                         </div>
 						<?php
 							if(empty($_GET['id'])){
-								$queryMostCm = "SELECT news.id AS newsid, name, news_id,\n"
+								$queryMostCm = "SELECT news.id AS newsid, news.name AS newsname, news_id,\n"
 											. "COUNT(comment.id) AS countcm, picture\n"
 											. "FROM news\n"
 											. "INNER JOIN comment ON news.id = comment.news_id\n"
@@ -103,7 +103,7 @@
 							}
 							else{
 								$id = $_GET['id'];
-								$queryMostCm = "SELECT news.id AS newsid, name, news_id,\n"
+								$queryMostCm = "SELECT news.id AS newsid, news.name AS newsname, news_id,\n"
 										. "COUNT(comment.id) AS countcm, picture\n"
 										. "FROM news\n"
 										. "INNER JOIN comment ON news.id = comment.news_id\n"
@@ -119,7 +119,7 @@
 							while($rowMostCm = mysqli_fetch_assoc($resultMostCm)){
 								$idMostCm = $rowMostCm['newsid'];
 								$pictureMostCm = $rowMostCm['picture'];
-								$nameMostCm = $rowMostCm['name'];
+								$nameMostCm = $rowMostCm['newsname'];
 								$commentMostCm = $rowMostCm['countcm'];
 						?>
                         <div class="media">
