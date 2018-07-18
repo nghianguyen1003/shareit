@@ -8,26 +8,29 @@
                 <?php
 					$queryNewest = "SELECT news.id AS newsid ,news.name AS newsname,\n"
 								. "news.date_create AS newsdate, COUNT(news_id) AS countcom,\n"
-								. "preview, view, picture\n"
+								. "preview, view, picture, cat_list.name AS catname\n"
 								. "FROM news \n"
 								. "LEFT JOIN comment ON news.id = comment.news_id\n"
+								. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
 								. "WHERE is_slide = 1\n"
 								. "GROUP BY newsid\n"
 								. "ORDER BY news.id DESC";
 					$resultNewest = $mysqli->query($queryNewest);
 					if($rowNewest = mysqli_fetch_assoc($resultNewest)){
+						$catname = $rowNewest['catname'];
 						$idNewest = $rowNewest['newsid'];
 						$pictureNewest = $rowNewest['picture'];
 						$nameNewest = $rowNewest['newsname'];
 						$motaNewest = $rowNewest['preview'];
 						$viewNewest = $rowNewest['view'];
 						$commentNewest = $rowNewest['countcom'];
-						$dateNewest = date('d-m-Y', strtotime($rowNewest['newsdate']))
+						$dateNewest = date('d-m-Y', strtotime($rowNewest['newsdate']));
+						$urlSeoChiTiet = "/chi-tiet/".utf8ToLatin($catname)."/".utf8ToLatin($nameNewest)."-{$idNewest}.html";
 				?>
                     <div class="col-md-7">
                         <div class="feature_article_wrapper">
                             <div class="feature_article_img">
-                                <img class="newsest top_static_article_img" src="/files/newsIMG/<?php echo $pictureNewest; ?>" alt="feature-top">
+                                <a href="<?php echo $urlSeoChiTiet; ?>"><img class="newsest top_static_article_img" src="/files/newsIMG/<?php echo $pictureNewest; ?>" alt="feature-top"></a>
                             </div>
                             <!-- feature_article_img -->
 
@@ -35,7 +38,7 @@
                                 <div class="tag_lg red"><a href="category.php">Tin mới nhất</a></div>
                                 <div class="feature_article_title">
                                     <h1>
-                                        <a href="single.php?id=<?php echo $idNewest; ?>" target="_self">
+                                        <a href="<?php echo $urlSeoChiTiet; ?>" target="_self">
                                             <?php echo $nameNewest; ?> </a>
                                     </h1>
                                 </div>
@@ -73,9 +76,10 @@
                     <?php
 						$queryViewest = "SELECT news.id AS newsid ,news.name AS newsname,\n"
 									. "news.date_create AS newsdate, COUNT(news_id) AS countcom,\n"
-									. "preview, view, picture\n"
+									. "preview, view, picture, cat_list.name AS catname\n"
 									. "FROM news\n"
 									. "LEFT JOIN comment ON news.id = comment.news_id\n"
+									. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
 									. "WHERE is_slide = 1 \n"
 									. "AND news.id <> (SELECT id FROM news WHERE date_create = (SELECT MAX(date_create) FROM news)) \n"
 									. "AND (day(news.date_create) BETWEEN day(CURRENT_DATE - 1) AND day(CURRENT_DATE))\n"
@@ -87,6 +91,7 @@
 						$resultViewest = $mysqli->query($queryViewest);
 						$dem = 0;
 						while($rowViewest = mysqli_fetch_assoc($resultViewest)){
+							$catname = $rowViewest['catname'];
 							$idViewest = $rowViewest['newsid'];
 							$pictureViewest = $rowViewest['picture'];
 							$nameViewest = $rowViewest['newsname'];
@@ -94,6 +99,7 @@
 							$viewViewest = $rowViewest['view'];
 							$dateViewest = date('d-m-Y', strtotime($rowViewest['newsdate']));
 							$commentViewest = $rowViewest['countcom'];
+							$urlSeoChiTiet1 = "/chi-tiet/".utf8ToLatin($catname)."/".utf8ToLatin($nameViewest)."-{$idViewest}.html";
 							$dem = $dem + 1;
 							if($dem == 1){
 					?>
@@ -108,7 +114,7 @@
 						}
 				?>
                                             <div class="feature_article_img">
-                                                <img class="viewest" src="/files/newsIMG/<?php echo $pictureViewest; ?>" alt="feature-top">
+                                                <a href="<?php echo $urlSeoChiTiet1; ?>" target="_self"><img class="viewest" src="/files/newsIMG/<?php echo $pictureViewest; ?>" alt="feature-top"></a>
                                             </div>
                                             <!-- feature_article_img -->
 
@@ -116,7 +122,7 @@
                                                 <div class="tag_lg purple"><a href="category.php">Xem nhiều nhất</a></div>
                                                 <div class="feature_article_title">
                                                     <h1>
-                                                        <a href="single.php?id=<?php echo $idViewest; ?>" target="_self">
+                                                        <a href="<?php echo $urlSeoChiTiet1; ?>" target="_self">
                                                             <?php echo $nameViewest; ?> </a>
                                                     </h1>
                                                 </div>
@@ -189,10 +195,11 @@
 					if($rowCat1 = mysqli_fetch_assoc($resultCat1)){
 						$catname1 = $rowCat1['name'];
 						$catid1 = $rowCat1['id'];
+						$urlSeoCat = "/tin-tuc/".utf8ToLatin($catname1)."-{$catid1}.html";
 				?>
                     <div class="category_section camera">
                         <div class="article_title header_orange">
-                            <h2><a href="category.php?id=<?php echo $catid1; ?>" target="_self"><?php echo $catname1; ?></a></h2>
+                            <h2><a href="<?php echo $urlSeoCat; ?>" target="_self"><?php echo $catname1; ?></a></h2>
                         </div>
                         <!-- article_title -->
 					<?php
@@ -205,12 +212,13 @@
 						$view = $rowCat2['view'];
 						$comment = $rowCat2['countcm'];
 						$catname = $rowCat2['catname'];
+						$urlSeoChiTiet2 = "/chi-tiet/".utf8ToLatin($catname1)."/".utf8ToLatin($newsname)."-{$newsid}.html";
 					?>
                         <div class="category_article_wrapper">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="top_article_img">
-                                        <a href="single.php?id=<?php echo $newsid; ?>" target="_self">
+                                        <a href="<?php echo $urlSeoChiTiet2; ?>" target="_self">
 											<img class="catlist" src="/files/newsIMG/<?php echo $picture; ?>" alt="feature-top">
 										</a>
                                     </div>
@@ -221,7 +229,7 @@
                                     <span class="tag orange"><?php echo $catname; ?></span>
 
                                     <div class="category_article_title">
-                                        <h2><a href="single.php?id=<?php echo $newsid; ?>" target="_self"><?php echo $newsname; ?> </a></h2>
+                                        <h2><a href="<?php echo $urlSeoChiTiet2; ?>" target="_self"><?php echo $newsname; ?> </a></h2>
                                     </div>
                                     <!-- category_article_title -->
 
@@ -250,7 +258,7 @@
 					<?php
 						}
 					?>
-                        <p class="divider"><a href="category.php?id=<?php echo $catid1; ?>">More News&nbsp;&raquo;</a></p>
+                        <p class="divider"><a href="<?php echo $urlSeoCat; ?>">More News&nbsp;&raquo;</a></p>
                     </div>
 					<?php
 					}

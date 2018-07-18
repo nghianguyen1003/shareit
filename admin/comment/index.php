@@ -14,7 +14,15 @@
 	}
 	
 	//-----------------------------------------------
-	$queryTSD = "SELECT COUNT(*) AS TSD FROM comment";
+	$user = $_SESSION['userinfo'];
+	$id = $user['id'];
+	if($user['active'] == 1){
+		$queryTSD = "SELECT COUNT(*) AS TSD FROM comment";
+	}else{
+		$queryTSD = "SELECT COUNT(*) AS TSD FROM comment\n"
+				. "INNER JOIN news ON news.id = comment.news_id\n"
+				. "WHERE news.created_by = {$id}";
+	}
 	$resultTSD = $mysqli->query($queryTSD);
 	$arTmp = mysqli_fetch_assoc($resultTSD);
 	$tongSoDong = $arTmp['TSD'];

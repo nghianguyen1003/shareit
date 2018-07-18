@@ -1478,6 +1478,10 @@ img {
     overflow: scroll;
 }
 
+.profile.active:hover {
+    background: tomato;
+}
+
 @media screen and (max-width: 768px) {
     .fixviewcomment{
         margin-top: 10px;

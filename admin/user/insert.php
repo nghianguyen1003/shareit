@@ -19,6 +19,12 @@ function reloadFullname(){
 		echo $_POST['fullname'];
 	}
 }
+
+function reloadEmail(){
+	if(isset($_POST['email'])){
+		echo $_POST['email'];
+	}
+}
 $user = $_SESSION['userinfo'];
 	if($user['active'] == 2){
 		header('location: /admin/');
@@ -35,9 +41,11 @@ $user = $_SESSION['userinfo'];
 							<?php
 							if(isset($_POST['submit'])){
 								$username = $_POST['username'];
-								$password = md5($_POST['password']);
+								$password = $_POST['password'];
 								$fullname = $_POST['fullname'];
 								$active = $_POST['active'];
+								$gender = $_POST['gender'];
+								$email = $_POST['email'];
 								if(isset($_FILES['hinhanh']['name']) != "") {
 									$namef = $_FILES['hinhanh']['name'];
 									$tmp_name = $_FILES['hinhanh']['tmp_name'];
@@ -49,11 +57,16 @@ $user = $_SESSION['userinfo'];
 									move_uploaded_file($tmp_name, $path_upload);
 								}
 
-								$dupesql = "SELECT username FROM user WHERE username = '{$username}'";
+								$dupesql = "SELECT * FROM user WHERE username = '{$username}'";
 								$duperaw = $mysqli->query($dupesql);
+								
+								$dupesql1 = "SELECT * FROM user WHERE email = '{$email}'";
+								$duperaw1 = $mysqli->query($dupesql1);
 								
 								if(mysqli_num_rows($duperaw) > 0){
 									echo '<script>alert("Username đã tồn tại")</script>';
+								}else if(mysqli_num_rows($duperaw1) > 0){
+									echo '<script>alert("Email đã được sử dụng")</script>';
 								}else if($_POST['username'] == ''){
 									echo '<script>alert("Không để trống Username")</script>';
 								}else if($_POST['password'] == ''){
@@ -62,8 +75,14 @@ $user = $_SESSION['userinfo'];
 									echo '<script>alert("Hãy chọn ảnh")</script>';
 								}else if($_POST['fullname'] == ''){
 									echo '<script>alert("Không để trống Fullname")</script>';
+								}else if($_POST['gender'] == 0){
+									echo '<script>alert("Không để trống Giới tính")</script>';
+								}else if($_POST['active'] == 0){
+									echo '<script>alert("Không để trống Quyền")</script>';
+								}else if($_POST['email'] == ""){
+									echo '<script>alert("Không để trống Email")</script>';
 								}else{
-									$query = "INSERT INTO user(username,password,picture,fullname,active) VALUES('{$username}','{$password}','{$tenFile}','{$fullname}','{$active}')";
+									$query = "INSERT INTO user(username,password,picture,fullname,active,email,gender) VALUES('{$username}','{$password}','{$tenFile}','{$fullname}','{$active}','{$email}','{$gender}')";
 									$result = $mysqli->query($query);
 									if($result){
 										header('location: index.php?msg=Thêm thành công!');
@@ -99,10 +118,29 @@ $user = $_SESSION['userinfo'];
                                         </div>
 										<div class="col-md-3">
                                             <div class="form-group">
+                                                <label>Giới tính</label>
+                                                <select name="gender" class="form-control border-input">
+													<option value="0">---Lựa chọn giới tính---</option>
+                                                	<option value="1">Nam</option>
+                                                	<option value="2">Nữ</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" name="email" class="form-control border-input" placeholder="Email" value="<?php reloadEmail(); ?>">
+                                            </div>
+                                        </div>
+										<div class="col-md-3">
+                                            <div class="form-group">
                                                 <label>Loại quyền</label>
                                                 <select name="active" class="form-control border-input">
-                                                	<option value="2">mod</option>
-                                                	<option value="1">admin</option>
+													<option value="0">---Lựa chọn quyền---</option>
+                                                	<option value="2">Mod</option>
+                                                	<option value="1">Admin</option>
                                                 </select>
                                             </div>
                                         </div>

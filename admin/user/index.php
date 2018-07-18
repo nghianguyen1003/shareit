@@ -8,6 +8,24 @@ function checkDelete(id){
 	}
 	return false;
 }
+	function getStatus(status, cls){
+	$.ajax({
+		url: '/template/admin/assets/ajax/resultUser.php',
+		type: 'POST',
+		cache: false,
+		data: {
+			astatus: status, 
+			acls: cls
+		},
+		success: function(result){
+			$('#' + cls).html(result);
+		},
+		error: function (){
+			alert('Có lỗi xảy ra');
+		}
+	});
+	return false;
+}
 </script>
 <?php
 	$queryTSD = "SELECT COUNT(*) AS TSD FROM user";
@@ -28,6 +46,15 @@ function checkDelete(id){
 	$user = $_SESSION['userinfo'];
 	if($user['active'] == 2){
 		header('location: /admin/');
+	}
+	
+	function getImg($status){
+		if($status == 1){
+			echo '/template/admin/assets/img/checked.png';
+		}
+		else{
+			echo '/template/admin/assets/img/cancel.png';
+		}
 	}
 ?>
         <div class="content">
@@ -72,6 +99,7 @@ function checkDelete(id){
                                     	<th>Username</th>
                                     	<th>Tên đầy đủ</th>
                                     	<th>Ảnh đại diện</th>
+										<th>Trạng thái hiển thị</th>
                                     	<th>Chức năng</th>
                                     </thead>
                                     <tbody>
@@ -84,7 +112,10 @@ function checkDelete(id){
 											$fullname = $row['fullname'];
 											$picture = $row['picture'];
 											$active = $row['active'];
-											$urlEdit = "edit.php?id={$id}&username={$username}&fullname={$fullname}&active={$active}";
+											$gender = $row['gender'];
+											$email = $row['email'];
+											$status = $row['status'];
+											$urlEdit = "edit.php?id={$id}&username={$username}&fullname={$fullname}&active={$active}&gender={$gender}&email={$email}";
 											$urlDelete = "delete.php?id={$id}";
 									?>
                                         <tr>
@@ -92,6 +123,11 @@ function checkDelete(id){
                                         	<td><?php echo $username; ?></td>
                                         	<td><?php echo $fullname; ?></td>
                                         	<td><img src="/files/userIMG/<?php echo $picture; ?>" alt="" width="100px" /></td>
+											<td id="<?php echo $id; ?>">
+												<a href="javascript:void(0)" title="" onclick="return getStatus(<?php echo $status; ?>, <?php echo $id; ?>)">
+													<img src="<?php getImg($status); ?>" alt=""/>
+												</a>
+											</td>
 											<?php
 												if($_SESSION['userinfo']['active'] == '1'){
 											?>

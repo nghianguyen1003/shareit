@@ -247,7 +247,44 @@
 <!-- Theme Script -->
 <script src="/template/public/js/script.js"></script>
 </body>
+<script>
+	$(".dropdown").hover(
+		function() {
+			$(this).addClass('active');
+		}, function() {
+			if(!$( this).hasClass('clicked') ){
+				$( this ).removeClass('active');
+			}
+		}
+	);
 
+	$(".dropdown").click(function(){
+		$(this).toggleClass('clicked');
+	});
+	
+	 $(document).ready(function() {
+        var pathname = window.location.pathname;
+        if (pathname == '/tin-tuc/dao-tao-1.html' || pathname.includes('/chi-tiet/dao-tao/')){
+            $("#dao-tao").css("background-color", "#D3D1D1");
+        }else if(pathname == '/tin-tuc/cong-nghe-2.html' || pathname.includes('/chi-tiet/cong-nghe/')){
+            $("#cong-nghe").css("background-color", "#D3D1D1");
+        }else if(pathname == '/tin-tuc/lap-trinh-3.html' || pathname.includes('/chi-tiet/lap-trinh/')){
+            $("#lap-trinh").css("background-color", "#D3D1D1");
+        }else if(pathname == '/tin-tuc/java-4.html' || pathname.includes('/chi-tiet/android/')){
+            $("#lap-trinh").css("background-color", "#D3D1D1");
+        }else if(pathname == '/tin-tuc/android-5.html' || pathname.includes('/chi-tiet/java/')){
+            $("#lap-trinh").css("background-color", "#D3D1D1");
+        }else if(pathname == '/tin-tuc/ios-6.html' || pathname.includes('/chi-tiet/ios/')){
+            $("#lap-trinh").css("background-color", "#D3D1D1");
+        }else if(pathname == '/tin-tuc/web-design-7.html' || pathname.includes('/chi-tiet/web-design/')){
+            $("#lap-trinh").css("background-color", "#D3D1D1");
+        }else if(pathname == '/tin-tuc/tai-lieu-8.html' || pathname.includes('/chi-tiet/tai-lieu/')){
+            $("#tai-lieu").css("background-color", "#D3D1D1");
+        }else if(pathname == '/tin-tuc/su-kien-9.html' || pathname.includes('/chi-tiet/su-kien/')){
+            $("#su-kien").css("background-color", "#D3D1D1");
+        }
+    });
+</script>
 </html>
 <?php
 	ob_end_flush();

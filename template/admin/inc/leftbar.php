@@ -34,6 +34,12 @@
                         <p>Danh sách người dùng</p>
                     </a>
                 </li>
+				<li>
+                    <a href="/admin/changepass/">
+                        <i class="ti-panel"></i>
+                        <p>Đổi mật khẩu</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>

@@ -3,6 +3,7 @@
 	session_start();
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/DbConnectionUtil.php';
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/ConstantUtil.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/util/Utf8ToLatinUtil.php';
 ?>
 <?php
 function sw_get_current_weekday() {
@@ -34,6 +35,12 @@ function sw_get_current_weekday() {
     }
     return $weekday.', '.date('d/m/Y');
 }
+
+function reloadSearch(){
+	if(isset($_POST['searchinput'])){
+		echo $_POST['searchinput'];
+	}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +49,7 @@ function sw_get_current_weekday() {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TechNews - HTML and CSS Template</title>
+    <title>Shareit</title>
 
     <!-- favicon -->
     <link href="/template/public/img/favicon.png" rel=icon>
@@ -109,7 +116,7 @@ function sw_get_current_weekday() {
                                 </div>
                                 <div class="col-md-4">
                                     <div class="logo">
-                                        <a href="index.php"><img src="/template/public/img/logo.png" alt="Tech NewsLogo"></a>
+                                        <a href="/trang-chu.html"><img src="/template/public/img/logo.png" alt="Tech NewsLogo"></a>
                                     </div>
                                     <!-- Logo Section -->
                                 </div>
@@ -119,10 +126,10 @@ function sw_get_current_weekday() {
                                             <li><a href="#">Login</a></li>
                                             <li><a href="#">Register</a></li>
                                             <li class="dropdown lang">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">En <i
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Vie <i
                                         class="fa fa-angle-down"></i></button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                    <li><a href="#">Bn</a></li>
+                                                    <li><a href="#">En</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -134,12 +141,12 @@ function sw_get_current_weekday() {
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <div class="head-search">
-                                                            <form role="form">
+                                                            <form role="form" method="POST">
                                                                 <!-- Input Group -->
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" placeholder="Type Something"> <span class="input-group-btn">
+                                                                    <input type="text" class="form-control" placeholder="Type Something" name="searchinput" value="<?php reloadSearch(); ?>"> <span class="input-group-btn">
                                                                             <button type="submit"
-                                                                                    class="btn btn-primary">Search
+                                                                                    class="btn btn-primary" name="search">Search
                                                                             </button>
                                                                         </span></div>
                                                             </form>
@@ -155,6 +162,12 @@ function sw_get_current_weekday() {
                             </div>
                         </div>
                         <!-- Header Section -->
+						<?php
+							if(isset($_POST['search'])){
+								$search = $_POST['searchinput'];
+								header("location: /tim-kiem/{$search}.html");
+							}
+						?>
                         <?php
 							require_once $_SERVER['DOCUMENT_ROOT']."/template/public/inc/navigation.php";
 						?>

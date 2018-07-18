@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php session_start();?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/util/DbConnectionUtil.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/util/sendmail/class.smtp.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/util/sendmail/class.phpmailer.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/util/sendmail/functions.php'; ?>
 <?php ob_start();?>
 <html lang="en">
 <head>
@@ -47,7 +50,7 @@
 					$arLogin = mysqli_fetch_assoc($result);
 					if($arLogin){
 						$_SESSION['userinfo'] = $arLogin;
-						header('location:/admin/cat/index.php');
+						header('location:/admin/');
 					}else{
 						header('location:/admin/auth/login.php?msg=Tên đăng nhập hoặc mật khẩu sai!!!');
 					}
@@ -79,11 +82,11 @@
 					</div>
 
 					<div class="container-login100-form-btn p-t-10">
-						<input type="submit" class="login100-form-btn" name="submit" value="Đăng nhập"/>	
+						<button type="submit" class="login100-form-btn" name="submit">Đăng nhập</button>
 					</div>
 
 					<div class="text-center w-full p-t-25 p-b-230">
-						<a href="#" class="txt1">
+						<a href="#" class="txt1" data-toggle="modal" data-target="#myModal">
 							Quên mật khẩu?
 						</a>
 					</div>
@@ -91,6 +94,75 @@
 			</div>
 		</div>
 	</div>
+	<?php
+
+		function generateRandomString($length = 6) {
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < $length; $i++) {
+			$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		return $randomString;
+		}
+
+		if(isset($_POST['forgot'])){
+			$mail = $_POST['email'];
+			$newPass = generateRandomString();
+			$queryMail = "SELECT * FROM user WHERE email = '{$mail}'";
+			$resultMail = $mysqli->query($queryMail);
+			if($rowMail = mysqli_fetch_assoc($resultMail)){
+				$hoTen = $rowMail['fullname'];
+			}
+			if(mysqli_num_rows($resultMail) == 0){
+				echo '<script>alert("Email không tồn tại")</script>';
+			}else{
+				$title = "Lấy lại mật khẩu từ Shareit.vne-Admin";
+				$content = "Mật khẩu mới của bạn là: <strong>{$newPass}</strong>";
+				$nTo = $hoTen;
+				$mTo = $rowMail['email'];
+				$diachicc = 'shareit@gmail.com';
+				//test gui mail
+				$mail = sendMail($title, $content, $nTo, $mTo,$diachicc='');
+				if($mail==1){
+					$queryFP = "UPDATE user SET user.password = '{$newPass}' WHERE email = '{$mTo}'";
+					$resultFP = $mysqli->query($queryFP);
+					echo '<script>alert("mail của bạn đã được gửi đi hãy kiếm tra hộp thư đến để xem kết quả.")</script>';
+				}else{
+					echo '<script>alert("Có lỗi!")</script>';
+				} 
+			}
+		}
+	?>
+	<form method="POST">
+		<div id="myModal" class="modal fade" role="dialog" style="background-image: url('/template/admin/assets/img/img-01.jpg');">
+		  <div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h4 style="margin-left: 132px;" class="modal-title">Quên mật khẩu</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="wrap-input100 m-b-10">
+					<input required class="input100" type="email" name="email" placeholder="Email">
+					<span class="focus-input100"></span>
+					<span class="symbol-input100">
+						<i class="fa fa-envelope"></i>
+					</span>
+				</div>
+			  </div>
+			  <div class="modal-body">
+				<div class="container-login100-form-btn p-t-10">
+					<button type="submit" class="login100-form-btn" name="forgot">Gửi<button>
+				</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	</form>
 	
 	
 

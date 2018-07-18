@@ -44,20 +44,22 @@
 							$resultPopular = $mysqli->query($queryPopular);
 							while($rowPopular = mysqli_fetch_assoc($resultPopular)){
 								$idPopular = $rowPopular['newsid'];
+								$catname = $rowPopular['catname'];
 								$picturePopular = $rowPopular['picture'];
 								$namePopular = $rowPopular['newsname'];
 								$motaPopular = $rowPopular['preview'];
 								$viewPopular = $rowPopular['view'];
 								$commentPopular = $rowPopular['countcm'];
 								$datePopular = date('d-m-Y', strtotime($rowPopular['newsdate']));
+								$urlSeoChiTiet = "/chi-tiet/".utf8ToLatin($catname)."/".utf8ToLatin($namePopular)."-{$idPopular}.html";
 						?>
                         <div class="media">
                             <div class="media-left">
-                                <a href="single.php?id=<?php echo $idPopular; ?>"><img class="popularlist" src="/files/newsIMG/<?php echo $picturePopular; ?>" alt="Generic placeholder image"></a>
+                                <a href="<?php echo $urlSeoChiTiet; ?>"><img class="popularlist" src="/files/newsIMG/<?php echo $picturePopular; ?>" alt="Generic placeholder image"></a>
                             </div>
                             <div class="media-body">
                                 <h3 class="media-heading">
-                                    <a href="single.php?id=<?php echo $idPopular; ?>" target="_self"><?php echo $namePopular; ?></a>
+                                    <a href="<?php echo $urlSeoChiTiet; ?>" target="_self"><?php echo $namePopular; ?></a>
                                 </h3> <span class="media-date"><a href="#"><?php echo $datePopular; ?></a></span>
 
                                 <div class="widget_article_social">
@@ -90,9 +92,10 @@
 						<?php
 							if(empty($_GET['id'])){
 								$queryMostCm = "SELECT news.id AS newsid, news.name AS newsname, news_id,\n"
-											. "COUNT(comment.id) AS countcm, picture\n"
+											. "COUNT(comment.id) AS countcm, picture, cat_list.name AS catname\n"
 											. "FROM news\n"
 											. "INNER JOIN comment ON news.id = comment.news_id\n"
+											. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
 											. "AND (day(news.date_create) BETWEEN day(CURRENT_DATE - 3) AND day(CURRENT_DATE))\n"
 											. "AND (month(news.date_create) BETWEEN month(CURRENT_DATE - 3) AND month(CURRENT_DATE))\n"
 											. "AND (year(news.date_create) BETWEEN year(CURRENT_DATE - 3) AND year(CURRENT_DATE))\n"
@@ -104,9 +107,10 @@
 							else{
 								$id = $_GET['id'];
 								$queryMostCm = "SELECT news.id AS newsid, news.name AS newsname, news_id,\n"
-										. "COUNT(comment.id) AS countcm, picture\n"
+										. "COUNT(comment.id) AS countcm, picture, cat_list.name AS catname\n"
 										. "FROM news\n"
 										. "INNER JOIN comment ON news.id = comment.news_id\n"
+										. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
 										. "WHERE is_slide = 1 AND news.id <> {$id}\n"
 										. "AND (day(news.date_create) BETWEEN day(CURRENT_DATE - 3) AND day(CURRENT_DATE))\n"
 										. "AND (month(news.date_create) BETWEEN month(CURRENT_DATE - 3) AND month(CURRENT_DATE))\n"
@@ -117,18 +121,20 @@
 							}
 							$resultMostCm = $mysqli->query($queryMostCm);
 							while($rowMostCm = mysqli_fetch_assoc($resultMostCm)){
+								$catname = $rowMostCm['catname'];
 								$idMostCm = $rowMostCm['newsid'];
 								$pictureMostCm = $rowMostCm['picture'];
 								$nameMostCm = $rowMostCm['newsname'];
 								$commentMostCm = $rowMostCm['countcm'];
+								$urlSeoChiTiet2 = "/chi-tiet/".utf8ToLatin($catname)."/".utf8ToLatin($nameMostCm)."-{$idMostCm}.html";
 						?>
                         <div class="media">
                             <div class="media-left">
-                                <a href="single.php?id=<?php echo $idMostCm; ?>"><img class="popularlist" src="/files/newsIMG/<?php echo $pictureMostCm; ?>" alt="Generic placeholder image"></a>
+                                <a href="<?php echo $urlSeoChiTiet2; ?>"><img class="popularlist" src="/files/newsIMG/<?php echo $pictureMostCm; ?>" alt="Generic placeholder image"></a>
                             </div>
                             <div class="media-body">
                                 <h3 class="media-heading">
-                                    <a href="single.php?id=<?php echo $idMostCm; ?>" target="_self"><?php echo $nameMostCm; ?></a>
+                                    <a href="<?php echo $urlSeoChiTiet2; ?>" target="_self"><?php echo $nameMostCm; ?></a>
                                 </h3>
 
                                 <div class="media_social">

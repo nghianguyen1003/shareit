@@ -84,6 +84,37 @@
 	});
 	return false;
 }
+
+$(document).ready(function(){
+	//check /uncheck tất cả bản ghi
+	$(document).on('change','#checkall',function(){
+		$('.checkitem').prop('checked',this.checked).trigger('change');
+	});
+	//check/uncheck từng bản ghi
+	$(document).on('change','.checkitem',function(){
+		var dem_r = 0;
+		var checked_r = 1;
+		//duyệt tất cả các check item
+		$('.checkitem').each(function(){
+			if($(this).is(':checked'))
+			{
+				dem_r++;
+			}
+			else
+			{
+				checked_r = 0;
+			}
+		});
+		$('#checkall').prop('checked',checked_r);
+		if(dem_r > 0){
+			$('#deleteall').show(0.5);
+		}
+		else
+		{
+			$('#deleteall').hide(0.5);
+		}
+	});
+});
 </script>
         <div class="content">
             <div class="container-fluid">
@@ -126,82 +157,97 @@
 	                                        </div>
                                         </div>
                                     </div>
-                                    
                                 </form>
                                 
                                 <a href="insert.php" class="addtop"><img src="/template/admin/assets/img/add.png" alt="" /> Thêm</a>
                             </div>
                             <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <th>ID</th>
-                                    	<th>Tên tin tức</th>
-                                    	<th>Mô tả</th>
-                                    	<th>Hình ảnh</th>
-                                    	<th>Danh mục</th>
-										<th>Bài viết của</th>
-										<th>Trạng thái hiển thị</th>
-                                    	<th>Chức năng</th>
-                                    </thead>
-                                    <tbody>
-									<?php
-										
-										if($user['active'] == 1){
-											$query = "SELECT news.id AS newsid, \n"
-												. "news.name AS newsname, \n"
-												. "preview, news.picture as newspicture, \n"
-												. "cat_list.name as catname, username, is_slide \n"
-												. "FROM news\n"
-												. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
-												. "INNER JOIN user ON news.created_by = user.id\n"
-												. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
-										}else{
-											$query = "SELECT news.id AS newsid, \n"
-												. "news.name AS newsname, \n"
-												. "preview, news.picture as newspicture, \n"
-												. "cat_list.name as catname, username, is_slide \n"
-												. "FROM news\n"
-												. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
-												. "INNER JOIN user ON news.created_by = user.id\n"
-												. "WHERE created_by = {$id}\n"
-												. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
-										}
-										
-										$result = $mysqli->query($query);
-										while($row = mysqli_fetch_assoc($result)){
-											$id = $row['newsid'];
-											$name = $row['newsname'];
-											$mota = $row['preview'];
-											$danhmuc = $row['catname'];
-											$picture = $row['newspicture'];
-											$nguoitao = $row['username'];
-											$status = $row['is_slide'];
-											$urlEdit = "edit.php?id={$id}";
-									?>
-                                        <tr>
-                                        	<td><?php echo $id; ?></td>
-                                        	<td class="col-md-2"><a href="<?php echo $urlEdit; ?>"><?php echo $name; ?></a></td>
-											<td class="col-md-2"><?php echo $mota; ?></td>
-											<td><img src="/files/newsIMG/<?php echo $picture; ?>" alt="" width="100px" /></td>
-											<td><?php echo $danhmuc; ?></td>
-											<td><?php echo $nguoitao; ?></td>
-											<td id="<?php echo $id; ?>">
-												<a href="javascript:void(0)" title="" onclick="return getStatus(<?php echo $status; ?>, '<?php echo $id; ?>')">
-													<img src="<?php getImg($status); ?>" alt=""/>
-												</a>
+								<form action="" method="post">
+										<table class="table table-striped">
+											<thead>
+												<th><input type="checkbox" id="checkall" name="checkall" ></th>
+												<th>ID</th>
+												<th>Tên tin tức</th>
+												<th>Mô tả</th>
+												<th>Hình ảnh</th>
+												<th>Danh mục</th>
+												<th>Bài viết của</th>
+												<th>Trạng thái hiển thị</th>
+												<th>Chức năng</th>
+											</thead>
+											<tbody>
+											<?php
+												if(isset($_POST['delete']))
+												{
+													$query = "DELETE FROM news WHERE id IN(".implode(',',$_POST['id']).")";
+													$result = $mysqli->query($query);
+													if($result){
+														header('location: /admin/news/index.php?msg=Xóa thành công');
+													}else{
+														header('location: /admin/news/index.php?msg=Xóa thất bại');
+													}
+												}
+												if($user['active'] == 1){
+													$query = "SELECT news.id AS newsid, \n"
+														. "news.name AS newsname, \n"
+														. "preview, news.picture as newspicture, \n"
+														. "cat_list.name as catname, username, is_slide \n"
+														. "FROM news\n"
+														. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
+														. "INNER JOIN user ON news.created_by = user.id\n"
+														. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
+												}else{
+													$query = "SELECT news.id AS newsid, \n"
+														. "news.name AS newsname, \n"
+														. "preview, news.picture as newspicture, \n"
+														. "cat_list.name as catname, username, is_slide \n"
+														. "FROM news\n"
+														. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
+														. "INNER JOIN user ON news.created_by = user.id\n"
+														. "WHERE created_by = {$id}\n"
+														. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
+												}
+												
+												$result = $mysqli->query($query);
+												while($row = mysqli_fetch_assoc($result)){
+													$id = $row['newsid'];
+													$name = $row['newsname'];
+													$mota = $row['preview'];
+													$danhmuc = $row['catname'];
+													$picture = $row['newspicture'];
+													$nguoitao = $row['username'];
+													$status = $row['is_slide'];
+													$urlEdit = "edit.php?id={$id}";
+											?>
+												<tr>
+													<td><input type="checkbox" class="checkitem" name="id[]" value="<?php echo $id;?>"></td>
+													<td><?php echo $id; ?></td>
+													<td class="col-md-2"><a href="<?php echo $urlEdit; ?>"><?php echo $name; ?></a></td>
+													<td class="col-md-2"><?php echo $mota; ?></td>
+													<td><img src="/files/newsIMG/<?php echo $picture; ?>" alt="" width="100px" /></td>
+													<td><?php echo $danhmuc; ?></td>
+													<td><?php echo $nguoitao; ?></td>
+													<td id="<?php echo $id; ?>">
+														<a href="javascript:void(0)" title="" onclick="return getStatus(<?php echo $status; ?>, '<?php echo $id; ?>')">
+															<img src="<?php getImg($status); ?>" alt=""/>
+														</a>
+													</td>
+													<td>
+														<a href="<?php echo $urlEdit; ?>" class="btn btn-primary square-btn-adjust"> Sửa</a>
+														<a onclick="return checkDelete(<?php echo $id ?>)" href="" class="btn btn-danger square-btn-adjust"> Xóa</a>
+													</td>
+												</tr>
+											<?php
+												}
+											?>
+											</tbody>
+										</table>
+										<tfoot>
+											<td colspan="4">
+												<input style="display:none;" type="submit" name="delete" class="btn" id="deleteall" value="Xóa Chọn">
 											</td>
-                                        	<td>
-                                        		<a href="<?php echo $urlEdit; ?>" class="btn btn-primary square-btn-adjust"> Sửa</a>
-                                        		<a onclick="return checkDelete(<?php echo $id ?>)" href="" class="btn btn-danger square-btn-adjust"> Xóa</a>
-                                        	</td>
-                                        </tr>
-									<?php
-										}
-									?>
-                                    </tbody>
- 
-                                </table>
-
+										</tfoot>
+									</form>
 								<div class="text-center">
 								    <ul class="pagination">
 										<?php

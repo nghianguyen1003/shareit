@@ -142,6 +142,7 @@
 			$viewRelated = $rowRelated['view'];
 			$commentRelated = $rowRelated['countcm'];
 			$dateRelated = date('d-m-Y', strtotime($rowRelated['newsdate']));
+			$urlSeoChiTiet = "/chi-tiet/".utf8ToLatin($catname)."/".utf8ToLatin($nameRelated)."-{$idRelated}.html";
 			$dem++;
 	?>
     <div class="row">
@@ -152,13 +153,13 @@
         <div class="col-md-6">
             <div class="media">
                 <div class="media-left">
-                    <a href="single.php?id=<?php echo $idRelated; ?>"><img class="popularlist" src="/files/newsIMG/<?php echo $pictureRelated; ?>"
+                    <a href="<?php echo $urlSeoChiTiet; ?>"><img class="popularlist" src="/files/newsIMG/<?php echo $pictureRelated; ?>"
                                      alt="Generic placeholder image"></a>
                 </div>
                 <div class="media-body">
                     <span class="tag purple"><a href="category.php" target="_self"><?php echo $catname; ?></a></span>
 
-                    <h3 class="media-heading"><a href="single.php?id=<?php echo $idRelated; ?>" target="_self"><?php echo $nameRelated; ?></a></h3>
+                    <h3 class="media-heading"><a href="<?php echo $urlSeoChiTiet; ?>" target="_self"><?php echo $nameRelated; ?></a></h3>
                     <span class="media-date"><a href="#"><?php echo $dateRelated; ?></a></span>
 
                     <div class="media_social">
@@ -178,7 +179,7 @@
                 <div class="media-body">
                     <span class="tag purple"><a href="category.php" target="_self"><?php echo $catname; ?></a></span>
 
-                    <h3 class="media-heading"><a href="single.php?id=<?php echo $idRelated; ?>" target="_self"><?php echo $nameRelated; ?></a></h3>
+                    <h3 class="media-heading"><a href="<?php echo $urlSeoChiTiet; ?>" target="_self"><?php echo $nameRelated; ?></a></h3>
                     <span class="media-date"><a href="#"><?php echo $dateRelated; ?></a></span>
 
                     <div class="media_social">
@@ -288,7 +289,7 @@
     <!--Entity Title -->
 
     <div class="entity_comment_from">
-        <form>
+        <form id="comments" method="POST">
             <div class="form-group">
                 <input required type="text" name="name" class="form-control" id="name" placeholder="Name">
             </div>
@@ -322,8 +323,9 @@
 </section>
 
 <!-- Subscriber Section -->
+
 <script>
-	function getComment(){
+function getComment(){
 	name = $('#name').val();
 	email = $('#email').val();
 	comment = $('#comment').val();

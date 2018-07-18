@@ -1,12 +1,35 @@
 <?php
 	require_once $_SERVER['DOCUMENT_ROOT']."/template/public/inc/header.php";
 ?>
+<?php
+	$id = $_GET['id'];
+	$queryTSD = "SELECT COUNT(*) AS TSD \n"
+    . "FROM news \n"
+    . "INNER JOIN cat_list ON news.cat_id = cat_list.id \n"
+    . "WHERE cat_id = {$id} AND news.id !=(SELECT MAX(news.id) FROM news\n"
+    . "                           INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
+    . "                           WHERE cat_id = {$id} OR cat_list.parent_id = {$id})\n"
+    . "OR cat_list.parent_id = {$id}";
+	
+	$resultTSD = $mysqli->query($queryTSD);
+	$arTmp = mysqli_fetch_assoc($resultTSD);
+	$tongSoDong = $arTmp['TSD'];
+	//số truyện trên 1 trang
+	$row_count = ROW_COUNT;
+	//Số Trang
+	$tongSoTrang = ceil($tongSoDong/$row_count);
+	$current_page = 1;
+	if(isset($_GET['page'])){
+		$current_page = $_GET['page'];
+	}
+	$offset = ($current_page - 1) * $row_count;
+?>
 
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
 						<?php
-							$id = $_GET['id'];	
+								
 							if(empty($id)){
 								header('location: index.php');
 							}
@@ -36,7 +59,8 @@
 								$motaNewest = $rowNewest['preview']."...";
 								$viewNewest = $rowNewest['view'];
 								$commentNewest = $rowNewest['countcom'];
-								$dateNewest = date('d-m-Y', strtotime($rowNewest['newsdate']))
+								$dateNewest = date('d-m-Y', strtotime($rowNewest['newsdate']));
+								$urlSeoChiTiet = "/chi-tiet/".utf8ToLatin($catname1)."/".utf8ToLatin($nameNewest)."-{$idNewest}.html";
 						?>
                             <div class="entity_wrapper">
                                 <div class="entity_title header_purple">
@@ -45,12 +69,12 @@
                                 <!-- entity_title -->
 
                                 <div class="entity_thumb">
-                                    <a href="single.php?id=<?php echo $idNewest; ?>"><img class="catimg" src="/files/newsIMG/<?php echo $pictureNewest; ?>" alt="feature-top" ></a>
+                                    <a href="<?php echo $urlSeoChiTiet; ?>"><img class="catimg" src="/files/newsIMG/<?php echo $pictureNewest; ?>" alt="feature-top" ></a>
                                 </div>
                                 <!-- entity_thumb -->
 
                                 <div class="entity_title">
-                                    <a href="single.php?id=<?php echo $idNewest; ?>">
+                                    <a href="<?php echo $urlSeoChiTiet; ?>">
                                         <h2> <?php echo $nameNewest; ?> </h2>
                                     </a>
                                 </div>
@@ -96,7 +120,7 @@
 									. "                INNER JOIN cat_list ON news.cat_id = cat_list.id \n"
 									. "                WHERE cat_id = {$id} AND news.is_slide = 1 OR cat_list.parent_id = {$id} AND news.is_slide = 1)\n"
 									. "GROUP BY newsid\n"
-									. "ORDER BY news.id DESC";
+									. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
 									$resultCat = $mysqli->query($queryCat);
 									$dem = 0;
 									while($rowCat = mysqli_fetch_assoc($resultCat)){
@@ -107,6 +131,8 @@
 										$viewCat = $rowCat['view'];
 										$dateCat = date('d-m-Y', strtotime($rowCat['newsdate']));
 										$commentCat = $rowCat['countcom'];
+										$urlSeoChiTiet = "/chi-tiet/".utf8ToLatin($catname1)."/".utf8ToLatin($nameCat)."-{$idCat}.html";
+			
 										$dem++;
 										if($dem%2 != 0){
 							?>
@@ -114,12 +140,12 @@
                                 <div class="fixcol-md-6">
                                     <div class="category_article_body">
                                         <div class="top_article_img">
-                                            <img class="catlistimg" src="/files/newsIMG/<?php echo $pictureCat; ?>" alt="feature-top">
+                                            <a href="<?php echo $urlSeoChiTiet; ?>"><img class="catlistimg" src="/files/newsIMG/<?php echo $pictureCat; ?>" alt="feature-top"></a>
                                         </div>
                                         <!-- top_article_img -->
 
                                         <div class="category_article_title">
-                                            <h6><a href="single.php?id=<?php echo $idCat; ?>"><?php echo $nameCat; ?></a></h6>
+                                            <h6><a href="<?php echo $urlSeoChiTiet; ?>"><?php echo $nameCat; ?></a></h6>
                                         </div>
                                         <!-- category_article_title -->
 
@@ -149,12 +175,12 @@
                                 <div class="fixcol-md-6">
                                     <div class="category_article_body">
                                         <div class="top_article_img">
-                                            <img class="catlistimg" src="/files/newsIMG/<?php echo $pictureCat; ?>" alt="feature-top">
+                                            <a href="<?php echo $urlSeoChiTiet; ?>"><img class="catlistimg" src="/files/newsIMG/<?php echo $pictureCat; ?>" alt="feature-top"></a>
                                         </div>
                                         <!-- top_article_img -->
 
                                         <div class="category_article_title">
-                                            <h6><a href="single.php?id=<?php echo $idCat; ?>"><?php echo $nameCat; ?></a></h6>
+                                            <h6><a href="<?php echo $urlSeoChiTiet; ?>"><?php echo $nameCat; ?></a></h6>
                                         </div>
                                         <!-- category_article_title -->
 
@@ -203,11 +229,18 @@
                                     <li>
                                         <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a>
                                     </li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
+                                    <?php
+										for($i = 1; $i <= $tongSoTrang; $i++){
+											$active = '';
+											if($i == $current_page){
+												$active = 'active';
+											}
+											$urlSeoCat = "/tin-tuc/".utf8ToLatin($catname1)."-{$id}-{$i}.html";
+									?>
+                                    <li class="<?php echo $active; ?>"><a href="<?php echo $urlSeoCat; ?>"><?php echo $i; ?></a></li>
+									<?php
+										}
+									?>
                                     <li>
                                         <a href="#" aria-label="Next" class="active"> <span aria-hidden="true">&raquo;</span> </a>
                                     </li>

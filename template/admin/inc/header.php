@@ -67,6 +67,8 @@
 		$username = $_SESSION['userinfo']['username'];
 		$fullname = $_SESSION['userinfo']['fullname'];
 		$active = $_SESSION['userinfo']['active'];
+		$gender = $_SESSION['userinfo']['gender'];
+		$email = $_SESSION['userinfo']['email'];
 	?>
     <div class="main-panel">
 		<nav class="navbar navbar-default">
@@ -83,7 +85,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
 						<li>
-                            <a href="<?php echo "/admin/user/edit.php?id={$id}&username={$username}&fullname={$fullname}&active={$active}"?>">
+                            <a href="<?php echo "/admin/user/edit.php?id={$id}&username={$username}&fullname={$fullname}&active={$active}&gender={$gender}&email={$email}"?>">
 								<i class="ti-settings"></i>
 								Xin chào, <b><?php echo $_SESSION['userinfo']['username']; ?></b> &nbsp; <a href="/admin/auth/logout.php" class="btn btn-danger square-btn-adjust">Đăng xuất</a>
                             </a>
