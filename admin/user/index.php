@@ -105,6 +105,12 @@ function checkDelete(id){
                                     <tbody>
 									<?php
 										$query = "SELECT * FROM user ORDER BY id DESC LIMIT {$offset}, {$row_count}";
+										if(isset($_POST['search'])){
+											if(isset($_POST['fullname'])){
+												$search = $_POST['fullname'];
+												$query = "SELECT * FROM user WHERE fullname LIKE '%".$search."%' OR username LIKE '%".$search."%' OR email LIKE '%".$search."%' ORDER BY id DESC LIMIT {$offset}, {$row_count}";
+											}
+										}
 										$result = $mysqli->query($query);
 										while($row = mysqli_fetch_assoc($result)){
 											$id = $row['id'];

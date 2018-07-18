@@ -41,8 +41,16 @@
 	$id = $user['id'];
 	if($user['active'] == 1){
 		$queryTSD = "SELECT COUNT(*) AS TSD FROM news";
+		if(isset($_POST['search'])){
+			$search = $_POST['searchtxt'];
+			$queryTSD = "SELECT COUNT(*) AS TSD FROM news WHERE name LIKE '%{$search}%'";
+		}
 	}else{
 		$queryTSD = "SELECT COUNT(*) AS TSD FROM news WHERE created_by = {$id}";
+		if(isset($_POST['search'])){
+			$search = $_POST['searchtxt'];
+			$queryTSD = "SELECT COUNT(*) AS TSD FROM news WHERE name LIKE '%{$search}%' AND created_by = {$id}";
+		}
 	}
 	
 	$resultTSD = $mysqli->query($queryTSD);
@@ -137,17 +145,7 @@ $(document).ready(function(){
                                       
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-control border-input" placeholder="Tìm kiếm..." value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <select name="friend_list" class="form-control border-input">
-                                                	<option value="0">-- Chọn danh mục --</option>
-                                                	<?php
-														showCategories($categories);
-													?>
-                                                </select>
+                                                <input type="text" name="searchtxt" class="form-control border-input" placeholder="Tìm kiếm tên báo..." value="">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -187,6 +185,15 @@ $(document).ready(function(){
 														header('location: /admin/news/index.php?msg=Xóa thất bại');
 													}
 												}
+												$query = "SELECT news.id AS newsid, \n"
+														. "news.name AS newsname, \n"
+														. "preview, news.picture as newspicture, \n"
+														. "cat_list.name as catname, username, is_slide \n"
+														. "FROM news\n"
+														. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
+														. "INNER JOIN user ON news.created_by = user.id\n"
+														. "WHERE created_by = {$id}\n"
+														. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
 												if($user['active'] == 1){
 													$query = "SELECT news.id AS newsid, \n"
 														. "news.name AS newsname, \n"
@@ -196,17 +203,22 @@ $(document).ready(function(){
 														. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
 														. "INNER JOIN user ON news.created_by = user.id\n"
 														. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
-												}else{
-													$query = "SELECT news.id AS newsid, \n"
+												}
+												if(isset($_POST['search'])){
+													if(isset($_POST['searchtxt'])){
+														$search = $_POST['searchtxt'];
+														$query = "SELECT news.id AS newsid, \n"
 														. "news.name AS newsname, \n"
 														. "preview, news.picture as newspicture, \n"
 														. "cat_list.name as catname, username, is_slide \n"
 														. "FROM news\n"
 														. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
 														. "INNER JOIN user ON news.created_by = user.id\n"
-														. "WHERE created_by = {$id}\n"
+														. "WHERE news.name LIKE '%".$search."%' \n"
 														. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
+													}
 												}
+												
 												
 												$result = $mysqli->query($query);
 												while($row = mysqli_fetch_assoc($result)){

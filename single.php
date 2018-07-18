@@ -216,7 +216,7 @@
 			$queryComment = "SELECT comment.id AS cmtid, comment.parent_id AS cmtparent, \n"
 						. "content, email, comment.date_create AS cmtdate, comment.name AS cmtname FROM comment\n"
 						. "INNER JOIN news ON news.id = comment.news_id\n"
-						. "WHERE news.id = {$id} AND comment.parent_id = 0 AND comment.status = 1";
+						. "WHERE news.id = {$id} AND comment.parent_id = 0 AND comment.status = 1 ORDER BY comment.id DESC";
 			$resultComment = $mysqli->query($queryComment);
 			while($rowComment = mysqli_fetch_assoc($resultComment)){
 				$nameComment = $rowComment['cmtname'];
@@ -326,28 +326,36 @@
 
 <script>
 function getComment(){
-	name = $('#name').val();
-	email = $('#email').val();
-	comment = $('#comment').val();
-	idnews = <?php echo $id; ?>;
-	$.ajax({
-		url: '/template/public/ajax/resultComment.php',
-		type: 'POST',
-		cache: false,
-		data: {
-			nameajax: name, 
-			emailajax: email,
-			commentajax: comment,
-			idajax: idnews,
-		},
-		success: function(data){
-			$('.cmt:eq(0)').before(data);
-		},
-		error: function (){
-			alert('Có lỗi xảy ra');
-		}
-	});
-	alert('QUẢN TRỊ VIÊN ĐANG XEM XÉT BÌNH LUẬN CỦA BẠN');
+	var name = $('#name').val();
+	var email = $('#email').val();
+	var comment = $('#comment').val();
+	var idnews = <?php echo $id; ?>;
+	if(name == ''){
+		alert('Không được để trống tên');
+	}else if(email == ''){
+		alert('Không được để trống email');
+	}else if(comment == ''){
+		alert('Không được để trống comment');
+	}else{
+		$.ajax({
+			url: '/template/public/ajax/resultComment.php',
+			type: 'POST',
+			cache: false,
+			data: {
+				nameajax: name, 
+				emailajax: email,
+				commentajax: comment,
+				idajax: idnews,
+			},
+			success: function(data){
+				$('.cmt:eq(0)').before(data);
+			},
+			error: function (){
+				alert('Có lỗi xảy ra');
+			}
+		});
+		alert('QUẢN TRỊ VIÊN ĐANG XEM XÉT BÌNH LUẬN CỦA BẠN');
+	}
 	return false;
 }
 
@@ -370,30 +378,39 @@ function getReply(idComment){
 }
 
 function getReplyComment(){
-	name = $('#nameReply').val();
-	email = $('#emailReply').val();
-	comment = $('#commentReply').val();
-	idComment = <?php echo $idComment; ?>;
-	idnews = <?php echo $id; ?>;
-	$.ajax({
-		url: '/template/public/ajax/resultReplySubmit.php',
-		type: 'POST',
-		cache: false,
-		data: {
-			nameAjax: name, 
-			emailAjax: email,
-			commentAjax: comment,
-			idCommentAjax: idComment,
-			idAjax: idnews,
-		},
-		success: function(data){
-			$('.reply1').before(data);
-		},
-		error: function (){
-			alert('Có lỗi xảy ra');
-		}
-	});
-	alert('QUẢN TRỊ VIÊN ĐANG XEM XÉT BÌNH LUẬN CỦA BẠN');
+	var name = $('#nameReply').val();
+	var email = $('#emailReply').val();
+	var comment = $('#commentReply').val();
+	var idComment = <?php echo $idComment; ?>;
+	var idnews = <?php echo $id; ?>;
+	if(name == ''){
+		alert('Không được để trống tên');
+	}else if(email == ''){
+		alert('Không được để trống email');
+	}else if(comment == ''){
+		alert('Không được để trống comment');
+	}else{
+		$.ajax({
+			url: '/template/public/ajax/resultReplySubmit.php',
+			type: 'POST',
+			cache: false,
+			data: {
+				nameAjax: name, 
+				emailAjax: email,
+				commentAjax: comment,
+				idCommentAjax: idComment,
+				idAjax: idnews,
+			},
+			success: function(data){
+				$('.reply1').before(data);
+			},
+			error: function (){
+				alert('Có lỗi xảy ra');
+			}
+		});
+		alert('QUẢN TRỊ VIÊN ĐANG XEM XÉT BÌNH LUẬN CỦA BẠN');
+	}
+	
 	return false;
 }
 </script>

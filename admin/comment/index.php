@@ -18,10 +18,24 @@
 	$id = $user['id'];
 	if($user['active'] == 1){
 		$queryTSD = "SELECT COUNT(*) AS TSD FROM comment";
+		if(isset($_POST['search'])){
+			$search = $_POST['searchtxt'];
+			$queryTSD = "SELECT COUNT(*) AS TSD FROM comment WHERE content LIKE '%{$search}%'";
+		}
 	}else{
 		$queryTSD = "SELECT COUNT(*) AS TSD FROM comment\n"
 				. "INNER JOIN news ON news.id = comment.news_id\n"
 				. "WHERE news.created_by = {$id}";
+		if(isset($_POST['search'])){
+			$search = $_POST['searchtxt'];
+			$queryTSD = "SELECT COUNT(*) AS TSD FROM comment\n"
+				. "INNER JOIN news ON news.id = comment.news_id\n"
+				. "WHERE news.created_by = {$id} AND content LIKE '%{$search}%'";
+		}
+	}
+	if(isset($_POST['search'])){
+		$search = $_POST['searchtxt'];
+		$queryTSD = "SELECT COUNT(*) AS TSD FROM news WHERE name LIKE '%{$search}%'";
 	}
 	$resultTSD = $mysqli->query($queryTSD);
 	$arTmp = mysqli_fetch_assoc($resultTSD);
@@ -69,7 +83,7 @@
                                 	<div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-control border-input" placeholder="Tìm kiếm" value="">
+                                                <input type="text" name="searchtxt" class="form-control border-input" placeholder="Tìm kiếm nội dung bình luận" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -81,8 +95,6 @@
                                     </div>
                                     
                                 </form>
-                                
-                                <a href="edit.php" class="addtop"><img src="/template/admin/assets/img/add.png" alt="" /> Thêm</a>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
@@ -96,20 +108,41 @@
                                     </thead>
                                     <tbody>
 									<?php
-										$query = "SELECT comment.id as idcomment, \n"
-												. "content, news.name as newsname, status, \n"
-												. "comment.date_create as date, email FROM comment \n"
+										$query = "SELECT comment.id as idcomment,\n"
+											. "content, news.name as newsname, comment.status AS commentstatus, \n"
+											. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
+											. "INNER JOIN news ON news.id = comment.news_id\n"
+											. "INNER JOIN user ON news.created_by = user.id\n"
+											. "WHERE user.id = {$id}\n"
+											. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
+										if($user['active'] == 1){
+											$query = "SELECT comment.id as idcomment,\n"
+												. "content, news.name as newsname, comment.status AS commentstatus, \n"
+												. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
 												. "INNER JOIN news ON news.id = comment.news_id\n"
+												. "INNER JOIN user ON news.created_by = user.id\n"
 												. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
-
+										}
+										if(isset($_POST['search'])){
+											if(isset($_POST['searchtxt'])){
+												$search = $_POST['searchtxt'];
+												$query = "SELECT comment.id as idcomment,\n"
+														. "content, news.name as newsname, comment.status AS commentstatus, \n"
+														. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
+														. "INNER JOIN news ON news.id = comment.news_id\n"
+														. "INNER JOIN user ON news.created_by = user.id\n"
+														. "WHERE content LIKE '%".$search."%'\n"
+														. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
+											}
+										}
 										$result = $mysqli->query($query);
 										while($row = mysqli_fetch_assoc($result)){
 											$id = $row['idcomment'];
 											$content = $row['content'];	
 											$namenews = $row['newsname'];
-											$user_id = $row['email'];
+											$user_id = $row['commentemail'];
 											$date_create = date('d-m-Y H:i:s', strtotime($row['date']));
-											$status = $row['status'];
+											$status = $row['commentstatus'];
 									?>
                                         <tr>
                                         	<td><?php echo $id; ?></td>
