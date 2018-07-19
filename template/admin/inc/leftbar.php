@@ -1,5 +1,11 @@
 <?php
 	$user = $_SESSION['userinfo'];
+	$id = $_SESSION['userinfo']['id'];
+	$username = $_SESSION['userinfo']['username'];
+	$fullname = $_SESSION['userinfo']['fullname'];
+	$active = $_SESSION['userinfo']['active'];
+	$gender = $_SESSION['userinfo']['gender'];
+	$email = $_SESSION['userinfo']['email'];
 	if($user['active'] == 2){
 		$display = "none";
 	}
@@ -20,10 +26,19 @@
         }
     });
 </script>
+<style>
+.avatar {
+    vertical-align: middle;
+    width: 215px;
+    height: 215px;
+    border-radius: 50%;
+}
+</style>
 <div class="sidebar" data-background-color="white" data-active-color="danger">
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://vinaenter.edu.vn" class="simple-text">AdminCP</a>
+				<img class="avatar" src="/files/userIMG/<?php echo $user['picture']; ?>" alt="AVATAR"/>
+                <a href="<?php echo "/admin/user/edit.php?id={$id}&username={$username}&fullname={$fullname}&active={$active}&gender={$gender}&email={$email}"?>" class="simple-text"><?php echo $user['username']; ?></a>
             </div>
             <ul class="nav">
             	<li id="cat" style="display:<?php echo $display; ?>">

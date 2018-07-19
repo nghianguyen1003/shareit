@@ -1,5 +1,4 @@
 <?php 
-	ob_start();
 	if(isset($_GET['msg'])){
 		?>
 		<p class="category success">
@@ -8,8 +7,7 @@
 		<?php
 	}
 	if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['status'] == 0) {
-		header('location: /admin/auth/login.php?msg=Tài khoản này đã bị khóa!!!');
+		header('location: /admin/auth/login.php');
 		session_destroy();
 	}
-	ob_end_flush();
 ?>

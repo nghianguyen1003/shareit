@@ -88,7 +88,7 @@
         <!-- entity_tag -->
 
         <div class="entity_social">
-            <span><i class="fa fas fa-eye"></i><?php echo $viewMain; ?> <a href="#">Shares</a> </span>
+            <span><i class="fa fas fa-eye"></i><?php echo $viewMain; ?> <a href="#">Views</a> </span>
             <span><i class="fa fa-comments-o"></i><?php echo $commentMain; ?> <a href="#">Comments</a> </span>
         </div>
         <!-- entity_social -->
@@ -236,9 +236,10 @@
 				<?php echo $contentComment; ?>
 
 				<div class="entity_vote">
-					<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
+					<a href="#">------------------------------------------------------</a>
 					<a href="javascript:void(0)"><span class="reply_ic" onClick="return getReply(<?php echo $idComment; ?>);">Reply </span></a>
+					<a href="#">------------------------------------------------------</a>
+					
 				</div>
 				<?php
 					$queryCommentChild = "SELECT * FROM `comment` WHERE parent_id = {$idComment} AND status = 1";

@@ -30,13 +30,14 @@
 										$user = $_SESSION['userinfo'];
 										$id = $user['id'];
 										$passwordSQL = $user['password'];
-										if($passwordSQL != $password){
-											echo "<script>alert('Sai mật khẩu cũ')</script>";
+										if($passwordSQL != md5($password)){
+											echo "<script>alert('{$passwordSQL}')</script>";
 										}else{
 											if($newpassword != $enternewpassword){
 												echo "<script>alert('Mật khẩu mới không trùng khớp')</script>";
 											}else{
-												$query = "UPDATE user SET password = {$newpassword} WHERE id = {$id}";
+												$newpassword = md5($newpassword);
+												$query = "UPDATE user SET password = '{$newpassword}' WHERE id = {$id}";
 												$result = $mysqli->query($query);
 												if($result){
 													header('location: /admin/changepass/index.php?msg=Đổi mật khẩu thành công');
@@ -52,7 +53,7 @@
 										<div class="col-md-11">
                                             <div class="form-group">
                                                 <label>Mật khẩu cũ</label>
-                                                <input type="text" name="password" class="form-control border-input" value="">
+                                                <input type="text" name="password" class="form-control border-input"/>
                                             </div>
                                         </div>
                                     </div>
@@ -60,7 +61,7 @@
 										<div class="col-md-11">
                                             <div class="form-group">
                                                 <label>Mật khẩu mới</label>
-                                                <input type="text" name="newpassword" class="form-control border-input" value="">
+                                                <input type="text" name="newpassword" class="form-control border-input"/>
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +69,7 @@
 										<div class="col-md-11">
                                             <div class="form-group">
                                                 <label>Nhập lại mật khẩu mới</label>
-                                                <input type="text" name="enternewpassword" class="form-control border-input" value="">
+                                                <input type="text" name="enternewpassword" class="form-control border-input"/>
                                             </div>
                                         </div>
                                     </div>

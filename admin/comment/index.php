@@ -18,24 +18,20 @@
 	$id = $user['id'];
 	if($user['active'] == 1){
 		$queryTSD = "SELECT COUNT(*) AS TSD FROM comment";
-		if(isset($_POST['search'])){
-			$search = $_POST['searchtxt'];
+		if(isset($_GET['searchs'])){
+			$search = $_GET['searchs'];
 			$queryTSD = "SELECT COUNT(*) AS TSD FROM comment WHERE content LIKE '%{$search}%'";
 		}
 	}else{
 		$queryTSD = "SELECT COUNT(*) AS TSD FROM comment\n"
 				. "INNER JOIN news ON news.id = comment.news_id\n"
 				. "WHERE news.created_by = {$id}";
-		if(isset($_POST['search'])){
-			$search = $_POST['searchtxt'];
+		if(isset($_GET['searchs'])){
+			$search = $_GET['searchs'];
 			$queryTSD = "SELECT COUNT(*) AS TSD FROM comment\n"
 				. "INNER JOIN news ON news.id = comment.news_id\n"
 				. "WHERE news.created_by = {$id} AND content LIKE '%{$search}%'";
 		}
-	}
-	if(isset($_POST['search'])){
-		$search = $_POST['searchtxt'];
-		$queryTSD = "SELECT COUNT(*) AS TSD FROM news WHERE name LIKE '%{$search}%'";
 	}
 	$resultTSD = $mysqli->query($queryTSD);
 	$arTmp = mysqli_fetch_assoc($resultTSD);
@@ -79,6 +75,14 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Quản lý bình luận</h4>
+								<?php
+								if(isset($_POST['search'])){
+									if(isset($_POST['searchtxt'])){
+										$search = $_POST['searchtxt'];
+										header("location: index.php?searchs={$search}");
+									}
+								}
+								?>
                                 <form action="" method="post">
                                 	<div class="row">
                                         <div class="col-md-4">
@@ -108,31 +112,43 @@
                                     </thead>
                                     <tbody>
 									<?php
-										$query = "SELECT comment.id as idcomment,\n"
-											. "content, news.name as newsname, comment.status AS commentstatus, \n"
-											. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
-											. "INNER JOIN news ON news.id = comment.news_id\n"
-											. "INNER JOIN user ON news.created_by = user.id\n"
-											. "WHERE user.id = {$id}\n"
-											. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
-										if($user['active'] == 1){
-											$query = "SELECT comment.id as idcomment,\n"
-												. "content, news.name as newsname, comment.status AS commentstatus, \n"
-												. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
-												. "INNER JOIN news ON news.id = comment.news_id\n"
-												. "INNER JOIN user ON news.created_by = user.id\n"
-												. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
-										}
-										if(isset($_POST['search'])){
-											if(isset($_POST['searchtxt'])){
-												$search = $_POST['searchtxt'];
+										
+										
+										if(isset($_GET['searchs'])){
+											$search = $_GET['searchs'];
+											if($user['active'] == 1){
 												$query = "SELECT comment.id as idcomment,\n"
-														. "content, news.name as newsname, comment.status AS commentstatus, \n"
-														. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
-														. "INNER JOIN news ON news.id = comment.news_id\n"
-														. "INNER JOIN user ON news.created_by = user.id\n"
-														. "WHERE content LIKE '%".$search."%'\n"
-														. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
+													. "content, news.name as newsname, comment.status AS commentstatus, \n"
+													. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
+													. "INNER JOIN news ON news.id = comment.news_id\n"
+													. "INNER JOIN user ON news.created_by = user.id\n"
+													. "WHERE content LIKE '%".$search."%'\n"
+													. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
+											}else{
+												$query = "SELECT comment.id as idcomment,\n"
+													. "content, news.name as newsname, comment.status AS commentstatus, \n"
+													. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
+													. "INNER JOIN news ON news.id = comment.news_id\n"
+													. "INNER JOIN user ON news.created_by = user.id\n"
+													. "WHERE user.id = {$id} AND content LIKE '%".$search."%'\n"
+													. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
+											}
+										}else{
+											if($user['active'] == 1){
+												$query = "SELECT comment.id as idcomment,\n"
+													. "content, news.name as newsname, comment.status AS commentstatus, \n"
+													. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
+													. "INNER JOIN news ON news.id = comment.news_id\n"
+													. "INNER JOIN user ON news.created_by = user.id\n"
+													. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
+											}else{
+												$query = "SELECT comment.id as idcomment,\n"
+													. "content, news.name as newsname, comment.status AS commentstatus, \n"
+													. "comment.date_create as date, comment.email AS commentemail FROM comment\n"
+													. "INNER JOIN news ON news.id = comment.news_id\n"
+													. "INNER JOIN user ON news.created_by = user.id\n"
+													. "WHERE user.id = {$id}\n"
+													. "ORDER BY comment.id DESC LIMIT {$offset}, {$row_count}";
 											}
 										}
 										$result = $mysqli->query($query);
@@ -171,9 +187,17 @@
 												if($i == $current_page){
 													$active = 'active';
 												}
+												if(isset($_GET['searchs'])){
+													$search = $_GET['searchs'];
+												
 										?>
-											<li class="<?php echo $active; ?>"><a href="index.php?page=<?php echo $i; ?>" title=""><?php echo $i; ?></a></li> 
+											<li class="<?php echo $active; ?>"><a href="index.php?page=<?php echo $i ?>&searchs=<?php echo $search; ?>" title=""><?php echo $i; ?></a></li> 
 										<?php
+												}else{
+													?>
+											<li class="<?php echo $active; ?>"><a href="index.php?page=<?php echo $i ?>" title=""><?php echo $i; ?></a></li> 
+													<?php
+												}
 											}
 										?>
 								    </ul>

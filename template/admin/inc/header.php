@@ -1,9 +1,9 @@
 <?php
-	ob_start();
 	session_start();
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/DbConnectionUtil.php';
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/CheckUser.php';
 	require_once $_SERVER['DOCUMENT_ROOT'].'/util/ConstantUtil.php';
+	ob_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -63,12 +63,13 @@
 <div class="wrapper">
 	<?php
 		require_once $_SERVER['DOCUMENT_ROOT'].'/template/admin/inc/leftbar.php';
-		$id = $_SESSION['userinfo']['id'];
-		$username = $_SESSION['userinfo']['username'];
-		$fullname = $_SESSION['userinfo']['fullname'];
-		$active = $_SESSION['userinfo']['active'];
-		$gender = $_SESSION['userinfo']['gender'];
-		$email = $_SESSION['userinfo']['email'];
+		if(isset($_SESSION['userinfo'])){
+			$id = $_SESSION['userinfo']['id'];
+			$username = $_SESSION['userinfo']['username'];
+			$fullname = $_SESSION['userinfo']['fullname'];
+			$active = $_SESSION['userinfo']['active'];
+			$gender = $_SESSION['userinfo']['gender'];
+			$email = $_SESSION['userinfo']['email'];
 	?>
     <div class="main-panel">
 		<nav class="navbar navbar-default">
@@ -91,7 +92,9 @@
                             </a>
                         </li>
                     </ul>
-
+		<?php
+		}
+		?>
                 </div>
             </div>
         </nav>

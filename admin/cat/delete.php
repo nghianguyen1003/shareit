@@ -12,6 +12,8 @@
 		header('location: /admin/cat');
 	}else{
 		$id = $_GET['id'];
+		$querynews = "DELETE FROM news WHERE cat_id = {$id}";
+		$resultnews = $mysqli->query($querynews);
 		
 		$query = "DELETE FROM cat_list WHERE id = {$id}";
 		$result = $mysqli->query($query);

@@ -41,7 +41,7 @@ $user = $_SESSION['userinfo'];
 							<?php
 							if(isset($_POST['submit'])){
 								$username = $_POST['username'];
-								$password = $_POST['password'];
+								$password = md5($_POST['password']);
 								$fullname = $_POST['fullname'];
 								$active = $_POST['active'];
 								$gender = $_POST['gender'];

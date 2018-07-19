@@ -41,14 +41,14 @@
 	$id = $user['id'];
 	if($user['active'] == 1){
 		$queryTSD = "SELECT COUNT(*) AS TSD FROM news";
-		if(isset($_POST['search'])){
-			$search = $_POST['searchtxt'];
+		if(isset($_GET['searchs'])){
+			$search = $_GET['searchs'];
 			$queryTSD = "SELECT COUNT(*) AS TSD FROM news WHERE name LIKE '%{$search}%'";
 		}
 	}else{
 		$queryTSD = "SELECT COUNT(*) AS TSD FROM news WHERE created_by = {$id}";
-		if(isset($_POST['search'])){
-			$search = $_POST['searchtxt'];
+		if(isset($_GET['searchs'])){
+			$search = $_GET['searchs'];
 			$queryTSD = "SELECT COUNT(*) AS TSD FROM news WHERE name LIKE '%{$search}%' AND created_by = {$id}";
 		}
 	}
@@ -139,6 +139,12 @@ $(document).ready(function(){
 										</p>
 										<?php
 									}
+									if(isset($_POST['search'])){
+										if(isset($_POST['searchtxt'])){
+											$search = $_POST['searchtxt'];
+											header("location: index.php?searchs={$search}");
+										}
+									}
 								?>
                                 <form action="" method="post">
                                 	<div class="row">
@@ -185,16 +191,10 @@ $(document).ready(function(){
 														header('location: /admin/news/index.php?msg=Xóa thất bại');
 													}
 												}
-												$query = "SELECT news.id AS newsid, \n"
-														. "news.name AS newsname, \n"
-														. "preview, news.picture as newspicture, \n"
-														. "cat_list.name as catname, username, is_slide \n"
-														. "FROM news\n"
-														. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
-														. "INNER JOIN user ON news.created_by = user.id\n"
-														. "WHERE created_by = {$id}\n"
-														. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
-												if($user['active'] == 1){
+												
+												if(isset($_GET['searchs'])){
+													$search = $_GET['searchs'];
+													if($user['active'] == 1){
 													$query = "SELECT news.id AS newsid, \n"
 														. "news.name AS newsname, \n"
 														. "preview, news.picture as newspicture, \n"
@@ -202,11 +202,9 @@ $(document).ready(function(){
 														. "FROM news\n"
 														. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
 														. "INNER JOIN user ON news.created_by = user.id\n"
+														. "WHERE news.name LIKE '%{$search}%'\n"
 														. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
-												}
-												if(isset($_POST['search'])){
-													if(isset($_POST['searchtxt'])){
-														$search = $_POST['searchtxt'];
+													}else{
 														$query = "SELECT news.id AS newsid, \n"
 														. "news.name AS newsname, \n"
 														. "preview, news.picture as newspicture, \n"
@@ -214,7 +212,28 @@ $(document).ready(function(){
 														. "FROM news\n"
 														. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
 														. "INNER JOIN user ON news.created_by = user.id\n"
-														. "WHERE news.name LIKE '%".$search."%' \n"
+														. "WHERE created_by = {$id} AND news.name LIKE '%{$search}%'\n"
+														. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
+													}
+												}else{
+													if($user['active'] == 1){
+														$query = "SELECT news.id AS newsid, \n"
+															. "news.name AS newsname, \n"
+															. "preview, news.picture as newspicture, \n"
+															. "cat_list.name as catname, username, is_slide \n"
+															. "FROM news\n"
+															. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
+															. "INNER JOIN user ON news.created_by = user.id\n"
+															. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
+													}else{
+														$query = "SELECT news.id AS newsid, \n"
+														. "news.name AS newsname, \n"
+														. "preview, news.picture as newspicture, \n"
+														. "cat_list.name as catname, username, is_slide \n"
+														. "FROM news\n"
+														. "INNER JOIN cat_list ON news.cat_id = cat_list.id\n"
+														. "INNER JOIN user ON news.created_by = user.id\n"
+														. "WHERE created_by = {$id}\n"
 														. "ORDER BY news.id DESC LIMIT {$offset}, {$row_count}";
 													}
 												}
@@ -268,9 +287,17 @@ $(document).ready(function(){
 												if($i == $current_page){
 													$active = 'active';
 												}
+												if(isset($_GET['searchs'])){
+													$search = $_GET['searchs'];
+												
 										?>
-											<li class="<?php echo $active; ?>"><a href="index.php?page=<?php echo $i; ?>" title=""><?php echo $i; ?></a></li> 
+											<li class="<?php echo $active; ?>"><a href="index.php?page=<?php echo $i ?>&searchs=<?php echo $search; ?>" title=""><?php echo $i; ?></a></li> 
 										<?php
+												}else{
+													?>
+											<li class="<?php echo $active; ?>"><a href="index.php?page=<?php echo $i ?>" title=""><?php echo $i; ?></a></li> 
+													<?php
+												}
 											}
 										?>
 								    </ul>
